@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 /* body {
     background: #f4f4f4;
     display: flex;
@@ -14,32 +15,33 @@ body {
     margin: 0;
     padding: 0;
 }
+
 #ai {
     width: 100%;
     max-width: 600px;
 }
 
 
-.ai_container {
+.ai-container {
     background: white;
     padding: 20px;
     margin-bottom: 10px;
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    transition: 0.3s;
     border: none;
 }
 
-.ai_container summary {
+.ai-container summary {
     list-style: none;
     display: flex;
     flex-direction: column;
     cursor: pointer;
 }
 
-.ai_container:hover {
+.ai-container:hover {
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
 }
 
 .apply-btn {
@@ -54,21 +56,20 @@ body {
 }
 
 .apply-btn:hover {
-    background: #0041a3;
-
+    background-color: #0041a3;
 }
 
-.ai_detail{
+.ai-detail {
     display: flex;
     flex-direction: column;
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.3s ease;
     border: none;
 }
 
-.ai_description{
+.ai-description {
     border: 1px solid pink;
     border-radius: 3px;
     margin-top: 2px;
@@ -76,37 +77,38 @@ body {
     margin-bottom: 2px;
 }
 
-.description_detail{
+.description-detail {
     text-align: center;
 }
 
-.description_detail p{
+.description-detail p {
     text-indent: 10px;
     font-size: 75%;
 }
-.ai_topic{
-    display:grid;
+
+.ai-topic {
+    display: grid;
     grid-template-columns: 41% 41% 18%;
     gap: 1px;
     font-size: 68%;
     margin-top: 2px;
 }
 
-.responsibility{
+.responsibility {
     border: 2px solid pink;
     border-radius: 3px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 2px;
 }
 
-.skill{
+.skill {
     border: 2px solid pink;
     border-radius: 3px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 2px;
 }
 
-.salary{
+.salary {
     border: 2px solid pink;
     border-radius: 3px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
@@ -120,7 +122,7 @@ header {
     to make the navigation bar of webpage follow along as the user scroll*/
     position: sticky;
     top: 0;
-    background-color: lightgrey;
+    background-color: white;
     width: 100%;
     height: 5em;
 
@@ -128,7 +130,7 @@ header {
 
 header nav {
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: flex-start;
     width: 100%;
     height: 100%;
@@ -159,19 +161,15 @@ figure {
     margin: 0;
 }
 
-#homepage_image {
+#homepage-image {
     width: 100%;
-}
-
-footer {
-    background-color: lightgrey;
 }
 
 .welcome {
     text-align: center;
     padding: 20px;
-    margin-left: 10em;
-    margin-right: 10em;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .welcome p {
@@ -191,50 +189,91 @@ a grid to achieve the 3 boxes on a line look*/
 
 .services {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    margin-left: 5%;
+    margin-right: 5%;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Responsive grid */
     /*Creates responsive columns. auto-fit makes the columns fit the available space, 
     and minmax(300px, 1fr) ensures that each column is at least 300px wide and 
     expands to fill the available space*/
-    gap: 20px; /* Space between boxes */
-    padding: 20px; /* Add padding around the grid */
+    gap: 20px;
+    /* Space between boxes */
+    padding-top: 25px;
+    padding-bottom: 20px;
+    /* Add padding on top and from the bottom of the grid */
 }
 
 .services section {
-    background-color: #f9f9f9; /* Box background color */
-    border: 1px solid #ddd; /* Box border */
-    border-radius: 8px; /* Rounded corners */
-    padding: 20px; /* Padding inside the box */
-    display:flex;
+    background-color: #f9f9f9;
+    /* Box background color */
+    border: 1px solid #ddd;
+    /* Box border */
+    border-radius: 8px;
+    /* Rounded corners */
+    padding: 20px;
+    /* Padding inside the box */
+    display: flex;
     flex-direction: column;
     overflow: hidden;
 }
 
 .services h3 {
-    margin-bottom: 10px; /* Space below heading */
+    margin-bottom: 10px;
+    /* Space below heading */
     margin-top: 0;
 }
 
 
 .services p {
-    line-height: 1.6; /* Improve text readability */
+    line-height: 1.6;
+    /* Improve text readability */
     ;
 }
 
 /* Optional: Add hover effect */
 .services section:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease; /* smooth out the effect */
 }
 
 .service .services_images {
-    max-width: 100%;
-    height: auto;
+    width: 200px;
+    height: 150px;
+    object-fit: cover; /* Crop and scale to fill (from GenAI) */
     border-radius: 10px;
 }
 
+.hiring {
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
 
+.job-des-nav-button {
+    font-weight: 600;
+    text-align: center;
+    display: inline-block;
+    font-size: 150%;
+    text-decoration: none;
+    border: solid 4px;
+    background-color: white;
+    color:#0041a3;
+    padding: 20px 20px;
+    border-radius: 50px;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+.job-des-nav-button:hover {
+    background-color:#0041a3;
+    color: white;
+}
+footer {
+    display: flex;
+    flex-direction: column;
+    background-color: lightgrey;
+    padding: 20px;
+}
 
-
-
-
-
+footer ul {
+    list-style: none;
+}
