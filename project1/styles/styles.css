@@ -17,62 +17,78 @@ body {
 }
 
 aside{
-   float: right;
+    float: right;
+    width:20%;
+    border: 1px solid black;
+    font-size: 70%;
 }
 
-main{
+aside h2{
+    text-align: center;
+}
+
+aside ol{
+    padding-left: 1rem; /* override the default that list item padding always 40px and you can change it */
+    margin-left: 0;
+}
+
+aside li{
+    margin-left: 0;
+}
+
+main {
+    width: 79%;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    width: 100vw;
-    height:75vh;
-    border-top: 1px solid black ;
+    border: 1px solid black;
+    font-size: 70%;
 }
-
-.ai-ds {
-    width: 80%;
-    max-width: 600px;
+.job-list {
+    width: 40%; /*40% cua me no con 60 con lai*/
+    padding-left: 10px;
+    background: #f4f4f4;
+    gap: 1px;
 }
+.job-list h2 {
+    text-align: center;
+} 
 
-
-.aids-container {
-    background: white;
+.job-list a {
+    display: block;
     padding: 10px;
-    margin-right:10px;
-    margin-top:10px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    border: none;
-    background-color: rgb(211, 225, 221);
+    margin: 5px 0;
+    background: white;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    border: 1px solid black;
 }
 
-
-.aids-container summary {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    cursor: pointer;
-    line-height: 15%;
+.job-item{
+    display: block;
+    padding: 16px;
+    margin-bottom: 12px;
+    background-color: #fff;
+    border: 1px solid #060606;
+    border-radius: 8px;
+    color: #0d0b0b;
+    text-decoration: none;
+    transition: 0.2s;
 }
 
-.aids-container:hover {
-    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s ease;
+.job-item:hover {
+    background-color: #181212;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.aids-container:hover h3 {
-    text-decoration: underline;
+.job-details {
+    width: 80%;  /*80% cua 60% con lai*/
+    padding: 20px;
+    background: white;
+    display: none;
+    margin-top: 30px;
 }
-
-.aids-container:hover p{
-    color:rgb(132, 132, 71);
-}
-.aids-container:hover button {
-    background-color: rgb(212, 196, 196);
-    color: rgb(26, 24, 24);
-    transition: 0,5s;
+.job-details:target {
+    display: block;
 }
 .apply-btn {
     background: #002766;
@@ -133,6 +149,16 @@ main{
     margin-bottom: 2px;
 }
 
+.responsibility-detail ul{
+    padding-left: 1rem;
+    margin-left: 0;
+}
+
+.responsibility-detail li{
+    margin-left: 0;
+}
+
+
 .skill {
     border: 2px solid pink;
     border-radius: 3px;
@@ -140,6 +166,21 @@ main{
     margin-bottom: 2px;
 }
 
+.skill-detail ul{
+    padding-left: 1rem;
+    margin-left: 0;
+}
+
+.skill-detail ol{
+    padding-left: 1rem;
+    margin-left: 0;
+}
+
+.skill-detail li{
+    margin-left: 0;
+}
+
+/* Viet Hoang Tran editted 05-05-25*/
 .salary {
     border: 2px solid pink;
     border-radius: 3px;
