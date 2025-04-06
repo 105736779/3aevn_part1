@@ -10,7 +10,7 @@
     font-family: "Poppins", sans-serif, black;
 }
 */
-body {
+#body-jobs {
     font-family: "Poppins", sans-serif, black;
     margin: 0;
     padding: 0;
@@ -18,28 +18,27 @@ body {
     overflow-x: hidden;
 }
 
-aside {
+#aside-jobs{
     float: right;
     width: 20%;
     border: 1px solid black;
     font-size: 70%;
 }
 
-aside h2 {
+#aside-jobs h2{
     text-align: center;
 }
 
-aside ol {
-    padding-left: 1rem;
-    /* override the default that list item padding always 40px and you can change it */
+#aside-jobs ol{
+    padding-left: 1rem; /* override the default that list item padding always 40px and you can change it */
     margin-left: 0;
 }
 
-aside li {
+#aside-jobs li{
     margin-left: 0;
 }
 
-.main {
+#main-jobs {
     width: 79%;
     display: flex;
     border: 1px solid black;
