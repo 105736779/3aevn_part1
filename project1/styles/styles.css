@@ -38,7 +38,7 @@ aside li{
     margin-left: 0;
 }
 
-main {
+.main {
     width: 79%;
     display: flex;
     border: 1px solid black;
