@@ -18,34 +18,80 @@ body {
     overflow-x: hidden;
 }
 
-#ai {
-    width: 100%;
-    max-width: 600px;
+aside{
+    float: right;
+    width:20%;
+    border: 1px solid black;
+    font-size: 70%;
 }
 
-
-.ai-container {
-    background: white;
-    padding: 20px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    border: none;
+aside h2{
+    text-align: center;
 }
 
-.ai-container summary {
-    list-style: none;
+aside ol{
+    padding-left: 1rem; /* override the default that list item padding always 40px and you can change it */
+    margin-left: 0;
+}
+
+aside li{
+    margin-left: 0;
+}
+
+main {
+    width: 79%;
     display: flex;
-    flex-direction: column;
-    cursor: pointer;
+    border: 1px solid black;
+    font-size: 70%;
+}
+.job-list {
+    width: 40%; /*40% cua me no con 60 con lai*/
+    padding-left: 10px;
+    background: #f4f4f4;
+    gap: 1px;
+}
+.job-list h2 {
+    text-align: center;
+} 
+
+.job-list a {
+    display: block;
+    padding: 10px;
+    margin: 5px 0;
+    background: white;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    border: 1px solid black;
 }
 
-.ai-container:hover {
-    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s ease;
+.job-item{
+    display: block;
+    padding: 16px;
+    margin-bottom: 12px;
+    background-color: #fff;
+    border: 1px solid #060606;
+    border-radius: 8px;
+    color: #0d0b0b;
+    text-decoration: none;
+    transition: 0.2s;
 }
 
+.job-item:hover {
+    background-color: #181212;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.job-details {
+    width: 80%;  /*80% cua 60% con lai*/
+    padding: 20px;
+    background: white;
+    display: none;
+    margin-top: 30px;
+}
+.job-details:target {
+    display: block;
+}
 .apply-btn {
     background: #002766;
     color: white;
@@ -61,7 +107,7 @@ body {
     background-color: #0041a3;
 }
 
-.ai-detail {
+.aids-detail {
     display: flex;
     flex-direction: column;
     border-radius: 10px;
@@ -71,12 +117,13 @@ body {
     border: none;
 }
 
-.ai-description {
+.aids-description {
     border: 1px solid pink;
     border-radius: 3px;
     margin-top: 2px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 2px;
+    background-color: #bac1d3;
 }
 
 .description-detail {
@@ -88,12 +135,13 @@ body {
     font-size: 75%;
 }
 
-.ai-topic {
+.aids-topic {
     display: grid;
     grid-template-columns: 41% 41% 18%;
     gap: 1px;
     font-size: 68%;
     margin-top: 2px;
+    background-color: #bac1d3;
 }
 
 .responsibility {
@@ -103,6 +151,16 @@ body {
     margin-bottom: 2px;
 }
 
+.responsibility-detail ul{
+    padding-left: 1rem;
+    margin-left: 0;
+}
+
+.responsibility-detail li{
+    margin-left: 0;
+}
+
+
 .skill {
     border: 2px solid pink;
     border-radius: 3px;
@@ -110,12 +168,31 @@ body {
     margin-bottom: 2px;
 }
 
+.skill-detail ul{
+    padding-left: 1rem;
+    margin-left: 0;
+}
+
+.skill-detail ol{
+    padding-left: 1rem;
+    margin-left: 0;
+}
+
+.skill-detail li{
+    margin-left: 0;
+}
+
+/* Viet Hoang Tran editted 05-05-25*/
 .salary {
     border: 2px solid pink;
     border-radius: 3px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 2px;
 }
+
+/*Viet Hoang Tran edited 03/04/25*/
+
+
 
 /* Khanh Nam Le Pham edited 03/04/25, 3:27PM */
 /* applied in the header */
