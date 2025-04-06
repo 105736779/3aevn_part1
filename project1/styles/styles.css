@@ -39,7 +39,7 @@ aside li {
     margin-left: 0;
 }
 
-.jobs-main {
+.main {
     width: 79%;
     display: flex;
     border: 1px solid black;
@@ -1036,6 +1036,262 @@ footer article section div img {
 .underline-hover:hover::after {
     transform: scaleX(1);
     transition: transform 0.2s ease;
+  }
+  /* defining animation keyframes ends */
+
+
+
+
+
+
+
+
+
+  /* apply section
+  /* General Styles */
+body {
+    font-family: 'Lexend', sans-serif; /* Changed to Lexend font */
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+header {
+    background-color: #0044cc;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 5px solid #003366;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+header img {
+    width: 120px;
+    margin-top: 15px;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #333;
+    padding: 12px 0;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 25px;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 8px 15px;
+}
+
+nav a:hover {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4px;
+}
+
+/* Form Container */
+main {
+    padding: 40px;
+    background-color: white;
+    margin: 30px auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 70%;
+    max-width: 900px;
+}
+
+h2 {
+    color: #0044cc;
+    text-align: center;
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+
+/* Form Sections */
+fieldset {
+    border: 2px solid #ddd;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+legend {
+    font-weight: bold;
+    color: #0044cc;
+    font-size: 1.3em;
+    padding: 0 10px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.form-row label {
+    width: 30%;
+    font-weight: 500;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+    width: 60%;
+    padding: 12px;
+    border: 2px solid black; /* Black border for all input boxes */
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+    border-color: #0044cc;
+    outline: none;
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+}
+
+.radio-group input {
+    margin-right: 10px;
+}
+
+.checkbox-group {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 15px;
+}
+
+/* Required Fields */
+label .required {
+    color: red;
+    font-weight: bold;
+}
+
+/* Submit Button */
+input[type="submit"] {
+    padding: 14px 20px;
+    background-color: #4CAF50; /* Green color for Apply button */
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1.2em;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow to Apply button */
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049; /* Darker green on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+input[type="reset"] {
+    padding: 14px 20px;
+    background-color: #f44336; /* Red color for Reset button */
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1.2em;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow to Reset button */
+}
+
+input[type="reset"]:hover {
+    background-color: #e53935; /* Darker red on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+/* Section Gaps */
+fieldset {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 30px; /* Gap between sections */
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+legend {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.2em;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    font-size: 1em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-row label,
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
+        width: 100%; /* Full width for smaller screens */
+    }
+
+    .checkbox-group {
+        flex-direction: column;  /* Stack checkboxes vertically on small screens */
+    }
+
+    main {
+        width: 90%; /* Increase width to 90% for better mobile use */
+    }
+}
+
+
+
+/* Style for Small Description */
+.small-description {
+    font-size: 0.9em; /* Smaller font size for the description */
+    color: #555; /* Subtle color for the description text */
+    margin-top: 10px;
+}
+
+/* Style for Job Descriptions Link */
+.job-link {
+    color: #0044cc; /* Blue color for the link */
+    text-decoration: underline; /* Underline the link */
+    font-weight: bold; /* Make the link text bold */
+}
+
+.job-link:hover {
+    color: #45a049; /* Change color when hovered */
+    text-decoration: none; /* Remove underline on hover */
 }
 
 /* defining animation keyframes ends */
