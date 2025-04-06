@@ -10,7 +10,7 @@
     font-family: "Poppins", sans-serif, black;
 }
 */
-#body-jobs {
+body {
     font-family: "Poppins", sans-serif, black;
     margin: 0;
     padding: 0;
@@ -18,23 +18,24 @@
     overflow-x: hidden;
 }
 
-#aside-jobs{
+#aside-jobs {
     float: right;
     width: 20%;
     border: 1px solid black;
     font-size: 70%;
 }
 
-#aside-jobs h2{
+#aside-jobs h2 {
     text-align: center;
 }
 
-#aside-jobs ol{
-    padding-left: 1rem; /* override the default that list item padding always 40px and you can change it */
+aside ol {
+    padding-left: 1rem;
+    /* override the default that list item padding always 40px and you can change it */
     margin-left: 0;
 }
 
-#aside-jobs li{
+aside li {
     margin-left: 0;
 }
 
@@ -244,6 +245,7 @@ header nav a {
     color: black;
     padding-right: 30px;
 }
+
 header nav a:not(.not)::before {
     content: "";
     position: absolute;
@@ -253,6 +255,7 @@ header nav a:not(.not)::before {
     background-color: #c4c5c7;
     z-index: -1;
 }
+
 header nav a:hover::before {
     height: 100%;
     transition: height 0.5s ease;
@@ -271,23 +274,27 @@ header nav a:hover::after {
     height: 4px;
     transition: height 0.3s ease;
 }
+
 /* give little spacing from the logo to the first nav element */
 
 /* the selected page is formatted in bold text */
 header nav a#selected {
     font-weight: bold;
 }
+
 #logo {
     background-color: transparent !important;
     width: 100%;
     height: 40%;
 }
+
 #logo-text {
     padding-top: 3px;
     width: 100%;
     height: 100%;
     padding-left: 10px;
 }
+
 /* right nav box formatting  */
 .right-nav {
     height: 5em;
@@ -299,13 +306,15 @@ header nav a#selected {
 }
 
 /* right nav elements formatting */
-.language, .user {
+.language,
+.user {
     text-decoration: none;
     height: 5em;
     display: flex;
     align-items: center;
     position: relative;
 }
+
 #icon {
     display: flex;
     align-items: center;
@@ -316,22 +325,26 @@ header nav a#selected {
 }
 
 #icon:hover {
-    background-color: #c4c5c7 ;
+    background-color: #c4c5c7;
     border-radius: 50%;
     transform: translateY(-5px);
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
 /* GenAI */
 .user {
     position: fixed;
 }
+
 /* Hide the default arrow for <summary> */
 summary::marker {
     content: "";
 }
+
 #user-dropdown {
     position: absolute;
 }
+
 /* Style the dropdown content */
 #user-info-dropdown {
     position: absolute;
@@ -350,23 +363,32 @@ summary::marker {
     align-items: center;
     justify-content: space-between;
     /* Animation Styles (GenAI) */
-    opacity: 0;           /* Initially hidden */
-    transform: translateY(-30px); /* Start slightly above its final position */
-    visibility: hidden;  /* Also hide it (important for some browsers) */
-    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s 0.2s; /* Smooth transition */
+    opacity: 0;
+    /* Initially hidden */
+    transform: translateY(-30px);
+    /* Start slightly above its final position */
+    visibility: hidden;
+    /* Also hide it (important for some browsers) */
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s 0.2s;
+    /* Smooth transition */
 }
 
 /* Show the dropdown when the <details> element is open */
 #user-dropdown[open] #user-info-dropdown {
-    opacity: 1;           /* Fully visible */
-    transform: translateY(0);   /* Move to its final position */
-    visibility: visible;  /* Make it visible */
-    transition-delay: 0s;  /* Reset transition delay */
+    opacity: 1;
+    /* Fully visible */
+    transform: translateY(0);
+    /* Move to its final position */
+    visibility: visible;
+    /* Make it visible */
+    transition-delay: 0s;
+    /* Reset transition delay */
 }
 
 #user-avatar {
     width: 30%;
 }
+
 #user-avatar img {
     width: 100%;
     height: 100%;
@@ -389,13 +411,16 @@ summary::marker {
     font-size: 0.6em;
     color: #777;
 }
+
 .language {
     position: fixed;
     padding-right: 40px;
 }
+
 #lang-dropdown {
-    position: absolute; 
+    position: absolute;
 }
+
 #lang-options {
     position: absolute;
     top: 2.5em;
@@ -414,26 +439,37 @@ summary::marker {
     overflow: hidden;
     box-sizing: border-box;
     /* Animation Styles (GenAI) */
-    opacity: 0;           /* Initially hidden */
-    transform: translateY(-10px); /* Start slightly above its final position */
-    visibility: hidden;  /* Also hide it (important for some browsers) */
-    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s 0.2s; /* Smooth transition */
+    opacity: 0;
+    /* Initially hidden */
+    transform: translateY(-10px);
+    /* Start slightly above its final position */
+    visibility: hidden;
+    /* Also hide it (important for some browsers) */
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s 0.2s;
+    /* Smooth transition */
 }
+
 /* GenAI */
 #lang-dropdown[open] #lang-options {
-    opacity: 1;           /* Fully visible */
-    transform: translateY(0);   /* Move to its final position */
-    visibility: visible;  /* Make it visible */
-    transition-delay: 0s;  /* Reset transition delay */
+    opacity: 1;
+    /* Fully visible */
+    transform: translateY(0);
+    /* Move to its final position */
+    visibility: visible;
+    /* Make it visible */
+    transition-delay: 0s;
+    /* Reset transition delay */
 }
+
 #lang-options p {
     position: relative;
     width: 100%;
     padding: 10px;
     font-size: 0.8rem;
-    cursor: pointer; 
+    cursor: pointer;
     margin: 0;
 }
+
 /* #lang-options p:hover {
     overflow: hidden;
     box-sizing: border-box;
@@ -453,12 +489,14 @@ summary::marker {
     background-color: #c4c5c7;
 
 }
+
 /* hover effect (jumps up and scales larger) when hovering through the nav elements */
 
 #lang-options p:hover::before {
     width: 100%;
     transition: width 0.5s ease;
 }
+
 /* ensures no padding or margin of the background image */
 figure {
     padding: 0;
@@ -611,6 +649,7 @@ a grid to achieve the 3 boxes on a line look*/
     object-fit: cover;
     border-radius: 8px;
 }
+
 /* Join Our Team section's content styling */
 .hiring {
     text-align: center;
@@ -666,7 +705,6 @@ a grid to achieve the 3 boxes on a line look*/
 /* footer styling */
 footer {
     position: relative;
-    bottom: 0;
     z-index: 3;
     background-color: #ebebeb;
     width: 100%;
@@ -888,21 +926,26 @@ footer article section div img {
         transform: scale(1) translateY(0);
     }
 }
+
 @keyframes load {
     0% {
         transform: rotateX(0) rotateY(0) rotateZ(0);
     }
+
     33% {
         transform: rotateX(180deg) rotateY(0) rotateZ(0);
 
     }
+
     67% {
         transform: rotateX(180deg) rotateY(180deg) rotateZ(0);
     }
+
     100% {
         transform: rotateX(180deg) rotateY(180deg) rotateZ(180deg);
     }
 }
+
 /* definition of a set of animations that creates the constant breathing effect */
 .btn-breathe {
     animation-name: btn-breathe;
@@ -972,6 +1015,7 @@ footer article section div img {
 .footerSlide {
     animation-name: footerSlide;
 }
+
 .load {
     animation-name: load;
     animation-duration: 3s;
@@ -979,6 +1023,7 @@ footer article section div img {
     animation-iteration-count: infinite;
 
 }
+
 /* different delay effect times */
 .delay-0dot5s {
     animation-delay: 0.5s;
@@ -1034,8 +1079,9 @@ footer article section div img {
 .underline-hover:hover::after {
     transform: scaleX(1);
     transition: transform 0.2s ease;
-  }
-  /* defining animation keyframes ends */
+}
+
+/* defining animation keyframes ends */
 
 
 
@@ -1045,10 +1091,11 @@ footer article section div img {
 
 
 
-  /* apply section
+/* apply section
   /* General Styles */
 .apply-body {
-    font-family: 'Poppins', sans-serif; /* Changed to Lexend font */
+    font-family: 'Poppins', sans-serif;
+    /* Changed to Lexend font */
     margin: 0;
     padding: 0;
     background-color: #f7f7f7;
@@ -1082,7 +1129,8 @@ footer article section div img {
     background-color: #f9f9f9;
     border: 1px solid #ccc;
     padding: 15px;
-    margin-bottom: 30px; /* Gap between sections */
+    margin-bottom: 30px;
+    /* Gap between sections */
     border-radius: 8px;
     background-color: #f9f9f9;
 }
@@ -1117,7 +1165,8 @@ form fieldset:first-child select {
     width: 100%;
     padding: 12px;
     margin-top: 6px;
-    border: 2px solid black; /* Black border for all input boxes */
+    border: 2px solid black;
+    /* Black border for all input boxes */
     border-radius: 8px;
     font-size: 1em;
     background-color: #fff;
@@ -1160,7 +1209,8 @@ form fieldset:first-child select {
 /* Submit Button */
 input[type="submit"] {
     padding: 14px 20px;
-    background-color: #1160a6; /* Blue color for Apply button */
+    background-color: #1160a6;
+    /* Blue color for Apply button */
     border: none;
     color: white;
     cursor: pointer;
@@ -1168,19 +1218,23 @@ input[type="submit"] {
     width: 100%;
     font-size: 1.2em;
     margin-top: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow to Apply button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Add shadow to Apply button */
     transition: background-color 0.5s ease, transform 0.5s ease;
 }
 
 input[type="submit"]:hover {
-    background-color: #0f5796; /* Darker green on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+    background-color: #0f5796;
+    /* Darker green on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    /* Stronger shadow on hover */
     transform: scale(1.05);
 }
 
 input[type="reset"] {
     padding: 14px 20px;
-    background-color: #f44336; /* Red color for Reset button */
+    background-color: #f44336;
+    /* Red color for Reset button */
     border: none;
     color: white;
     cursor: pointer;
@@ -1188,49 +1242,64 @@ input[type="reset"] {
     width: 100%;
     font-size: 1.2em;
     margin-top: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow to Reset button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Add shadow to Reset button */
     transition: background-color 0.5s ease, transform 0.5s ease;
 }
 
 input[type="reset"]:hover {
-    background-color: #e53935; /* Darker red on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+    background-color: #e53935;
+    /* Darker red on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    /* Stronger shadow on hover */
     transform: scale(1.05);
 
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+
     /* GenAI assistance for header styling on mobile devices */
     header {
-        height: 5em; /* Adjust height based on content */
-        flex-direction: row; /* Keep it horizontal */
-        justify-content: space-between; /* Distribute space */
-        align-items: center; /* Vertically align items */
+        height: 5em;
+        /* Adjust height based on content */
+        flex-direction: row;
+        /* Keep it horizontal */
+        justify-content: space-between;
+        /* Distribute space */
+        align-items: center;
+        /* Vertically align items */
         box-sizing: border-box;
         overflow: hidden;
     }
 
     .left-nav {
-        width: auto; /* Adjust width to content */
-        padding: 0; /* Remove extra padding */
+        width: auto;
+        /* Adjust width to content */
+        padding: 0;
+        /* Remove extra padding */
         margin: 0;
     }
 
     header nav {
-        flex-direction: row; /* Keep links horizontal */
+        flex-direction: row;
+        /* Keep links horizontal */
         align-items: center;
         padding-top: 0;
     }
 
     header nav a {
-        font-size: 1em; /* Further reduce font size if needed */
-        padding-right: 10px; /* Reduce padding between nav items */
-        height: 5em; /* Adjust height */
+        font-size: 1em;
+        /* Further reduce font size if needed */
+        padding-right: 10px;
+        /* Reduce padding between nav items */
+        height: 5em;
+        /* Adjust height */
     }
 
     .right-nav {
-        width: 20%; /* Adjust width to content */
+        width: 20%;
+        /* Adjust width to content */
         justify-content: space-around;
         padding-top: 0;
         padding-bottom: 0;
@@ -1241,17 +1310,20 @@ input[type="reset"]:hover {
     }
 
     #icon {
-        width: 24px; /* Further reduce icon size if necessary */
+        width: 24px;
+        /* Further reduce icon size if necessary */
         height: 24px;
     }
 
     #logo {
-        height: 1.5em; /* Further adjust logo size */
+        height: 1.5em;
+        /* Further adjust logo size */
     }
 
     #logo-text {
         height: 5em;
     }
+
     .form-row {
         flex-direction: column;
     }
@@ -1260,16 +1332,20 @@ input[type="reset"]:hover {
     .form-row input,
     .form-row select,
     .form-row textarea {
-        width: 100%; /* Full width for smaller screens */
+        width: 100%;
+        /* Full width for smaller screens */
     }
-   
+
     .checkbox-group {
-        flex-direction: column;  /* Stack checkboxes vertically on small screens */
+        flex-direction: column;
+        /* Stack checkboxes vertically on small screens */
     }
 
     .apply-main {
-        width: 90%; /* Increase width to 90% for better mobile use */
+        width: 90%;
+        /* Increase width to 90% for better mobile use */
     }
+
     footer article:first-child {
         flex-direction: column;
         align-content: center;
@@ -1278,13 +1354,16 @@ input[type="reset"]:hover {
         padding-top: 20px;
         padding-bottom: 50px;
     }
+
     footer article:first-child section {
         width: 80%;
 
     }
-    .social-icons-container{
+
+    .social-icons-container {
         width: 50%;
     }
+
     header nav a {
         text-align: center;
     }
@@ -1294,21 +1373,27 @@ input[type="reset"]:hover {
 
 /* Style for Small Description */
 .small-description {
-    font-size: 0.9em; /* Smaller font size for the description */
-    color: #555; /* Subtle color for the description text */
+    font-size: 0.9em;
+    /* Smaller font size for the description */
+    color: #555;
+    /* Subtle color for the description text */
     margin-top: 10px;
 }
 
 /* Style for Job Descriptions Link */
 .job-link {
-    color: #1160a6;    /* Blue color for the link */
-    text-decoration: underline; /* Underline the link */
-    font-weight: bold; /* Make the link text bold */
+    color: #1160a6;
+    /* Blue color for the link */
+    text-decoration: underline;
+    /* Underline the link */
+    font-weight: bold;
+    /* Make the link text bold */
 }
 
 .job-link:hover {
     transform: translateY(-5px);
-    text-decoration: none; /* Remove underline on hover */
+    text-decoration: none;
+    /* Remove underline on hover */
     transition: text-decoration 0.3s ease, transform 0.3s ease;
 }
 
