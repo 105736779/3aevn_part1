@@ -14,6 +14,8 @@ body {
     font-family: "Poppins", sans-serif, black;
     margin: 0;
     padding: 0;
+    background-color: white;
+    overflow-x: hidden;
 }
 
 #ai {
@@ -116,81 +118,158 @@ body {
 }
 
 /* Khanh Nam Le Pham edited 03/04/25, 3:27PM */
-
+/* applied in the header */
 header {
     /*"position: sticky" and "top: 0" is generated from GenAI, which is used
     to make the navigation bar of webpage follow along as the user scroll*/
     position: sticky;
     top: 0;
-    background-color: white;
-    width: 100%;
+    z-index: 3;
+    background-color: #ebebeb;
+    width: 100vw;
     height: 5em;
-
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10%;
+    padding-right: 10%;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
-
+/* header navigation bar formatting  (applied all pages)*/
 header nav {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: flex-start;
+    align-content: flex-start;
+    /* align items along the main axis of the container. */
     width: 100%;
     height: 100%;
-    padding: 0 20px;
+    padding-bottom: 0;
 }
-
+/* header navigation elements formatting (applied all pages) */
 header nav a {
     text-decoration: none;
+    height: 5em;
+    display: flex;
+    align-items: center;
     color: black;
     margin-right: 20px;
 }
 
+/* give little spacing from the logo to the first nav element */
 header nav a img {
     margin-right: 20px;
 }
-
+/* the selected page is formatted in bold text */
 header nav a#selected {
     font-weight: bold;
 }
-
-header nav a:hover {
-    text-decoration: underline;
-    transition: text-decoration 0.3s ease;
+/* right nav box formatting  */
+.right-nav {
+    height: 5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
 }
+/* right nav elements formatting */
+.right-nav a {
+    text-decoration: none;
+    height: 5em;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+/* hover effect (jumps up and scales larger) when hovering through the nav elements */
 
+/* ensures no padding or margin of the background image */
 figure {
     padding: 0;
     margin: 0;
 }
-
-#homepage-image {
+/* this style markup makes the bg image stick to the top of the page and doesn't move as we scroll down */
+#homepage-image-container {
+    overflow: hidden;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    margin-top: 5em;
     width: 100%;
-}
+    box-sizing: border-box;
 
-.welcome {
+}
+/* Overlaying text styling from GenAI */
+.slogan-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     padding: 20px;
-    margin-left: 5%;
-    margin-right: 5%;
+    box-sizing: border-box;
+    pointer-events: none;
 }
-
+/* overlaying heading styling */
+.slogan-overlay h1 {
+    color: white;
+    font-size: 3em;
+    margin-bottom: 0;
+}
+/* overlaying text styling */
+.slogan-overlay p {
+    margin-top: 0;
+    color: white;
+    font-size: 2em;
+    font-weight: 250;
+}
+/* change the width of the bg image equal to the viewport's width */
+#homepage-image {
+    width: 100vw;
+    height: 75vh;
+    object-fit: cover;  /* Ensure image fills container (from GenAI) */
+}
+/* Welcome to Aevina AI content styling */
+.welcome {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    margin-top: 75vh;
+    /* margin-top is to leave a space to see the bg image otherwise the content will cover up the whole image */
+}
+/* change the alignment of the welcome text to justify and add some side margins */
 .welcome p {
     text-align: justify;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 /*The commented code below is from GenAI, suggesting how to properly format 
 a grid to achieve the 3 boxes on a line look*/
 .services-container {
-    margin: 20px;
     text-align: center;
+    z-index: 3;
+    position: relative;
+    background-color: white;
+    width: 100%;
 }
-
+/* reduce the space between h2 and the image inside each box */
 .services-container h2 {
     margin-bottom: 0;
+    margin-top: 0;
 }
-
+/* divide the boxes */
 .services {
     display: grid;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     /* Responsive grid */
     /*Creates responsive columns. auto-fit makes the columns fit the available space, 
@@ -199,10 +278,10 @@ a grid to achieve the 3 boxes on a line look*/
     gap: 20px;
     /* Space between boxes */
     padding-top: 25px;
-    padding-bottom: 20px;
+    padding-bottom: 35px;
     /* Add padding on top and from the bottom of the grid */
 }
-
+/* inside boxes' contents styling */
 .services section {
     background-color: #f9f9f9;
     /* Box background color */
@@ -218,8 +297,6 @@ a grid to achieve the 3 boxes on a line look*/
 }
 
 .services h3 {
-    margin-bottom: 10px;
-    /* Space below heading */
     margin-top: 0;
 }
 
@@ -227,28 +304,42 @@ a grid to achieve the 3 boxes on a line look*/
 .services p {
     line-height: 1.6;
     /* Improve text readability */
-    ;
 }
 
 /* Optional: Add hover effect */
 .services section:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease; /* smooth out the effect */
+    transition: box-shadow 0.3s ease;
+    /* smooth out the effect */
 }
+/* End of GenAI assistance */
 
 .service .services_images {
     width: 200px;
     height: 150px;
-    object-fit: cover; /* Crop and scale to fill (from GenAI) */
+    object-fit: cover;
+    /* Crop and scale to fill (from GenAI) */
     border-radius: 10px;
 }
-
+/* Join Our Team section's content styling */
 .hiring {
     text-align: center;
+    width: 100%;
+    position: relative;
+    z-index: 3;
+    background-color: white;
+    padding-bottom: 25px;
+}
+/* eliminate unwanted space auto-generated by the headings */
+.hiring h2 {
+    margin-top: 0;
+}
+/* create side margins to maintain the layout consistency */
+.hiring p {
     margin-left: 10%;
     margin-right: 10%;
 }
-
+/* job-seek button styling */
 .job-des-nav-button {
     font-weight: 600;
     text-align: center;
@@ -257,23 +348,321 @@ a grid to achieve the 3 boxes on a line look*/
     text-decoration: none;
     border: solid 4px;
     background-color: white;
-    color:#0041a3;
+    color: #0041a3;
     padding: 20px 20px;
     border-radius: 50px;
     margin: 10px;
-    transition: background-color 0.3s ease;
-}
-.job-des-nav-button:hover {
-    background-color:#0041a3;
-    color: white;
-}
-footer {
-    display: flex;
-    flex-direction: column;
-    background-color: lightgrey;
-    padding: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    /* GenAI */
+    position: relative; /* Required for pseudo-element positioning */
+    overflow: hidden; /* Keeps pseudo-element contained */
+    transition: background-color 0.3s ease-out, color 0.3s ease-out;
 }
 
+.job-des-nav-button:hover {
+    background-color: #0041a3;
+    color: white;
+}
+/* footer styling */
+footer {
+    margin-top: 0;
+    position: fixed;
+    bottom: 0;
+    z-index: 3;
+    background-color: #ebebeb;
+    width: 100%;
+    box-sizing: border-box; /* Critical to prevent overflow (GenAI)*/
+    margin-bottom: 0;
+}
+/* spread the sections of the footer evenly out horizontally */
+footer article:first-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin-left: 10%;
+    margin-right: 5%;
+}
+/* ensures each section takes up 16% of the viewport's width */
+footer article:first-child section {
+    width: 16%;
+    padding-right: 2.5rem;
+}
+/* change the colour of any link into blue */
+footer #link {
+    color: #0041a3;
+}
+/* change the font weight of the selected page into bold */
+footer #selected {
+    font-weight: bold;
+}
+/* eliminate the dots and auto-generated padding of the ul list */
 footer ul {
     list-style: none;
+    padding: 0;
 }
+/* create a little space between the heading and the content underneath each */
+footer h3 {
+    margin-bottom: 0.5em;
+}
+/* get rid of the underlining effect of the nav elements as well as the default blue colour */
+footer a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+}
+/* nav elements hover effect */
+footer article section ul li a:hover {
+    display: flex;
+    text-decoration: underline;
+    transform: translateY(-2.5px) !important;
+    transition: transform 0.2s ease;
+}
+/* horizontal rule and copyright statement alignment */
+footer article:nth-child(2){
+    text-align: center;
+    width: 100%;
+    font-size: 0.8rem;
+    padding-bottom: 5px;
+}
+/* define the size of the social symbols */
+footer article section div img {
+    width: 32px;
+    height: 32px;
+}
+/* put them into flexboxes */
+.social-icons-container {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 10px;
+  }
+  /* mutually overlap the grey icons vs the coloured icons to create the colour changing effect  */
+  .social-icon img {
+    position: absolute;
+    transition: all 0.3s ease;
+  }
+  /* grey icon is visible by default */
+  .icon-default {
+    opacity: 1;
+  }
+  
+  /* coloured icon is not visible by default */
+  .icon-hover {
+    opacity: 0;
+  }
+  
+  /* change to the opposite */
+  .social-icon:hover .icon-default {
+    opacity: 0;
+  }
+  
+  .social-icon:hover .icon-hover {
+    opacity: 1;
+  }
+  /* add in some hove effects (grows and jumps) */
+  .social-icon:hover img {
+    /* Scale effect is from GenAI */
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    transform: translateY(-5px);
+  }
+
+  /* defining animation keyframes down below (from: https://www.youtube.com/watch?v=SgmNxE9lWcY) */
+  /* content slide gradually slide in from top */
+  @keyframes slideInTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-300px);
+    }
+    100% {
+        opacity: 1 !important;
+        transform: translateY(0);
+    }
+  }
+/* content gradually slide in from bottom */
+  @keyframes slideInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(300px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  /* content gradually slide in from left */
+  @keyframes slideInLeft {
+    0% { 
+        opacity: 0;
+        transform: translateX(-100vw);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    /* content gradually slide in from right */
+  @keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100vw);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+  }
+  /* footer nav elements content slightly slide down as appears */
+  @keyframes footerSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  /* breathing effect of the job-description link button */
+  @keyframes btn-breathe {
+    0% {
+
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+  }
+/* spin effect on the y axis */
+  @keyframes spin {
+    0% {
+        opacity: 0;
+        transform: rotateY(360deg);
+    }
+    100% {
+        opacity: 1;
+    }
+  }
+/* slide in from bottom with scaling to create the effect of sliding from a center point */
+  @keyframes slideInBottomScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.1) translateY(300px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+  }
+  /* definition of a set of animations that creates the constant breathing effect */
+  .btn-breathe {
+    animation-name: btn-breathe;
+    animation-iteration-count: infinite !important;
+    animation-fill-mode: alternate !important;
+    animation-duration: 3s !important;
+  }
+  /* definition of a set of animations that creates the smoothness for the slide-in effect */
+  .animation-slide {
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+  }
+  /* definition of a set of animations that allows contents to slide-in as we scroll through it */
+  .animation-slide-inscroll {
+    animation-direction: normal;
+    animation-timing-function: ease;
+    animation-range: entry 0% cover 50%;
+    animation-timeline: view();
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+  }
+  /* definition of a set of animmations allows footer's content to slightly slide down as we scroll down  */
+  .footer-slide-inscroll {
+    animation-timing-function: ease;
+    animation-range: entry 5% cover 50%;
+    animation-timeline: view();
+  }
+  /* slide from left class of animation for usability html */
+  .slideInLeft {
+    animation-name: slideInLeft;
+  }
+  /* slide from right" class of animation for usability in html */
+  .slideInRight {
+    animation-name: slideInRight;
+  }
+  /* slide from top class of animation for usability in html */
+  .slideInTop {
+    animation-name: slideInTop;
+  }
+/* slide from top class of animation for usability in html */
+  .slideInBottom {
+    animation-name: slideInBottom;
+  }
+  .slideInBottomScale {
+    animation-name: slideInBottomScale;
+  }
+  .spin {
+    animation-name: spin;
+  }
+  .scale {
+    animation-name: scale;
+  }
+  /* footer content slide effect */
+  .footerSlide {
+    animation-name: footerSlide;
+  }
+  /* different delay effect times */
+  .delay-0dot5s {
+    animation-delay: 0.5s;
+  }
+  
+  .delay-1s {
+    animation-delay: 1s;
+  }
+  .delay-1dot5s {
+    animation-delay: 1.5s;
+  }
+  .delay-2s {
+    animation-delay: 2s;
+  }
+  /* GenAI: code suggestions to make the underline effect that runs from one end to another */
+  .underline-hover {
+    display: flex;
+    position: relative;
+    text-decoration: none;
+    align-items: center;
+    align-content: center;
+  }
+  /* GenAI */
+  .underline-hover::after {
+    z-index: 4;
+    content: ''; /* Ensure it has content */
+    position: absolute; /* Position it relative to the parent */
+    bottom: 35%; /* Move it down by 1 line (adjust the value as needed) */
+    left: 0; /* Center it horizontally */
+    width: 100%; /* Width of the pseudo-element (adjust as needed) */
+    height: 2px; /* Height of the pseudo-element */
+    background-color: black; /* Color of the pseudo-element */
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  .underline-hover:hover{
+    transform: translateY(-5px);
+    transition: transform 0.2s ease;
+  }
+  .underline-hover:hover::after {
+    transform: scaleX(1);
+    transition: transform 0.2s ease;
+  }
+  /* defining animation keyframes ends */
+
+  
+  
