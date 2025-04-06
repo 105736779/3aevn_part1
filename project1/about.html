@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="keywords" content="AI, IT, IT Company, Computer, Aevina, Aritificial Intelligence, Official, About, Members, Information">
+  <meta name="keywords"
+    content="AI, IT, IT Company, Computer, Aevina, Aritificial Intelligence, Official, About, Members, Information">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Aevina's Official Website About Page">
   <link rel="stylesheet" href="styles/styles.css">
@@ -12,135 +13,139 @@
 
 <body>
 
-  <header>
+  <header role="banner">
     <section class="left-nav">
-      <nav>
-        <a href="index.html" class="not"><img src="images/logo.svg" href="index.html" alt="Aevina AI Logo" title="Aevina AI"
-            loading="lazy" id="logo" class="load"><img src="images/logo-text.svg" href="index.html" alt="Aevina AI Logo" title="Aevina AI"
-            loading="lazy" id="logo-text"></a>
-        <a href="index.html" id="selected" class="real-nav">Home</a>
-        <a href="jobs.html" class="real-nav">Jobs</a>
-        <a href="apply.html" class="real-nav">Apply</a>
-        <a href="about.html" class="real-nav">About Us</a>
+      <nav aria-label="Main navigation">
+        <!-- Logo with alt and title attributes -->
+        <a href="index.html" class="not" aria-label="Aevina Homepage">
+          <img src="images/logo.svg" alt="Aevina AI Logo" title="Aevina AI" loading="lazy" id="logo" class="load">
+          <img src="images/logo-text.svg" alt="Aevina AI Text Logo" title="Aevina AI" loading="lazy" id="logo-text">
+        </a>
+        <!-- Navigation links -->
+        <a href="index.html" >Home</a>
+        <a href="jobs.html" >Jobs</a>
+        <a href="apply.html">Apply</a>
+        <a href="about.html" id="selected" aria-current="page">About Us</a>
       </nav>
     </section>
-    <!--Reference Imagge URL: https://thefusioneer.com/blog/the-future-of-ai-5-ai-advancements-to-expect-in-the-next-10-years/-->
+    <!--Reference Image URL: https://thefusioneer.com/blog/the-future-of-ai-5-ai-advancements-to-expect-in-the-next-10-years/-->
     <section class="right-nav">
       <div class="language">
         <details id="lang-dropdown">
-        <summary id="lang-icon-container">
-          <img src="images/language.svg" alt="Language" title="Language Icon (for visual only)" id="icon">
-        </summary>
-        <div id="lang-options">
-          <p>English</p>
-          <p>Vietnamese</p>
-          <p>Indian</p>
-        </div>
-      </details>
+          <summary id="lang-icon-container" aria-label="Language options">
+            <img src="images/language.svg" alt="Language" title="Language Icon (for visual only)" id="icon">
+          </summary>
+          <div id="lang-options" role="list" aria-label="Language selection">
+            <p role="listitem">English</p>
+            <p role="listitem">Vietnamese</p>
+            <p role="listitem">Indian</p>
+          </div>
+        </details>
       </div>
       <div class="user">
         <details id="user-dropdown">
-            <!-- summary and details suggested from GenAI -->
-            <summary id="user-icon-container">
-                <img src="images/user.svg" alt="Profile" title="Profile Icon (for visual only)" id="icon">
-            </summary>
-            <div id="user-info-dropdown">
-                <div id="user-avatar">
-                    <img src="images/Trollface.png">
-                </div>
-                <div id="user-details">
-                    <p id="user-name">Group07: 3AEVN</p>
-                    <p id="user-email">105736779@student.swin.edu.au</p>
-                </div>
-              </div>
-            </details>
-        </div>
+          <!-- summary and details suggested from GenAI -->
+          <summary id="user-icon-container" aria-label="User account options">
+            <img src="images/user.svg" alt="Profile" title="Profile Icon (for visual only)" id="icon">
+          </summary>
+          <div id="user-info-dropdown" role="region" aria-label="User details">
+            <div id="user-avatar">
+              <img src="images/Trollface.png" alt="User avatar">
+            </div>
+            <div id="user-details">
+              <p id="user-name">Group07: 3AEVN</p>
+              <p id="user-email">105736779@student.swin.edu.au</p>
+            </div>
+          </div>
+        </details>
+      </div>
     </section>
   </header>
 
 
 
   <main>
-  <section>
     <article>
+      <section>
 
+      </section>
     </article>
-  </section>
-</main>
+  </main>
 
-<br>
+  <br>
 
-<footer>
-  <article class="footer-slide-inscroll footerSlide">
-    <section>
-      <h3>Contact Us</h3>
-      <ul>
-        <li>Email to: <a href="mailto:info@aevinaai.com.au" title="info@aevinaai.com.au" target="_blank" hreflang="en"
-            id="link">info@aevinaai.com.au</a></li>
-        <li>Phone: 0493167158</li>
-        <li>Head Office Address: John St, Hawthorn VIC 3122</li>
-      </ul>
-    </section>
-    <section>
-      <h3>Our Process</h3>
-      <ul>
-        <li><a href="https://3aevn.atlassian.net/jira/software/projects/SCRUM/boards/1?sprintStarted=true"
-            title="Jira Scrum Project Managment" target="_blank" hreflang="en" id="link">Jira Scrum Project
-            Management</a>
-        </li>
-      </ul>
-    </section>
-    <section>
-      <h3>Navigation</h3>
-      <ul>
-        <li><a href="index.html" id="selected">Home</a></li>
-        <li><a href="jobs.html">Jobs</a></li>
-        <li><a href="apply.html">Apply</a></li>
-        <li><a href="about.html">About Us</a></li>
-      </ul>
-    </section>
-    <section>
-      <h3>Members</h3>
-      <ul>
-        <li>Khanh Nam Le Pham</li>
-        <li>Viet Hoang Tran</li>
-        <li>Quang Tuan Anh Tran</li>
-      </ul>
-    </section>
-    <section>
-      <h3>Social</h3>
-      <div class="social-icons-container">
-        <a href="#" class="social-icon">
-          <img src="images/linkedin-grey.svg" class="icon-default" alt="LinkedIn">
-          <img src="images/linkedin.png" class="icon-hover" alt="LinkedIn">
-        </a>
-        <a href="#" class="social-icon">
-          <img src="images/x-grey.svg" class="icon-default" alt="Twitter">
-          <img src="images/twitter.png" class="icon-hover" alt="Twitter">
-        </a>
-        <a href="#" class="social-icon">
-          <img src="images/facebook-grey.svg" class="icon-default" alt="Facebook">
-          <img src="images/facebook.png" class="icon-hover" alt="Facebook">
-        </a>
-        <a href="#" class="social-icon">
-          <img src="images/youtube-grey.svg" class="icon-default" alt="YouTube">
-          <img src="images/youtube.png" class="icon-hover" alt="YouTube">
-        </a>
-        <a href="#" class="social-icon">
-          <img src="images/instagram-grey.svg" class="icon-default" alt="Instagram">
-          <img src="images/social.png" class="icon-hover" alt="Instagram">
-        </a>
-    </section>
-  </article>
-  <article>
-    <section>
-      <hr>
-      <p>
-        Copyright &copy; 2025 Aevina AI. All rights reserved.
-      </p>
-    </section>
-  </article>
-</footer>
+  <footer>
+    <article class="footer-slide-inscroll footerSlide">
+      <section>
+        <h3>Contact Us</h3>
+        <ul>
+          <li>Email to: <a href="mailto:info@aevinaai.com.au" title="info@aevinaai.com.au" target="_blank" hreflang="en"
+              id="link">info@aevinaai.com.au</a></li>
+          <li>Phone: 0493167158</li>
+          <li>Head Office Address: John St, Hawthorn VIC 3122</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Our Process</h3>
+        <ul>
+          <li><a href="https://3aevn.atlassian.net/jira/software/projects/SCRUM/boards/1?sprintStarted=true"
+              title="Jira Scrum Project Managment" target="_blank" hreflang="en" id="link">Jira Scrum Project
+              Management</a>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>Navigation</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="jobs.html">Jobs</a></li>
+          <li><a href="apply.html">Apply</a></li>
+          <li><a href="about.html" id="selected" aria-current="page">About Us</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Members</h3>
+        <ul>
+          <li>Khanh Nam Le Pham</li>
+          <li>Viet Hoang Tran</li>
+          <li>Quang Tuan Anh Tran</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Social</h3>
+        <div class="social-icons-container">
+          <a href="#" class="social-icon">
+            <img src="images/linkedin-grey.svg" class="icon-default" alt="LinkedIn">
+            <img src="images/linkedin.png" class="icon-hover" alt="LinkedIn">
+          </a>
+          <a href="#" class="social-icon">
+            <img src="images/x-grey.svg" class="icon-default" alt="Twitter">
+            <img src="images/twitter.png" class="icon-hover" alt="Twitter">
+          </a>
+          <a href="#" class="social-icon">
+            <img src="images/facebook-grey.svg" class="icon-default" alt="Facebook">
+            <img src="images/facebook.png" class="icon-hover" alt="Facebook">
+          </a>
+          <a href="#" class="social-icon">
+            <img src="images/youtube-grey.svg" class="icon-default" alt="YouTube">
+            <img src="images/youtube.png" class="icon-hover" alt="YouTube">
+          </a>
+          <a href="#" class="social-icon">
+            <img src="images/instagram-grey.svg" class="icon-default" alt="Instagram">
+            <img src="images/social.png" class="icon-hover" alt="Instagram">
+          </a>
+        </div>
+      </section>
+    </article>
+    <article>
+      <section>
+        <hr>
+        <p>
+          Copyright &copy; 2025 Aevina AI. All rights reserved.
+        </p>
+      </section>
+    </article>
+  </footer>
 
 </body>
 

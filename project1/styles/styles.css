@@ -645,7 +645,7 @@ a grid to achieve the 3 boxes on a line look*/
     text-decoration: none;
     border: solid 4px;
     background-color: white;
-    color: #0041a3;
+    color: #1160a6;
     padding: 20px 20px;
     border-radius: 50px;
     margin: 10px;
@@ -660,7 +660,7 @@ a grid to achieve the 3 boxes on a line look*/
 }
 
 .job-des-nav-button:hover {
-    background-color: #0041a3;
+    background-color: #1160a6;
     color: white;
 }
 
@@ -685,7 +685,6 @@ footer article:first-child {
     margin-left: 10%;
     margin-right: 5%;
     box-sizing: border-box;
-    overflow-x: hidden;
     animation-range: entry 0% cover 50% !important;
 }
 
@@ -697,7 +696,7 @@ footer article:first-child section {
 
 /* change the colour of any link into blue */
 footer #link {
-    color: #0041a3;
+    color: #1160a6;
 }
 
 /* change the font weight of the selected page into bold */
@@ -1049,56 +1048,16 @@ footer article section div img {
 
   /* apply section
   /* General Styles */
-body {
-    font-family: 'Lexend', sans-serif; /* Changed to Lexend font */
+.apply-body {
+    font-family: 'Poppins', sans-serif; /* Changed to Lexend font */
     margin: 0;
     padding: 0;
     background-color: #f7f7f7;
     color: #333;
 }
 
-header {
-    background-color: #0044cc;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    border-bottom: 5px solid #003366;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-    font-weight: 600;
-}
-
-header img {
-    width: 120px;
-    margin-top: 15px;
-}
-
-/* Navigation Bar */
-nav {
-    background-color: #333;
-    padding: 12px 0;
-    text-align: center;
-}
-
-nav a {
-    color: white;
-    margin: 0 25px;
-    text-decoration: none;
-    font-size: 1.1em;
-    padding: 8px 15px;
-}
-
-nav a:hover {
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 4px;
-}
-
 /* Form Container */
-main {
+.apply-main {
     padding: 40px;
     background-color: white;
     margin: 30px auto;
@@ -1108,27 +1067,35 @@ main {
     max-width: 900px;
 }
 
-h2 {
-    color: #0044cc;
+.apply-main article section h2 {
+    color: #1160a6;
     text-align: center;
     font-size: 2.2em;
     margin-bottom: 20px;
 }
 
 /* Form Sections */
-fieldset {
+.apply-main article section fieldset {
     border: 2px solid #ddd;
     padding: 20px;
     margin-bottom: 30px;
     border-radius: 10px;
     background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 30px; /* Gap between sections */
+    border-radius: 8px;
+    background-color: #f9f9f9;
 }
 
-legend {
+.apply-main article section fieldset legend {
     font-weight: bold;
-    color: #0044cc;
+    color: #1160a6;
     font-size: 1.3em;
     padding: 0 10px;
+    font-weight: bold;
+    color: #333;
+    font-size: 1.2em;
 }
 
 .form-row {
@@ -1146,9 +1113,11 @@ legend {
 
 .form-row input,
 .form-row select,
-.form-row textarea {
-    width: 60%;
+.form-row textarea,
+form fieldset:first-child select {
+    width: 100%;
     padding: 12px;
+    margin-top: 6px;
     border: 2px solid black; /* Black border for all input boxes */
     border-radius: 8px;
     font-size: 1em;
@@ -1159,7 +1128,7 @@ legend {
 .form-row input:focus,
 .form-row select:focus,
 .form-row textarea:focus {
-    border-color: #0044cc;
+    border-color: #1160a6;
     outline: none;
 }
 
@@ -1184,7 +1153,7 @@ legend {
 }
 
 /* Required Fields */
-label .required {
+.required {
     color: red;
     font-weight: bold;
 }
@@ -1192,20 +1161,22 @@ label .required {
 /* Submit Button */
 input[type="submit"] {
     padding: 14px 20px;
-    background-color: #4CAF50; /* Green color for Apply button */
+    background-color: #1160a6; /* Blue color for Apply button */
     border: none;
     color: white;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
     width: 100%;
     font-size: 1.2em;
     margin-top: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow to Apply button */
+    transition: background-color 0.5s ease, transform 0.5s ease;
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #0f5796; /* Darker green on hover */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+    transform: scale(1.05);
 }
 
 input[type="reset"] {
@@ -1214,45 +1185,74 @@ input[type="reset"] {
     border: none;
     color: white;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
     width: 100%;
     font-size: 1.2em;
     margin-top: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow to Reset button */
+    transition: background-color 0.5s ease, transform 0.5s ease;
 }
 
 input[type="reset"]:hover {
     background-color: #e53935; /* Darker red on hover */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
-}
+    transform: scale(1.05);
 
-/* Section Gaps */
-fieldset {
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin-bottom: 30px; /* Gap between sections */
-    border-radius: 8px;
-    background-color: #f9f9f9;
-}
-
-legend {
-    font-weight: bold;
-    color: #333;
-    font-size: 1.2em;
-}
-
-/* Footer */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 30px;
-    font-size: 1em;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* GenAI assistance for header styling on mobile devices */
+    header {
+        height: 5em; /* Adjust height based on content */
+        flex-direction: row; /* Keep it horizontal */
+        justify-content: space-between; /* Distribute space */
+        align-items: center; /* Vertically align items */
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .left-nav {
+        width: auto; /* Adjust width to content */
+        padding: 0; /* Remove extra padding */
+        margin: 0;
+    }
+
+    header nav {
+        flex-direction: row; /* Keep links horizontal */
+        align-items: center;
+        padding-top: 0;
+    }
+
+    header nav a {
+        font-size: 1em; /* Further reduce font size if needed */
+        padding-right: 10px; /* Reduce padding between nav items */
+        height: 5em; /* Adjust height */
+    }
+
+    .right-nav {
+        width: 20%; /* Adjust width to content */
+        justify-content: space-around;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .language {
+        margin-right: 30px;
+    }
+
+    #icon {
+        width: 24px; /* Further reduce icon size if necessary */
+        height: 24px;
+    }
+
+    #logo {
+        height: 1.5em; /* Further adjust logo size */
+    }
+
+    #logo-text {
+        height: 5em;
+    }
     .form-row {
         flex-direction: column;
     }
@@ -1263,13 +1263,31 @@ footer {
     .form-row textarea {
         width: 100%; /* Full width for smaller screens */
     }
-
+   
     .checkbox-group {
         flex-direction: column;  /* Stack checkboxes vertically on small screens */
     }
 
-    main {
+    .apply-main {
         width: 90%; /* Increase width to 90% for better mobile use */
+    }
+    footer article:first-child {
+        flex-direction: column;
+        align-content: center;
+        flex-wrap: nowrap;
+        height: auto;
+        padding-top: 20px;
+        padding-bottom: 50px;
+    }
+    footer article:first-child section {
+        width: 80%;
+
+    }
+    .social-icons-container{
+        width: 50%;
+    }
+    header nav a {
+        text-align: center;
     }
 }
 
@@ -1284,14 +1302,15 @@ footer {
 
 /* Style for Job Descriptions Link */
 .job-link {
-    color: #0044cc; /* Blue color for the link */
+    color: #1160a6;    /* Blue color for the link */
     text-decoration: underline; /* Underline the link */
     font-weight: bold; /* Make the link text bold */
 }
 
 .job-link:hover {
-    color: #45a049; /* Change color when hovered */
+    transform: translateY(-5px);
     text-decoration: none; /* Remove underline on hover */
+    transition: text-decoration 0.3s ease, transform 0.3s ease;
 }
 
 /* defining animation keyframes ends */
