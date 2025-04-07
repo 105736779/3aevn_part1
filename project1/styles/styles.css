@@ -217,13 +217,13 @@ header {
     padding-left: 10%;
     padding-right: 10%;
     box-sizing: border-box;
-    overflow: hidden;
 }
 
 /* header navigation bar formatting  (applied all pages)*/
 header nav {
+    overflow: hidden;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     align-items: center;
     align-content: flex-start;
     /* align items along the main axis of the container. */
@@ -246,48 +246,60 @@ header nav a {
     padding-right: 30px;
 }
 
+/* colour changing hover effect on navigation elements */
+header nav a:not(.not):hover {
+    color: #1160a6;
+    transform: translateY(-5px);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* creating a pseudo element ::before that is used for the sliding hover-effect */
 header nav a:not(.not)::before {
     content: "";
     position: absolute;
     width: 100%;
     height: 0;
     bottom: 0;
-    background-color: #c4c5c7;
+    background-color: #2195fc;
+    opacity: 0.1;
     z-index: -1;
 }
 
+/* apply hover effect on ::before */
 header nav a:hover::before {
     height: 100%;
     transition: height 0.5s ease;
 }
 
+/* style the solid line that appears at the bottom of each nav's hover  */
 header nav a:not(.not)::after {
     content: "";
     position: absolute;
     width: 100%;
     height: 0;
-    bottom: 3px;
-    background-color: black;
+    bottom: -3px;
+    background-color: #1160a6;
 }
 
+/* style hover effect for the line */
 header nav a:hover::after {
-    height: 4px;
+    height: 6px;
     transition: height 0.3s ease;
 }
-
-/* give little spacing from the logo to the first nav element */
 
 /* the selected page is formatted in bold text */
 header nav a#selected {
     font-weight: bold;
 }
 
+/* sizing of the symbol logo */
 #logo {
     background-color: transparent !important;
     width: 100%;
     height: 40%;
 }
 
+/* sizing of the text logo */
 #logo-text {
     padding-top: 3px;
     width: 100%;
@@ -303,39 +315,60 @@ header nav a#selected {
     justify-content: flex-end;
     align-items: center;
     align-content: center;
+    flex-wrap: nowrap;
 }
 
 /* right nav elements formatting */
 .language,
 .user {
+    position: fixed;
     text-decoration: none;
     height: 5em;
     display: flex;
     align-items: center;
-    position: relative;
 }
 
+.hamburger {
+    position: relative;
+    text-decoration: none;
+    height: 5em;
+    display: none;
+    align-items: center;
+}
+
+#hamburger-icon-container {
+    width: 16px;
+    height: auto;
+    ;
+}
+
+.hamburger #icon:hover {
+    background-color: #dedfe0;
+    border-radius: 5px;
+    transform: translateY(-5px);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* sizing of the right icons */
 #icon {
     display: flex;
     align-items: center;
     align-content: flex-end;
     width: 32px;
-    height: 32px;
+    height: auto;
     padding: 4px;
 }
 
+/* greyed out hover effect  */
 #icon:hover {
-    background-color: #c4c5c7;
+    background-color: #dedfe0;
     border-radius: 50%;
     transform: translateY(-5px);
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 /* GenAI */
-.user {
-    position: fixed;
-}
-
+/* style the dropdown effect of the user icon  */
 /* Hide the default arrow for <summary> */
 summary::marker {
     content: "";
@@ -385,6 +418,7 @@ summary::marker {
     /* Reset transition delay */
 }
 
+/* dropdown box image and texts styling */
 #user-avatar {
     width: 30%;
 }
@@ -412,9 +446,9 @@ summary::marker {
     color: #777;
 }
 
+/* style the dropdown effect of the language icon */
 .language {
-    position: fixed;
-    padding-right: 40px;
+    padding-right: 48px;
 }
 
 #lang-dropdown {
@@ -425,7 +459,6 @@ summary::marker {
     position: absolute;
     top: 2.5em;
     right: 10%;
-    z-index: 10;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -470,13 +503,6 @@ summary::marker {
     margin: 0;
 }
 
-/* #lang-options p:hover {
-    overflow: hidden;
-    box-sizing: border-box;
-    background-color: #c4c5c7;
-    transition: background-color 0.3s ease;
-} */
-
 /* reference video: https://www.youtube.com/watch?v=6-cNMfeEo9I */
 #lang-options p::before {
     z-index: -1;
@@ -486,7 +512,7 @@ summary::marker {
     top: 0;
     width: 0;
     height: 100%;
-    background-color: #c4c5c7;
+    background-color: #dedfe0;
 
 }
 
@@ -496,6 +522,77 @@ summary::marker {
     width: 100%;
     transition: width 0.5s ease;
 }
+
+#nav-dropdown {
+    position: fixed;
+}
+
+#nav-options {
+    position: fixed;
+    top: 5em;
+    left: 0;
+    width: 100vw;
+    height: 30vh;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-bottom: 10px;
+    /* Animation Styles (GenAI) */
+    opacity: 0;
+    /* Initially hidden */
+    transform: translateY(-10px);
+    /* Start slightly above its final position */
+    visibility: hidden;
+    /* Also hide it (important for some browsers) */
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s 0.2s;
+}
+
+#nav-dropdown[open] #nav-options {
+    opacity: 1;
+    /* Fully visible */
+    transform: translateY(0);
+    /* Move to its final position */
+    visibility: visible;
+    /* Make it visible */
+    transition-delay: 0s;
+    /* Reset transition delay */
+}
+
+#nav-options a {
+    flex-grow: 1;
+    font-size: 1.2em;
+    text-decoration: none;
+    padding: 0;
+    color: black;
+    padding-top: 10px;
+}
+
+#nav-options a#selected {
+    font-weight: bold;
+}
+
+#nav-options p {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    flex-grow: 1;
+    background-color: #dedfe0;
+    font-weight: bold;
+    font-size: 1.3em;
+    margin: 0;
+    padding: 0;
+}
+
+#nav-options a {}
 
 /* ensures no padding or margin of the background image */
 figure {
@@ -622,14 +719,14 @@ a grid to achieve the 3 boxes on a line look*/
     overflow: hidden;
 }
 
+/* remove autogenerated margin of the heading */
 .services h3 {
     margin-top: 0;
 }
 
-
+/* Improve text readability */
 .services p {
     line-height: 1.6;
-    /* Improve text readability */
 }
 
 /* Optional: Add hover effect */
@@ -663,25 +760,26 @@ a grid to achieve the 3 boxes on a line look*/
 /* eliminate unwanted space auto-generated by the headings */
 .hiring h2 {
     margin-top: 0;
-    animation-range: entry 10% cover 40% !important;
 }
 
 /* create side margins to maintain the layout consistency */
 .hiring p {
     margin-left: 10%;
     margin-right: 10%;
-    animation-range: entry 10% cover 30% !important;
 }
 
 
 /* job-seek button styling */
 .job-des-nav-button {
+    width: auto;
+    height: auto;
+    position: relative;
     font-weight: 600;
     text-align: center;
     display: inline-block;
     font-size: 150%;
     text-decoration: none;
-    border: solid 4px;
+    border: solid 4px #1160a6;
     background-color: white;
     color: #1160a6;
     padding: 20px 20px;
@@ -689,17 +787,20 @@ a grid to achieve the 3 boxes on a line look*/
     margin: 10px;
     margin-left: 10%;
     margin-right: 10%;
-    /* GenAI */
     position: relative;
-    /* Required for pseudo-element positioning */
     overflow: hidden;
-    /* Keeps pseudo-element contained */
-    transition: background-color 0.3s ease-out, color 0.3s ease-out;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    /* Smooth transition for color change */
 }
 
+/* job-seek button hover effect */
 .job-des-nav-button:hover {
     background-color: #1160a6;
+    /* Change background to the primary color */
     color: white;
+    /* Change text color to white for contrast */
+    border-color: #1160a6;
+    /* Keep the border consistent or change */
 }
 
 /* footer styling */
@@ -720,9 +821,8 @@ footer article:first-child {
     flex-wrap: wrap;
     align-content: flex-start;
     margin-left: 10%;
-    margin-right: 5%;
+    margin-right: 10%;
     box-sizing: border-box;
-    animation-range: entry 0% cover 50% !important;
 }
 
 /* ensures each section takes up 16% of the viewport's width */
@@ -759,6 +859,18 @@ footer a {
     transition: color 0.3s ease;
 }
 
+footer article section:nth-child(1) {
+    flex-grow: 1;
+}
+
+footer article section:nth-child(3) ul li {
+    margin-top: 0;
+}
+
+footer article section:not(:nth-child(3)) ul li {
+    margin-top: 5px;
+}
+
 /* nav elements hover effect */
 footer article section ul li a:hover {
     display: flex;
@@ -775,6 +887,10 @@ footer article:nth-child(2) {
     padding-bottom: 5px;
 }
 
+footer article:nth-child(2) hr {
+    width: 95%;
+}
+
 /* define the size of the social symbols */
 footer article section div img {
     width: 32px;
@@ -787,7 +903,7 @@ footer article section div img {
     position: relative;
     justify-content: space-between;
     gap: 12px;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 /* mutually overlap the grey icons vs the coloured icons to create the colour changing effect  */
@@ -927,6 +1043,7 @@ footer article section div img {
     }
 }
 
+/* loading effect of the logo */
 @keyframes load {
     0% {
         transform: rotateX(0) rotateY(0) rotateZ(0);
@@ -951,6 +1068,7 @@ footer article section div img {
     animation-name: btn-breathe;
     animation-iteration-count: infinite !important;
     animation-duration: 3s !important;
+
 }
 
 /* definition of a set of animations that creates the smoothness for the slide-in effect */
@@ -966,8 +1084,6 @@ footer article section div img {
 .animation-slide-inscroll {
     animation-direction: normal;
     animation-timing-function: ease;
-    animation-range: entry 0% cover 60%;
-    animation-timeline: view();
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
 }
@@ -975,8 +1091,6 @@ footer article section div img {
 /* definition of a set of animmations allows footer's content to slightly slide down as we scroll down  */
 .footer-slide-inscroll {
     animation-timing-function: ease;
-    animation-range: entry 5% cover 50%;
-    animation-timeline: view();
 }
 
 /* slide from left class of animation for usability html */
@@ -1256,72 +1370,169 @@ input[type="reset"]:hover {
 
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Responsive Design for Mobile Devices (GenAI suggestion)*/
 
-    /* GenAI assistance for header styling on mobile devices */
+/* Small Mobile Devices */
+@media (min-width: 320px) and (max-width: 480px) {
     header {
-        height: 5em;
-        /* Adjust height based on content */
+        display: flex;
         flex-direction: row;
-        /* Keep it horizontal */
-        justify-content: space-between;
-        /* Distribute space */
+        /* Ensure items are in a row */
         align-items: center;
         /* Vertically align items */
+        height: auto;
+        /* Adjust height based on content */
         box-sizing: border-box;
-        overflow: hidden;
-    }
-
-    .left-nav {
         width: auto;
-        /* Adjust width to content */
-        padding: 0;
-        /* Remove extra padding */
-        margin: 0;
+        padding: 0 10%;
     }
 
     header nav {
-        flex-direction: row;
-        /* Keep links horizontal */
+        display: flex;
+        justify-content: flex-start;
+        /* Align links to the start */
         align-items: center;
-        padding-top: 0;
+        width: auto;
+        /* Adjust width */
+
     }
 
-    header nav a {
-        font-size: 1em;
-        /* Further reduce font size if needed */
-        padding-right: 10px;
-        /* Reduce padding between nav items */
-        height: 5em;
-        /* Adjust height */
+    header nav a:not(.not) {
+        display: none;
+    }
+
+    .left-nav {
+        align-items: center;
+        width: auto;
+        /* Adjust width */
     }
 
     .right-nav {
-        width: 20%;
-        /* Adjust width to content */
-        justify-content: space-around;
-        padding-top: 0;
-        padding-bottom: 0;
+        margin-right: 28px;
+    }
+
+    header nav a:not(.not)::after {
+        bottom: -7px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .user {
+        padding-right: 36px;
     }
 
     .language {
-        margin-right: 30px;
+        padding-right: 72px;
     }
 
     #icon {
         width: 24px;
-        /* Further reduce icon size if necessary */
         height: 24px;
     }
 
     #logo {
-        height: 1.5em;
-        /* Further adjust logo size */
+        height: 30px;
     }
 
     #logo-text {
-        height: 5em;
+        height: 90px;
+        width: auto;
+    }
+
+    footer article:first-child {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    footer article:first-child section {
+        width: auto;
+    }
+
+    footer article:first-child section:nth-child(5) {
+        margin-bottom: 3em;
+        width: 50%;
+    }
+
+    footer article:nth-child(2) hr {
+        width: 80%;
+    }
+
+    .social-icon {
+        margin-right: 30px;
+    }
+}
+
+/* Larger Mobile Devices */
+@media (min-width: 481px) and (max-width: 640px) {
+
+    /* GenAI assistance for header styling on mobile devices */
+    header {
+        display: flex;
+        flex-direction: row;
+        /* Ensure items are in a row */
+        align-items: center;
+        /* Vertically align items */
+        height: auto;
+        /* Adjust height based on content */
+        box-sizing: border-box;
+        width: auto;
+        padding: 0 10%;
+    }
+
+    header nav {
+        display: flex;
+        justify-content: flex-start;
+        /* Align links to the start */
+        align-items: center;
+        width: auto;
+        /* Adjust width */
+
+    }
+
+    header nav a:not(.not) {
+        display: none;
+    }
+
+    .left-nav {
+        align-items: center;
+        width: auto;
+        /* Adjust width */
+    }
+
+    .right-nav {
+        margin: 0 28px;
+    }
+
+    header nav a:not(.not)::after {
+        bottom: -7px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .user {
+        padding-right: 36px;
+    }
+
+    .language {
+        padding-right: 72px;
+    }
+
+    #icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    #logo {
+        height: 30px;
+    }
+
+    #logo-text {
+        height: 90px;
+        width: auto;
     }
 
     .form-row {
@@ -1347,6 +1558,7 @@ input[type="reset"]:hover {
     }
 
     footer article:first-child {
+        display: flex;
         flex-direction: column;
         align-content: center;
         flex-wrap: nowrap;
@@ -1357,19 +1569,62 @@ input[type="reset"]:hover {
 
     footer article:first-child section {
         width: 80%;
+    }
 
+    footer article:nth-child(2) hr {
+        width: 80%;
     }
 
     .social-icons-container {
         width: 50%;
     }
-
-    header nav a {
-        text-align: center;
-    }
 }
 
+/* tablets and small laptops */
+@media (min-width: 641px) and (max-width: 1024px) {
+    header {
+        width: auto;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
 
+    .right-nav {
+        padding: 0;
+        margin-right: 30px;
+    }
+
+    .language {
+        padding: 0;
+        margin-right: 36px;
+    }
+
+    .social-icon {
+        margin-right: 36px;
+    }
+
+    footer article:first-child {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    footer article section:nth-child(1) {
+        flex-grow: 1;
+    }
+
+    footer article section:nth-child(5) {
+        margin-bottom: 50px;
+        width: auto;
+        justify-content: space-around;
+    }
+
+    footer article:nth-child(2) hr {
+        width: 90%;
+    }
+}
 
 /* Style for Small Description */
 .small-description {
