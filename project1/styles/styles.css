@@ -27,7 +27,7 @@ figure {
 #jobs-image-container {
     position:relative;
     width:100vw;
-    height: 100vh;
+    height: 75vh;
     overflow: hidden;
 }
 /*::before can create transparent dark layer in front of image*/
@@ -36,13 +36,12 @@ figure {
     position: absolute;
     top: 0;
     left: 0;
-    width: 98%;
-    height: 98%;
+    width: 100%;
+    height: 100%;
     background-color: rgb(58, 38, 38);
      /* Black with 40% opacity */
     opacity: 0.4;
-    z-index: 1;  /*this layer is on top of image but under the 
-text*/
+    z-index: 1;  /*this layer is on top of image but under the text*/
   }
 
 #jobs-image {
@@ -91,7 +90,6 @@ width */
     float: right;
     width: 20%;
     margin-top: 3vh;
-    font-size: 70%;
     position: relative;
     border: 1px solid burlywood;
     border-radius: 8px; /* Optional: Rounded corners */
@@ -129,7 +127,6 @@ and you can change it */
 #main-jobs {
     width: 79%;
     display: flex;
-    font-size: 75%;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -137,7 +134,7 @@ and you can change it */
 
 .job-list {
     width: 40%;
-    /*40% cua me no con 60 con lai*/
+    /*40% of its parents*/
     padding-left: 10px;
     background: #f4f4f4;
     gap: 1px;
@@ -149,7 +146,6 @@ and you can change it */
 .job-list h2 {
     text-align: center;
     border-radius: 5px;
-    border: 1px solid black;
 }
 
 .job-item-a {
@@ -159,8 +155,9 @@ and you can change it */
     background: white;
     text-decoration: none;
     color: black;
-    border-radius: 5px;
-    border: 1px solid black;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .job-item {
@@ -168,11 +165,11 @@ and you can change it */
     padding: 16px;
     margin-bottom: 12px;
     background-color: #fff;
-    border: 1px solid #060606;
-    border-radius: 8px;
     color: #0d0b0b;
     text-decoration: none;
     transition: 0.2s;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .job-item:hover {
