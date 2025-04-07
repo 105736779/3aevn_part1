@@ -10,7 +10,7 @@
     font-family: "Poppins", sans-serif, black;
 }
 */
-#body-jobs {
+body {
     font-family: "Poppins", sans-serif, black;
     margin: 0;
     padding: 0;
@@ -18,23 +18,24 @@
     overflow-x: hidden;
 }
 
-#aside-jobs{
+#aside-jobs {
     float: right;
-    width:20%;
+    width: 20%;
     border: 1px solid black;
     font-size: 70%;
 }
 
-#aside-jobs h2{
+#aside-jobs h2 {
     text-align: center;
 }
 
-#aside-jobs ol{
-    padding-left: 1rem; /* override the default that list item padding always 40px and you can change it */
+aside ol {
+    padding-left: 1rem;
+    /* override the default that list item padding always 40px and you can change it */
     margin-left: 0;
 }
 
-#aside-jobs li{
+aside li {
     margin-left: 0;
 }
 
@@ -44,15 +45,18 @@
     border: 1px solid black;
     font-size: 70%;
 }
+
 .job-list {
-    width: 40%; /*40% cua me no con 60 con lai*/
+    width: 40%;
+    /*40% cua me no con 60 con lai*/
     padding-left: 10px;
     background: #f4f4f4;
     gap: 1px;
 }
+
 .job-list h2 {
     text-align: center;
-} 
+}
 
 .job-list a {
     display: block;
@@ -65,7 +69,7 @@
     border: 1px solid black;
 }
 
-.job-item{
+.job-item {
     display: block;
     padding: 16px;
     margin-bottom: 12px;
@@ -83,15 +87,18 @@
 }
 
 .job-details {
-    width: 80%;  /*80% cua 60% con lai*/
+    width: 80%;
+    /*80% cua 60% con lai*/
     padding: 20px;
     background: white;
     display: none;
     margin-top: 30px;
 }
+
 .job-details:target {
     display: block;
 }
+
 .apply-btn {
     background: #002766;
     color: white;
@@ -151,12 +158,12 @@
     margin-bottom: 2px;
 }
 
-.responsibility-detail ul{
+.responsibility-detail ul {
     padding-left: 1rem;
     margin-left: 0;
 }
 
-.responsibility-detail li{
+.responsibility-detail li {
     margin-left: 0;
 }
 
@@ -168,17 +175,17 @@
     margin-bottom: 2px;
 }
 
-.skill-detail ul{
+.skill-detail ul {
     padding-left: 1rem;
     margin-left: 0;
 }
 
-.skill-detail ol{
+.skill-detail ol {
     padding-left: 1rem;
     margin-left: 0;
 }
 
-.skill-detail li{
+.skill-detail li {
     margin-left: 0;
 }
 
@@ -201,7 +208,7 @@ header {
     to make the navigation bar of webpage follow along as the user scroll*/
     position: sticky;
     top: 0;
-    z-index: 3;
+    z-index: 10;
     background-color: #ebebeb;
     width: 100vw;
     height: 5em;
@@ -210,12 +217,13 @@ header {
     padding-left: 10%;
     padding-right: 10%;
     box-sizing: border-box;
-    overflow-x: hidden;
+    overflow: hidden;
 }
+
 /* header navigation bar formatting  (applied all pages)*/
 header nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     align-content: flex-start;
     /* align items along the main axis of the container. */
@@ -223,48 +231,279 @@ header nav {
     height: 100%;
     padding-bottom: 0;
 }
+
 /* header navigation elements formatting (applied all pages) */
 header nav a {
+    font-size: 1.1em;
+    display: flex;
+    justify-content: center;
+    position: relative;
     text-decoration: none;
     height: 5em;
     display: flex;
     align-items: center;
     color: black;
-    margin-right: 20px;
+    padding-right: 30px;
+}
+
+header nav a:not(.not)::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0;
+    bottom: 0;
+    background-color: #c4c5c7;
+    z-index: -1;
+}
+
+header nav a:hover::before {
+    height: 100%;
+    transition: height 0.5s ease;
+}
+
+header nav a:not(.not)::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0;
+    bottom: 3px;
+    background-color: black;
+}
+
+header nav a:hover::after {
+    height: 4px;
+    transition: height 0.3s ease;
 }
 
 /* give little spacing from the logo to the first nav element */
-header nav a img {
-    margin-right: 20px;
-}
+
 /* the selected page is formatted in bold text */
 header nav a#selected {
     font-weight: bold;
 }
+
+#logo {
+    background-color: transparent !important;
+    width: 100%;
+    height: 40%;
+}
+
+#logo-text {
+    padding-top: 3px;
+    width: 100%;
+    height: 100%;
+    padding-left: 10px;
+}
+
 /* right nav box formatting  */
 .right-nav {
     height: 5em;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
     align-content: center;
 }
+
 /* right nav elements formatting */
-.right-nav a {
+.language,
+.user {
     text-decoration: none;
     height: 5em;
     display: flex;
     align-items: center;
-    margin-left: 20px;
+    position: relative;
 }
+
+#icon {
+    display: flex;
+    align-items: center;
+    align-content: flex-end;
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+}
+
+#icon:hover {
+    background-color: #c4c5c7;
+    border-radius: 50%;
+    transform: translateY(-5px);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* GenAI */
+.user {
+    position: fixed;
+}
+
+/* Hide the default arrow for <summary> */
+summary::marker {
+    content: "";
+}
+
+#user-dropdown {
+    position: absolute;
+}
+
+/* Style the dropdown content */
+#user-info-dropdown {
+    position: absolute;
+    top: 2.5em;
+    right: 10%;
+    z-index: 10;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+    width: 240px;
+    height: 60px;
+    padding: 20px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Animation Styles (GenAI) */
+    opacity: 0;
+    /* Initially hidden */
+    transform: translateY(-30px);
+    /* Start slightly above its final position */
+    visibility: hidden;
+    /* Also hide it (important for some browsers) */
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s 0.2s;
+    /* Smooth transition */
+}
+
+/* Show the dropdown when the <details> element is open */
+#user-dropdown[open] #user-info-dropdown {
+    opacity: 1;
+    /* Fully visible */
+    transform: translateY(0);
+    /* Move to its final position */
+    visibility: visible;
+    /* Make it visible */
+    transition-delay: 0s;
+    /* Reset transition delay */
+}
+
+#user-avatar {
+    width: 30%;
+}
+
+#user-avatar img {
+    width: 100%;
+    height: 100%;
+}
+
+#user-details {
+    width: 60%;
+    height: auto;
+}
+
+#user-details p {
+    margin: 0;
+}
+
+#user-name {
+    font-weight: bold;
+}
+
+#user-email {
+    font-size: 0.6em;
+    color: #777;
+}
+
+.language {
+    position: fixed;
+    padding-right: 40px;
+}
+
+#lang-dropdown {
+    position: absolute;
+}
+
+#lang-options {
+    position: absolute;
+    top: 2.5em;
+    right: 10%;
+    z-index: 10;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+    width: auto;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow: hidden;
+    box-sizing: border-box;
+    /* Animation Styles (GenAI) */
+    opacity: 0;
+    /* Initially hidden */
+    transform: translateY(-10px);
+    /* Start slightly above its final position */
+    visibility: hidden;
+    /* Also hide it (important for some browsers) */
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s 0.2s;
+    /* Smooth transition */
+}
+
+/* GenAI */
+#lang-dropdown[open] #lang-options {
+    opacity: 1;
+    /* Fully visible */
+    transform: translateY(0);
+    /* Move to its final position */
+    visibility: visible;
+    /* Make it visible */
+    transition-delay: 0s;
+    /* Reset transition delay */
+}
+
+#lang-options p {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin: 0;
+}
+
+/* #lang-options p:hover {
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: #c4c5c7;
+    transition: background-color 0.3s ease;
+} */
+
+/* reference video: https://www.youtube.com/watch?v=6-cNMfeEo9I */
+#lang-options p::before {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: #c4c5c7;
+
+}
+
 /* hover effect (jumps up and scales larger) when hovering through the nav elements */
+
+#lang-options p:hover::before {
+    width: 100%;
+    transition: width 0.5s ease;
+}
 
 /* ensures no padding or margin of the background image */
 figure {
     padding: 0;
     margin: 0;
 }
+
+
 /* this style markup makes the bg image stick to the top of the page and doesn't move as we scroll down */
 #homepage-image-container {
     overflow: hidden;
@@ -276,6 +515,7 @@ figure {
     box-sizing: border-box;
 
 }
+
 /* Overlaying text styling from GenAI */
 .slogan-overlay {
     position: absolute;
@@ -292,12 +532,14 @@ figure {
     box-sizing: border-box;
     pointer-events: none;
 }
+
 /* overlaying heading styling */
 .slogan-overlay h1 {
     color: white;
     font-size: 3em;
     margin-bottom: 0;
 }
+
 /* overlaying text styling */
 .slogan-overlay p {
     margin-top: 0;
@@ -305,12 +547,15 @@ figure {
     font-size: 2em;
     font-weight: 250;
 }
+
 /* change the width of the bg image equal to the viewport's width */
 #homepage-image {
     width: 100vw;
     height: 75vh;
-    object-fit: cover;  /* Ensure image fills container (from GenAI) */
+    object-fit: cover;
+    /* Ensure image fills container (from GenAI) */
 }
+
 /* Welcome to Aevina AI content styling */
 .welcome {
     position: relative;
@@ -321,6 +566,7 @@ figure {
     margin-top: 75vh;
     /* margin-top is to leave a space to see the bg image otherwise the content will cover up the whole image */
 }
+
 /* change the alignment of the welcome text to justify and add some side margins */
 .welcome p {
     text-align: justify;
@@ -337,11 +583,13 @@ a grid to achieve the 3 boxes on a line look*/
     background-color: white;
     width: 100%;
 }
+
 /* reduce the space between h2 and the image inside each box */
 .services-container h2 {
     margin-bottom: 0;
     margin-top: 0;
 }
+
 /* divide the boxes */
 .services {
     display: grid;
@@ -358,6 +606,7 @@ a grid to achieve the 3 boxes on a line look*/
     padding-bottom: 35px;
     /* Add padding on top and from the bottom of the grid */
 }
+
 /* inside boxes' contents styling */
 .services section {
     background-color: #f9f9f9;
@@ -385,19 +634,22 @@ a grid to achieve the 3 boxes on a line look*/
 
 /* Optional: Add hover effect */
 .services section:hover {
+    transform: translateY(-5px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
     /* smooth out the effect */
 }
+
 /* End of GenAI assistance */
 
-.service .services_images {
-    width: 200px;
-    height: 150px;
+.services section img {
+    width: 100%;
+    height: 200px;
     object-fit: cover;
-    /* Crop and scale to fill (from GenAI) */
-    border-radius: 10px;
+    border-radius: 8px;
 }
+
 /* Join Our Team section's content styling */
 .hiring {
     text-align: center;
@@ -407,15 +659,21 @@ a grid to achieve the 3 boxes on a line look*/
     background-color: white;
     padding-bottom: 25px;
 }
+
 /* eliminate unwanted space auto-generated by the headings */
 .hiring h2 {
     margin-top: 0;
+    animation-range: entry 10% cover 40% !important;
 }
+
 /* create side margins to maintain the layout consistency */
 .hiring p {
     margin-left: 10%;
     margin-right: 10%;
+    animation-range: entry 10% cover 30% !important;
 }
+
+
 /* job-seek button styling */
 .job-des-nav-button {
     font-weight: 600;
@@ -425,71 +683,82 @@ a grid to achieve the 3 boxes on a line look*/
     text-decoration: none;
     border: solid 4px;
     background-color: white;
-    color: #0041a3;
+    color: #1160a6;
     padding: 20px 20px;
     border-radius: 50px;
     margin: 10px;
     margin-left: 10%;
     margin-right: 10%;
     /* GenAI */
-    position: relative; /* Required for pseudo-element positioning */
-    overflow: hidden; /* Keeps pseudo-element contained */
+    position: relative;
+    /* Required for pseudo-element positioning */
+    overflow: hidden;
+    /* Keeps pseudo-element contained */
     transition: background-color 0.3s ease-out, color 0.3s ease-out;
 }
 
 .job-des-nav-button:hover {
-    background-color: #0041a3;
+    background-color: #1160a6;
     color: white;
 }
+
 /* footer styling */
 footer {
-    margin-top: 0;
-    position: fixed;
-    bottom: 0;
+    position: relative;
     z-index: 3;
     background-color: #ebebeb;
     width: 100%;
-    box-sizing: border-box; /* Critical to prevent overflow (GenAI)*/
+    box-sizing: border-box;
+    /* Critical to prevent overflow (GenAI)*/
     margin-bottom: 0;
 }
+
 /* spread the sections of the footer evenly out horizontally */
 footer article:first-child {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
     flex-wrap: wrap;
     align-content: flex-start;
     margin-left: 10%;
     margin-right: 5%;
+    box-sizing: border-box;
+    animation-range: entry 0% cover 50% !important;
 }
+
 /* ensures each section takes up 16% of the viewport's width */
 footer article:first-child section {
     width: 16%;
     padding-right: 2.5rem;
 }
+
 /* change the colour of any link into blue */
 footer #link {
-    color: #0041a3;
+    color: #1160a6;
 }
+
 /* change the font weight of the selected page into bold */
 footer #selected {
     font-weight: bold;
 }
+
 /* eliminate the dots and auto-generated padding of the ul list */
 footer ul {
     list-style: none;
     padding: 0;
 }
+
 /* create a little space between the heading and the content underneath each */
 footer h3 {
     margin-bottom: 0.5em;
 }
+
 /* get rid of the underlining effect of the nav elements as well as the default blue colour */
 footer a {
     text-decoration: none;
     color: black;
     transition: color 0.3s ease;
 }
+
 /* nav elements hover effect */
 footer article section ul li a:hover {
     display: flex;
@@ -497,18 +766,21 @@ footer article section ul li a:hover {
     transform: translateY(-2.5px) !important;
     transition: transform 0.2s ease;
 }
+
 /* horizontal rule and copyright statement alignment */
-footer article:nth-child(2){
+footer article:nth-child(2) {
     text-align: center;
     width: 100%;
     font-size: 0.8rem;
     padding-bottom: 5px;
 }
+
 /* define the size of the social symbols */
 footer article section div img {
     width: 32px;
     height: 32px;
 }
+
 /* put them into flexboxes */
 .social-icons-container {
     display: flex;
@@ -516,230 +788,300 @@ footer article section div img {
     justify-content: space-between;
     gap: 12px;
     margin-top: 10px;
-  }
-  /* mutually overlap the grey icons vs the coloured icons to create the colour changing effect  */
-  .social-icon img {
+}
+
+/* mutually overlap the grey icons vs the coloured icons to create the colour changing effect  */
+.social-icon img {
     position: absolute;
     transition: all 0.3s ease;
-  }
-  /* grey icon is visible by default */
-  .icon-default {
+}
+
+/* grey icon is visible by default */
+.icon-default {
     opacity: 1;
-  }
-  
-  /* coloured icon is not visible by default */
-  .icon-hover {
+}
+
+/* coloured icon is not visible by default */
+.icon-hover {
     opacity: 0;
-  }
-  
-  /* change to the opposite */
-  .social-icon:hover .icon-default {
+}
+
+/* change to the opposite */
+.social-icon:hover .icon-default {
     opacity: 0;
-  }
-  
-  .social-icon:hover .icon-hover {
+}
+
+.social-icon:hover .icon-hover {
     opacity: 1;
-  }
-  /* add in some hove effects (grows and jumps) */
-  .social-icon:hover img {
+}
+
+/* add in some hove effects (grows and jumps) */
+.social-icon:hover img {
     /* Scale effect is from GenAI */
     transform: scale(1.1);
     transition: transform 0.3s ease;
     transform: translateY(-5px);
-  }
+}
 
-  /* defining animation keyframes down below (from: https://www.youtube.com/watch?v=SgmNxE9lWcY) */
-  /* content slide gradually slide in from top */
-  @keyframes slideInTop {
+/* defining animation keyframes down below (from: https://www.youtube.com/watch?v=SgmNxE9lWcY) */
+/* content slide gradually slide in from top */
+@keyframes slideInTop {
     0% {
         opacity: 0;
         transform: translateY(-300px);
     }
+
     100% {
         opacity: 1 !important;
         transform: translateY(0);
     }
-  }
+}
+
 /* content gradually slide in from bottom */
-  @keyframes slideInBottom {
+@keyframes slideInBottom {
     0% {
         opacity: 0;
         transform: translateY(300px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
     }
-  }
-  /* content gradually slide in from left */
-  @keyframes slideInLeft {
-    0% { 
+}
+
+/* content gradually slide in from left */
+@keyframes slideInLeft {
+    0% {
         opacity: 0;
         transform: translateX(-100vw);
-      }
-      100% {
+    }
+
+    100% {
         opacity: 1;
         transform: translateX(0);
-      }
     }
-    /* content gradually slide in from right */
-  @keyframes slideInRight {
+}
+
+/* content gradually slide in from right */
+@keyframes slideInRight {
     0% {
         opacity: 0;
         transform: translateX(100vw);
     }
+
     100% {
         opacity: 1;
         transform: translateX(0);
     }
-  }
-  /* footer nav elements content slightly slide down as appears */
-  @keyframes footerSlide {
+}
+
+/* footer nav elements content slightly slide down as appears */
+@keyframes footerSlide {
     0% {
         opacity: 0;
-        transform: translateY(-50px);
+        transform: translateY(-20px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
     }
-  }
-  /* breathing effect of the job-description link button */
-  @keyframes btn-breathe {
-    0% {
+}
 
-    }
+/* breathing effect of the job-description link button */
+@keyframes btn-breathe {
+    0% {}
+
     50% {
         transform: scale(1.2);
     }
+
     100% {
         transform: scale(1);
     }
-  }
+}
+
 /* spin effect on the y axis */
-  @keyframes spin {
+@keyframes spin {
     0% {
         opacity: 0;
         transform: rotateY(360deg);
     }
+
     100% {
         opacity: 1;
     }
-  }
+}
+
 /* slide in from bottom with scaling to create the effect of sliding from a center point */
-  @keyframes slideInBottomScale {
+@keyframes slideInBottomScale {
     0% {
         opacity: 0;
         transform: scale(0.1) translateY(300px);
     }
+
     100% {
         opacity: 1;
         transform: scale(1) translateY(0);
     }
-  }
-  /* definition of a set of animations that creates the constant breathing effect */
-  .btn-breathe {
+}
+
+@keyframes load {
+    0% {
+        transform: rotateX(0) rotateY(0) rotateZ(0);
+    }
+
+    33% {
+        transform: rotateX(180deg) rotateY(0) rotateZ(0);
+
+    }
+
+    67% {
+        transform: rotateX(180deg) rotateY(180deg) rotateZ(0);
+    }
+
+    100% {
+        transform: rotateX(180deg) rotateY(180deg) rotateZ(180deg);
+    }
+}
+
+/* definition of a set of animations that creates the constant breathing effect */
+.btn-breathe {
     animation-name: btn-breathe;
     animation-iteration-count: infinite !important;
-    animation-fill-mode: alternate !important;
     animation-duration: 3s !important;
-  }
-  /* definition of a set of animations that creates the smoothness for the slide-in effect */
-  .animation-slide {
+}
+
+/* definition of a set of animations that creates the smoothness for the slide-in effect */
+.animation-slide {
     animation-duration: 2s;
     animation-timing-function: ease;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
-  }
-  /* definition of a set of animations that allows contents to slide-in as we scroll through it */
-  .animation-slide-inscroll {
+}
+
+/* definition of a set of animations that allows contents to slide-in as we scroll through it */
+.animation-slide-inscroll {
     animation-direction: normal;
     animation-timing-function: ease;
-    animation-range: entry 0% cover 50%;
+    animation-range: entry 0% cover 60%;
     animation-timeline: view();
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
-  }
-  /* definition of a set of animmations allows footer's content to slightly slide down as we scroll down  */
-  .footer-slide-inscroll {
+}
+
+/* definition of a set of animmations allows footer's content to slightly slide down as we scroll down  */
+.footer-slide-inscroll {
     animation-timing-function: ease;
     animation-range: entry 5% cover 50%;
     animation-timeline: view();
-  }
-  /* slide from left class of animation for usability html */
-  .slideInLeft {
+}
+
+/* slide from left class of animation for usability html */
+.slideInLeft {
     animation-name: slideInLeft;
-  }
-  /* slide from right" class of animation for usability in html */
-  .slideInRight {
+}
+
+/* slide from right" class of animation for usability in html */
+.slideInRight {
     animation-name: slideInRight;
-  }
-  /* slide from top class of animation for usability in html */
-  .slideInTop {
-    animation-name: slideInTop;
-  }
+}
+
 /* slide from top class of animation for usability in html */
-  .slideInBottom {
+.slideInTop {
+    animation-name: slideInTop;
+}
+
+/* slide from top class of animation for usability in html */
+.slideInBottom {
     animation-name: slideInBottom;
-  }
-  .slideInBottomScale {
+}
+
+.slideInBottomScale {
     animation-name: slideInBottomScale;
-  }
-  .spin {
+}
+
+.spin {
     animation-name: spin;
-  }
-  .scale {
+}
+
+.scale {
     animation-name: scale;
-  }
-  /* footer content slide effect */
-  .footerSlide {
+}
+
+/* footer content slide effect */
+.footerSlide {
     animation-name: footerSlide;
-  }
-  /* different delay effect times */
-  .delay-0dot5s {
+}
+
+.load {
+    animation-name: load;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+}
+
+/* different delay effect times */
+.delay-0dot5s {
     animation-delay: 0.5s;
-  }
-  
-  .delay-1s {
+}
+
+.delay-1s {
     animation-delay: 1s;
-  }
-  .delay-1dot5s {
+}
+
+.delay-1dot5s {
     animation-delay: 1.5s;
-  }
-  .delay-2s {
+}
+
+.delay-2s {
     animation-delay: 2s;
-  }
-  /* GenAI: code suggestions to make the underline effect that runs from one end to another */
-  .underline-hover {
+}
+
+/* GenAI: code suggestions to make the underline effect that runs from one end to another */
+.underline-hover {
     display: flex;
     position: relative;
     text-decoration: none;
     align-items: center;
     align-content: center;
-  }
-  /* GenAI */
-  .underline-hover::after {
+}
+
+/* GenAI */
+.underline-hover::after {
     z-index: 4;
-    content: ''; /* Ensure it has content */
-    position: absolute; /* Position it relative to the parent */
-    bottom: 35%; /* Move it down by 1 line (adjust the value as needed) */
-    left: 0; /* Center it horizontally */
-    width: 100%; /* Width of the pseudo-element (adjust as needed) */
-    height: 2px; /* Height of the pseudo-element */
-    background-color: black; /* Color of the pseudo-element */
+    content: '';
+    /* Ensure it has content */
+    position: absolute;
+    /* Position it relative to the parent */
+    bottom: 35%;
+    /* Move it down by 1 line (adjust the value as needed) */
+    left: 0;
+    /* Center it horizontally */
+    width: 100%;
+    /* Width of the pseudo-element (adjust as needed) */
+    height: 2px;
+    /* Height of the pseudo-element */
+    background-color: black;
+    /* Color of the pseudo-element */
     transform: scaleX(0);
     transform-origin: left;
-  }
-  .underline-hover:hover{
+}
+
+.underline-hover:hover {
     transform: translateY(-5px);
     transition: transform 0.2s ease;
-  }
-  .underline-hover:hover::after {
+}
+
+.underline-hover:hover::after {
     transform: scaleX(1);
     transition: transform 0.2s ease;
-  }
-  /* defining animation keyframes ends */
+}
+
+/* defining animation keyframes ends */
 
 
 
@@ -749,58 +1091,19 @@ footer article section div img {
 
 
 
-  /* apply section
+/* apply section
   /* General Styles */
-body {
-    font-family: 'Lexend', sans-serif; /* Changed to Lexend font */
+.apply-body {
+    font-family: 'Poppins', sans-serif;
+    /* Changed to Lexend font */
     margin: 0;
     padding: 0;
     background-color: #f7f7f7;
     color: #333;
 }
 
-header {
-    background-color: #0044cc;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    border-bottom: 5px solid #003366;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-    font-weight: 600;
-}
-
-header img {
-    width: 120px;
-    margin-top: 15px;
-}
-
-/* Navigation Bar */
-nav {
-    background-color: #333;
-    padding: 12px 0;
-    text-align: center;
-}
-
-nav a {
-    color: white;
-    margin: 0 25px;
-    text-decoration: none;
-    font-size: 1.1em;
-    padding: 8px 15px;
-}
-
-nav a:hover {
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 4px;
-}
-
 /* Form Container */
-main {
+.apply-main {
     padding: 40px;
     background-color: white;
     margin: 30px auto;
@@ -810,27 +1113,36 @@ main {
     max-width: 900px;
 }
 
-h2 {
-    color: #0044cc;
+.apply-main article section h2 {
+    color: #1160a6;
     text-align: center;
     font-size: 2.2em;
     margin-bottom: 20px;
 }
 
 /* Form Sections */
-fieldset {
+.apply-main article section fieldset {
     border: 2px solid #ddd;
     padding: 20px;
     margin-bottom: 30px;
     border-radius: 10px;
     background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 30px;
+    /* Gap between sections */
+    border-radius: 8px;
+    background-color: #f9f9f9;
 }
 
-legend {
+.apply-main article section fieldset legend {
     font-weight: bold;
-    color: #0044cc;
+    color: #1160a6;
     font-size: 1.3em;
     padding: 0 10px;
+    font-weight: bold;
+    color: #333;
+    font-size: 1.2em;
 }
 
 .form-row {
@@ -848,10 +1160,13 @@ legend {
 
 .form-row input,
 .form-row select,
-.form-row textarea {
-    width: 60%;
+.form-row textarea,
+form fieldset:first-child select {
+    width: 100%;
     padding: 12px;
-    border: 2px solid black; /* Black border for all input boxes */
+    margin-top: 6px;
+    border: 2px solid black;
+    /* Black border for all input boxes */
     border-radius: 8px;
     font-size: 1em;
     background-color: #fff;
@@ -861,7 +1176,7 @@ legend {
 .form-row input:focus,
 .form-row select:focus,
 .form-row textarea:focus {
-    border-color: #0044cc;
+    border-color: #1160a6;
     outline: none;
 }
 
@@ -886,7 +1201,7 @@ legend {
 }
 
 /* Required Fields */
-label .required {
+.required {
     color: red;
     font-weight: bold;
 }
@@ -894,67 +1209,121 @@ label .required {
 /* Submit Button */
 input[type="submit"] {
     padding: 14px 20px;
-    background-color: #4CAF50; /* Green color for Apply button */
+    background-color: #1160a6;
+    /* Blue color for Apply button */
     border: none;
     color: white;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
     width: 100%;
     font-size: 1.2em;
     margin-top: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow to Apply button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Add shadow to Apply button */
+    transition: background-color 0.5s ease, transform 0.5s ease;
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049; /* Darker green on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+    background-color: #0f5796;
+    /* Darker green on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    /* Stronger shadow on hover */
+    transform: scale(1.05);
 }
 
 input[type="reset"] {
     padding: 14px 20px;
-    background-color: #f44336; /* Red color for Reset button */
+    background-color: #f44336;
+    /* Red color for Reset button */
     border: none;
     color: white;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
     width: 100%;
     font-size: 1.2em;
     margin-top: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow to Reset button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Add shadow to Reset button */
+    transition: background-color 0.5s ease, transform 0.5s ease;
 }
 
 input[type="reset"]:hover {
-    background-color: #e53935; /* Darker red on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
-}
+    background-color: #e53935;
+    /* Darker red on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    /* Stronger shadow on hover */
+    transform: scale(1.05);
 
-/* Section Gaps */
-fieldset {
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin-bottom: 30px; /* Gap between sections */
-    border-radius: 8px;
-    background-color: #f9f9f9;
-}
-
-legend {
-    font-weight: bold;
-    color: #333;
-    font-size: 1.2em;
-}
-
-/* Footer */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 30px;
-    font-size: 1em;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+
+    /* GenAI assistance for header styling on mobile devices */
+    header {
+        height: 5em;
+        /* Adjust height based on content */
+        flex-direction: row;
+        /* Keep it horizontal */
+        justify-content: space-between;
+        /* Distribute space */
+        align-items: center;
+        /* Vertically align items */
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .left-nav {
+        width: auto;
+        /* Adjust width to content */
+        padding: 0;
+        /* Remove extra padding */
+        margin: 0;
+    }
+
+    header nav {
+        flex-direction: row;
+        /* Keep links horizontal */
+        align-items: center;
+        padding-top: 0;
+    }
+
+    header nav a {
+        font-size: 1em;
+        /* Further reduce font size if needed */
+        padding-right: 10px;
+        /* Reduce padding between nav items */
+        height: 5em;
+        /* Adjust height */
+    }
+
+    .right-nav {
+        width: 20%;
+        /* Adjust width to content */
+        justify-content: space-around;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .language {
+        margin-right: 30px;
+    }
+
+    #icon {
+        width: 24px;
+        /* Further reduce icon size if necessary */
+        height: 24px;
+    }
+
+    #logo {
+        height: 1.5em;
+        /* Further adjust logo size */
+    }
+
+    #logo-text {
+        height: 5em;
+    }
+
     .form-row {
         flex-direction: column;
     }
@@ -963,15 +1332,40 @@ footer {
     .form-row input,
     .form-row select,
     .form-row textarea {
-        width: 100%; /* Full width for smaller screens */
+        width: 100%;
+        /* Full width for smaller screens */
     }
 
     .checkbox-group {
-        flex-direction: column;  /* Stack checkboxes vertically on small screens */
+        flex-direction: column;
+        /* Stack checkboxes vertically on small screens */
     }
 
-    main {
-        width: 90%; /* Increase width to 90% for better mobile use */
+    .apply-main {
+        width: 90%;
+        /* Increase width to 90% for better mobile use */
+    }
+
+    footer article:first-child {
+        flex-direction: column;
+        align-content: center;
+        flex-wrap: nowrap;
+        height: auto;
+        padding-top: 20px;
+        padding-bottom: 50px;
+    }
+
+    footer article:first-child section {
+        width: 80%;
+
+    }
+
+    .social-icons-container {
+        width: 50%;
+    }
+
+    header nav a {
+        text-align: center;
     }
 }
 
@@ -979,22 +1373,28 @@ footer {
 
 /* Style for Small Description */
 .small-description {
-    font-size: 0.9em; /* Smaller font size for the description */
-    color: #555; /* Subtle color for the description text */
+    font-size: 0.9em;
+    /* Smaller font size for the description */
+    color: #555;
+    /* Subtle color for the description text */
     margin-top: 10px;
 }
 
 /* Style for Job Descriptions Link */
 .job-link {
-    color: #0044cc; /* Blue color for the link */
-    text-decoration: underline; /* Underline the link */
-    font-weight: bold; /* Make the link text bold */
+    color: #1160a6;
+    /* Blue color for the link */
+    text-decoration: underline;
+    /* Underline the link */
+    font-weight: bold;
+    /* Make the link text bold */
 }
 
 .job-link:hover {
-    color: #45a049; /* Change color when hovered */
-    text-decoration: none; /* Remove underline on hover */
+    transform: translateY(-5px);
+    text-decoration: none;
+    /* Remove underline on hover */
+    transition: text-decoration 0.3s ease, transform 0.3s ease;
 }
 
-  
-  
+/* defining animation keyframes ends */
