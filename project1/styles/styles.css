@@ -88,13 +88,16 @@ page and doesn't move as we scroll down */
 width */
 #aside-jobs {
     float: right;
-    width: 20%;
+    width: 25%;
+    height: 25vh;
     margin-top: 3vh;
     position: relative;
-    border: 1px solid burlywood;
-    border-radius: 8px; /* Optional: Rounded corners */
-    box-shadow: 0 10px 10px rgba(5, 5, 5, 0.1); /* Add the 
-subtle shadow */
+    margin-right: 5%;
+}
+
+#aside-jobs div {
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 #aside-jobs div h3 {
@@ -125,11 +128,12 @@ and you can change it */
 }
 
 #main-jobs {
-    width: 79%;
+    width: 63%;
     display: flex;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 5%;
 }
 
 .job-list {
@@ -288,8 +292,6 @@ and you can change it */
 }
 /*Viet Hoang Tran edited 07/04/25*/
 /*Viet Hoang Tran edited 03/04/25*/
-
-
 
 /* Khanh Nam Le Pham edited 03/04/25, 3:27PM */
 /* applied in the header */
