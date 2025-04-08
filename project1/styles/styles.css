@@ -89,12 +89,13 @@ width */
 #aside-jobs {
     float: right;
     width: 25%;
-    height: 30vh;
+    height: 25vh;
     margin-top: 3vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     position: relative;
+    margin-right: 5%;
+}
+
+#aside-jobs div {
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
@@ -132,7 +133,7 @@ and you can change it */
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-left: 9%;
+    margin-left: 5%;
 }
 
 .job-list {
