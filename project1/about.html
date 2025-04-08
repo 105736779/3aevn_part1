@@ -77,186 +77,140 @@
             </div>
         </section>
     </header>
-    <main>
+    <main class="about-main">
         <article class="about-page">
-          <section class="section-heading">
-            <h2 id="form-title">About Our Group</h2>
+          <section class="sticky-title" role="heading" aria-level="1">
+            <h1>About Our Group</h1>
           </section>
       
-          <section class="group-info">
-            <h3>Group Information</h3>
-            <ul class="nested-list">
-              <li>Group Name: 3AEVN</li>
-              <li>Class:
-                <ul>
-                  <li>Time: 10:30 - 12:30 </li>
-                  <li>Day: Thursday</li>
-                </ul>
-              </li>
-            </ul>
-          </section>
-      
-          <section class="student-ids">
-            <h3>Student IDs</h3>
-            <ul class="nested-list">
-              <li>Members:
-                <ul>
-                  <li>105736779 - Khanh Nam Le Pham</li>
-                  <li>104688235 - Viet Hoang Tran</li>
-                  <li>104688235 - Quang Tuan Anh Tran</li>
-                </ul>
-              </li>
-            </ul>
-          </section>
-      
-          <section class="tutor-info">
-            <h3>Tutor Information</h3>
-            <p class="tutor-name">Our Tutor: Razeen</p>
-          </section>
-      
-          <section class="contributions">
-            <h3>Member Contributions</h3>
-            <dl class="definition-list">
-              <dt>Khanh Nam Le Pham</dt>
-              <dd>
-                <ul>
-                    <li></li>
-                </ul>
-              </dd>
-              <dt>[Member Name 2]</dt>
-              <dd>[Brief description of their contribution]</dd>
-              <dt>[Member Name 3]</dt>
-              <dd>[Brief description of their contribution]</dd>
-            </dl>
-          </section>
-      
-          <section class="group-photo">
-            <h3>Our Group Photo</h3>
-            <figure>
-              <img src="images/group_photo.jpg" alt="Our Group Photo" width="400" height="300">
-              <figcaption>A photo of the Aevina AI team.</figcaption>
-            </figure>
-          </section>
-      
-          <section class="interests-table">
-            <h3>Members' Interests</h3>
-            <table>
-              <caption>Interests of Our Team Members</caption>
+          <!-- Class + Tutor Info in a Calendar -->
+          <section class="class-calendar" role="region" aria-label="Class and Tutor Information">
+            <h2>Class Schedule</h2>
+            <table class="calendar">
               <thead>
                 <tr>
-                  <th>Khanh</th>
-                  <th colspan="2">Areas of Interest</th>
+                  <th>Time</th>
+                  <th>Monday</th>
+                  <th>Tuesday</th>
+                  <th>Wednesday</th>
+                  <th>Thursday</th>
+                  <th>Friday</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Khanh Nam Le Pham</td>
-                  <td>Video Games</td>
-                  <td>Gym</td>
+                  <td>10:30 AM</td>
+                  <td></td><td></td><td></td>
+                  <td rowspan="2" class="highlight">Group Class with Razeen</td>
                 </tr>
                 <tr>
-                  <td>Viet Hoang Tran</td>
-                  <td>Soccer</td>
-                  <td>Math</td>
-                </tr>
-                <tr>
-                  <td>Quang Tuan Anh (John) Tran</td>
-                  <td>Fashion</td>
-                  <td>Technology</td>
+                  <td>12:30 PM</td>
+                  <td></td><td></td><td></td>
+                  <td class="highlight"></td>
+                  <td></td>
                 </tr>
               </tbody>
             </table>
           </section>
       
-          <section class="group-profile">
-            <h3>Group Profile</h3>
-            <p>Here's a little more about our group and our backgrounds:</p>
+          <!-- Contributions Table -->
+          <section class="contributions" role="region" aria-label="Member Contributions">
+            <h2>Member Contributions</h2>
+            <table class="contributions-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Shared Responsibility</th>
+                  <th>Individual Contribution</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Khanh Nam Le Pham</td>
+                  <td>CSS, About Page</td>
+                  <td>Home Page</td>
+                </tr>
+                <tr>
+                  <td>Viet Hoang Tran</td>
+                  <td>CSS, About Page</td>
+                  <td>Jobs Page</td>
+                </tr>
+                <tr>
+                  <td>Quang Tuan Anh Tran</td>
+                  <td>CSS, About Page</td>
+                  <td>Apply Page</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
       
-            <section class="skills">
-              <h4>Programming Skills</h4>
-              <ul>
-                <li>[Member Name 1]: [List skills]</li>
-                <li>[Member Name 2]: [List skills]</li>
-                <li>[Member Name 3]: [List skills]</li>
-              </ul>
-            </section>
+          <!-- Programming Skills -->
+          <section class="skills" aria-label="Programming Skills">
+            <h2>Programming Skills</h2>
+            <div class="battery-bars">
+              <div class="member-skill">
+                <h3>Khanh Nam Le Pham</h3>
+                <div class="battery html" data-level="80">HTML</div>
+                <div class="battery css" data-level="70">CSS</div>
+                <div class="battery js" data-level="50">JavaScript</div>
+              </div>
+              <div class="member-skill">
+                <h3>Viet Hoang Tran</h3>
+                <div class="battery html" data-level="90">HTML</div>
+                <div class="battery css" data-level="85">CSS</div>
+                <div class="battery js" data-level="60">JavaScript</div>
+              </div>
+              <div class="member-skill">
+                <h3>Quang Tuan Anh Tran</h3>
+                <div class="battery html" data-level="70">HTML</div>
+                <div class="battery css" data-level="60">CSS</div>
+                <div class="battery js" data-level="40">JavaScript</div>
+              </div>
+            </div>
+          </section>
       
-            <section class="experience">
-              <h4>Working Experiences</h4>
-              <ul>
-                <li>[Member Name 1]: [Experience]</li>
-                <li>[Member Name 2]: [Experience]</li>
-                <li>[Member Name 3]: [Experience]</li>
-              </ul>
-            </section>
+          <!-- Demographic Boxes -->
+          <section class="demographics" aria-label="Demographics">
+            <h2>Demographics</h2>
+            <div class="demographic-boxes">
+              <div class="demographic-card">
+                <img src="images/khanh.jpg" alt="Photo of Khanh" />
+                <div class="info">
+                  <p><strong>Name:</strong> Khanh Nam Le Pham</p>
+                  <p><strong>Age:</strong> 20</p>
+                  <p><strong>Nationality:</strong> Vietnamese</p>
+                </div>
+              </div>
+              <div class="demographic-card">
+                <img src="images/viet.jpg" alt="Photo of Viet" />
+                <div class="info">
+                  <p><strong>Name:</strong> Viet Hoang Tran</p>
+                  <p><strong>Age:</strong> 21</p>
+                  <p><strong>Nationality:</strong> Vietnamese</p>
+                </div>
+              </div>
+              <div class="demographic-card">
+                <img src="images/quang.jpg" alt="Photo of Quang" />
+                <div class="info">
+                  <p><strong>Name:</strong> Quang Tuan Anh Tran</p>
+                  <p><strong>Age:</strong> 22</p>
+                  <p><strong>Nationality:</strong> Vietnamese</p>
+                </div>
+              </div>
+            </div>
+          </section>
       
-            <section class="demographics">
-              <h4>Demographic Information</h4>
-              <table>
-                <caption>Demographics of Our Team</caption>
-                <thead>
-                  <tr>
-                    <th>Member Name</th>
-                    <th>Age</th>
-                    <th>Nationality</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>[Member Name 1]</td>
-                    <td>[Age]</td>
-                    <td>[Nationality]</td>
-                  </tr>
-                  <tr>
-                    <td>[Member Name 2]</td>
-                    <td>[Age]</td>
-                    <td>[Nationality]</td>
-                  </tr>
-                  <tr>
-                    <td>[Member Name 3]</td>
-                    <td>[Age]</td>
-                    <td>[Nationality]</td>
-                  </tr>
-                </tbody>
-              </table>
-            </section>
-      
-            <section class="hometowns">
-              <h4>Hometowns</h4>
-              <img src="images/vietname.jpeg" alt="Vietnam" tittle="Vietnam">  
-            </section>
-      
-            <section class="favorites">
-              <h4>Favorite Books, Music, Films</h4>
-              <ul>
-                <li>[Member Name 1]:
-                  <ul>
-                    <li>Books: [List]</li>
-                    <li>Music: [List]</li>
-                    <li>Films: [List]</li>
-                  </ul>
-                </li>
-                <li>[Member Name 2]:
-                  <ul>
-                    <li>Books: [List]</li>
-                    <li>Music: [List]</li>
-                    <li>Films: [List]</li>
-                  </ul>
-                </li>
-                <li>[Member Name 3]:
-                  <ul>
-                    <li>Books: [List]</li>
-                    <li>Music: [List]</li>
-                    <li>Films: [List]</li>
-                  </ul>
-                </li>
-              </ul>
-            </section>
+          <!-- Group Photo -->
+          <section class="group-photo">
+            <h2>Our Group Photo</h2>
+            <figure>
+              <img src="images/group_photo.jpg" alt="Aevina AI team group photo" width="400" height="300">
+              <figcaption>A photo of the Aevina AI team.</figcaption>
+            </figure>
           </section>
         </article>
       </main>
       
-
     <br>
 
     <footer role="contentinfo">
