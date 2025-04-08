@@ -1554,6 +1554,27 @@ input[type="reset"]:hover {
     .social-icon {
         margin-right: 30px;
     }
+    #aside-jobs {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        position: relative;
+        float: none;
+        width: 98%;
+        height: 100%;
+        font-size: 70%
+    }
+    #main-jobs {
+        position: relative;
+        margin-left: 0;
+        width: 75%;
+        font-size: 70%;
+    }
+    .aids-topic, .skill, .salary {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        
+    }
 }
 
 /* Larger Mobile Devices */
@@ -1670,6 +1691,24 @@ input[type="reset"]:hover {
     .social-icons-container {
         width: 50%;
     }
+    #aside-jobs {
+        float: right;
+        width: 25%;
+        height: 20vh;
+        position: relative;
+        font-size: 60%
+    }
+    #main-jobs {
+        position: relative;
+        margin-left: 0;
+        width: 50%;
+        font-size: 65%;
+    }
+    .aids-topic, .skill, .salary {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        
+    }
 }
 
 /* tablets and small laptops */
@@ -1715,6 +1754,23 @@ input[type="reset"]:hover {
 
     footer article:nth-child(2) hr {
         width: 90%;
+    }
+    #aside-jobs {
+        float: right;
+        width: 25%;
+        height: 20vh;
+        position: relative;
+        font-size: 65%;
+    }
+    #main-jobs {
+        position: relative;
+        margin-left: 0;
+        width: auto;
+        font-size: 65%;
+    }
+    .aids-topic, .skill, .salary {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 }
 
