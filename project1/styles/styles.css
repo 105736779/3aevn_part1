@@ -626,7 +626,6 @@ summary::marker {
     width: 100vw;
     height: 30vh;
     background-color: #f9f9f9;
-    border: 1px solid #ccc;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -1744,3 +1743,93 @@ input[type="reset"]:hover {
 }
 
 /* defining animation keyframes ends */
+
+/* Khanh Nam Le Pham, About Page CSS, 8/4/24, 10:14AM */
+.about-page {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: auto;
+    background-color: #fafafa;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  }
+  
+  .about-page h2,
+  .about-page h3,
+  .about-page h4 {
+    color: #1e1e2f;
+    margin-bottom: 0.5rem;
+  }
+  
+  .about-page ul,
+  .about-page dl {
+    padding-left: 1.5rem;
+  }
+  
+  .about-page .nested-list ul {
+    list-style-type: circle;
+    margin-left: 1.2rem;
+  }
+  
+  .about-page .definition-list dt {
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+  
+  .about-page .definition-list dd {
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .about-page figure {
+    text-align: center;
+  }
+  
+  .about-page figure img {
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .about-page table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: #fff;
+  }
+  
+  .about-page table caption {
+    caption-side: top;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .about-page table th,
+  .about-page table td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    text-align: left;
+  }
+  
+  .about-page table th {
+    background-color: #f0f0f0;
+  }
+  
+  .about-page .small-description {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 0.5rem;
+  }
+  
+  .about-page section {
+    margin-bottom: 2.5rem;
+    padding: 1rem 1.5rem;
+    background: #fff;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .about-page section:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
