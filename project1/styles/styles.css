@@ -25,39 +25,46 @@ figure {
 
 /*relative to its position it under the header tag */
 #jobs-image-container {
-    position:relative;
-    width:100vw;
+    position: relative;
+    width: 100vw;
     height: 75vh;
     overflow: hidden;
 }
+
 /*::before can create transparent dark layer in front of image*/
 #jobs-image-container::before {
-    content: ""; 
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgb(58, 38, 38);
-     /* Black with 40% opacity */
+    /* Black with 40% opacity */
     opacity: 0.4;
-    z-index: 1;  /*this layer is on top of image but under the text*/
-  }
+    z-index: 1;
+    /*this layer is on top of image but under the text*/
+}
 
 #jobs-image {
-    width: 100%; /* full size of container*/
+    width: 100%;
+    /* full size of container*/
     height: 100%;
-    object-fit: cover;   /* Crops to fill screen without 
+    object-fit: cover;
+    /* Crops to fill screen without 
 distortion */
 }
 
 .jobs-image-text {
-    position: absolute; /*removes normal documents flow and put 
+    position: absolute;
+    /*removes normal documents flow and put 
 it on top of its parent  (jobs-image-container)*/
-    top: 0;  /*start at the top-left corner*/
+    top: 0;
+    /*start at the top-left corner*/
     left: 0;
     z-index: 2;
-    width: 100%; /*make it stretch full screen*/
+    width: 100%;
+    /*make it stretch full screen*/
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -69,7 +76,8 @@ it on top of its parent  (jobs-image-container)*/
 
 /* Heading */
 .jobs-image-text h1 {
-    color: #FF6B35;     /* Vibrant orange */
+    color: #FF6B35;
+    /* Vibrant orange */
     font-size: 3em;
     margin: 0 0 10px 0;
 }
@@ -81,6 +89,7 @@ it on top of its parent  (jobs-image-container)*/
     margin: 0;
     font-weight: 500;
 }
+
 /* this style markup makes the bg image stick to the top of the 
 page and doesn't move as we scroll down */
 
@@ -114,16 +123,17 @@ and you can change it */
 #aside-jobs li {
     margin-left: 4px;
 }
+
 #map {
-    width:100%;
-    height:100%;
-    position:relative;
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
 /*iframe embed another HTML document within the current webpage*/
-#map div iframe{
+#map div iframe {
     width: 100%;
-    height:80%;
+    height: 80%;
     border-radius: 10px;
 }
 
@@ -230,11 +240,12 @@ and you can change it */
     text-indent: 10px;
 }
 
-#ai-description{
+#ai-description {
     background-color: #ff0;
     color: #000;
 }
-#ds-description{
+
+#ds-description {
     background-color: #ff0;
     color: #000;
 }
@@ -291,6 +302,7 @@ and you can change it */
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 2px;
 }
+
 /*Viet Hoang Tran edited 07/04/25*/
 /*Viet Hoang Tran edited 03/04/25*/
 
@@ -367,7 +379,7 @@ header nav a:hover::before {
 /* style the solid line that appears at the bottom of each nav's hover  */
 header nav a:not(.not)::after {
     content: "";
-    justify-content: center ;
+    justify-content: center;
     position: absolute;
     width: 100%;
     height: 0;
@@ -1462,6 +1474,451 @@ input[type="reset"]:hover {
 
 }
 
+/* Style for Small Description */
+.small-description {
+    font-size: 0.9em;
+    /* Smaller font size for the description */
+    color: #555;
+    /* Subtle color for the description text */
+    margin-top: 10px;
+}
+
+/* Style for Job Descriptions Link */
+.job-link {
+    color: #1160a6;
+    /* Blue color for the link */
+    text-decoration: underline;
+    /* Underline the link */
+    font-weight: bold;
+    /* Make the link text bold */
+}
+
+.job-link:hover {
+    transform: translateY(-5px);
+    text-decoration: none;
+    /* Remove underline on hover */
+    transition: text-decoration 0.3s ease, transform 0.3s ease;
+}
+
+/* defining animation keyframes ends */
+
+/* Khanh Nam Le Pham, About Page CSS, 8/4/24, 10:14AM */
+/* Sticky Title */
+.about-main article section:not(:first-child) {
+    margin: 0 10%;
+}
+
+.sticky-title {
+    background: #fdfdfd;
+    text-align: center;
+    z-index: 100;
+    padding: 1rem;
+    font-size: 2rem;
+    border-bottom: 2px solid #ddd;
+}
+
+figure #group-photo {
+    display: flex;
+    justify-content: center;
+    background-color: grey;
+    width: 100%;
+    height: 100%;
+}
+
+/* Modern Calendar Styling */
+.calendar {
+    width: 100%;
+    max-width: 1000px;
+    margin: 2rem auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    font-size: 0.95em;
+}
+
+.calendar-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.calendar th,
+.calendar td {
+    padding: 1em;
+    word-wrap: break-word;
+}
+
+/* Header Row */
+.calendar thead {
+    background: #f5f7fa;
+}
+
+.calendar th {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+    color: #333;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+/* Table Body */
+.calendar td {
+    padding: 1rem;
+    text-align: center;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+    /* suggested from chatgpt for equal columns width */
+    vertical-align: middle;
+    min-width: 120px;
+}
+
+/* Remove right border on last column */
+.calendar tr td:last-child,
+.calendar tr th:last-child {
+    border-right: none;
+}
+
+/* First column (time) styling */
+.calendar td:first-child,
+.calendar th:first-child {
+    font-weight: 500;
+    background: #f9fafb;
+    color: #666;
+}
+
+/* Highlighted Cell */
+.calendar .highlight {
+    background-color: #d1f4e4;
+    color: #2a6f4f;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+.calendar .highlight::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    background-color: #c1f8df;
+    z-index: -1;
+}
+
+.calendar .highlight:hover::after {
+    height: 100%;
+    transition: height 0.3s ease;
+}
+.calendar .highlight::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    background-color: #2a6f4f ;
+    z-index: 2;
+}
+.calendar .highlight:hover::before {
+    height: 5px;
+    transition: height 0.3s ease;
+}
+.calendar .highlight:hover {
+    transition: transform 0.3 ease;
+}
+/* Contributions Table */
+.contribution-list {
+    margin: 2rem 10%;
+    padding: 0;
+}
+
+/* /* headings styling */
+.contribution-list dt {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    color: black;
+}
+
+/* content boxes styling */
+.contribution-list dd {
+    padding: 0;
+    margin-left: 0;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: black;
+    background: #f4f8ff;
+    padding: 0.75rem 1rem;
+    border-left: 4px solid #5891ff;
+    border-radius: 0.4rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+}
+.contribution-list dd:hover {
+    transform: translateX(-5px);
+    transition: transform 0.3s ease;
+}
+/* Battery Bars */
+.battery {
+    width: 100%;
+    background-color: #eee;
+    position: relative;
+    height: 25px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: #000;
+    font-weight: 600;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.battery p {
+    font-weight: 600;
+    z-index: 0;
+}
+
+.css {
+    color: #1471b5;
+}
+
+.html {
+    color: #e34c25;
+}
+
+.js {
+    color: #917204;
+}
+
+.battery::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    background-color: #76c7c0;
+    transition: width 1s ease-in-out;
+    z-index: 0;
+}
+
+.battery[data-level="70"]::before {
+    width: 70%;
+    background-color: #b5c776;
+}
+
+.battery[data-level="85"]::before {
+    width: 85%;
+}
+
+.battery[data-level="5"]::before {
+    width: 5%;
+    background-color: #ff9191;
+}
+
+.battery[data-level="90"]::before {
+    width: 90%;
+    background-color: #76c79f;
+}
+
+.battery[data-level="80"]::before {
+    width: 80%;
+}
+
+.battery[data-level="10"]::before {
+    width: 10%;
+    background-color: #f2a2a2;
+}
+
+.battery[data-level="50"]::before {
+    width: 50%;
+    background-color: #f5d107;
+}
+
+#vietnam {
+    width: 100%;
+}
+
+/* Demographic Cards */
+.demographic-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.demographic-card {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+    word-break: break-word;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.demographic-card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.demographic-card img {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    background-color: grey;
+    width: 40%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 1.5rem;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: 0;
+    margin: 0;
+}
+
+.demographic-card .info p:nth-child(2) {
+    font-weight: bold;
+    font-size: 1.25em;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.demographic-card .info p:not(:first-child, :nth-child(2)) {
+    margin: 0.2rem 0;
+    font-size: 1rem;
+}
+
+.demographic-card a {
+    color: #1160a6;
+}
+
+/* General Styling */
+.about-page h2 {
+    font-size: 1.8em;
+    margin-top: 2em;
+    color: #333;
+    text-align: center;
+}
+.interests-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+.interests-table {
+    margin: 2rem auto;
+    justify-self: center;
+    width: 90%;
+    height: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+}
+.interests-table th,
+.interests-table td {
+    padding: 0.75rem 1rem;
+    text-align: center;
+    word-wrap: break-word;
+    
+}
+
+.interests-table thead {
+    background-color: #f5f7fa;
+}
+
+.interests-table th {
+    font-weight: 600;
+    color: #333;
+    border-bottom: 2px solid #e0e0e0;
+}
+.interests-table td {
+    border-bottom: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+}
+.interests-table td.shared {
+    background-color: #e6f4ea;
+    color: #2e7d32;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+}
+.interests-table tr td:last-child,
+.interests-table tr th:last-child {
+    border-right: none;
+}
+.interests-table tr:last-child td {
+    border-bottom: none;
+}
+.interests-table td.shared::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 0;
+    left: 0;
+    top: 0;
+    background-color: #d0ead8;
+    z-index: -1;
+}
+.interests-table td.shared:hover::after{
+    width: 100%;
+    transition: width 0.3s ease;
+}
+.interests-table td.solo {
+    color: #999;
+}
+
+.interests-table tr:nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+.awards-boxes {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    margin-top: 20px;
+
+}
+
+.individual-awards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* centers content horizontally */
+    justify-content: center;
+    /* centers content vertically */
+    padding: 1rem;
+    height: 100px;
+    /* optional: set a consistent height for better visual balance */
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 30%;
+}
+
+.individual-awards p {
+    margin: 0;
+    padding: 0;
+}
+.individual-awards:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
 /* Responsive Design for Mobile Devices (GenAI suggestion)*/
 
 /* Small Mobile Devices */
@@ -1544,7 +2001,7 @@ input[type="reset"]:hover {
 
     footer article:first-child section:nth-child(5) {
         margin-bottom: 3em;
-        width: 50%;
+        width: 100%;
     }
 
     footer article:nth-child(2) hr {
@@ -1554,6 +2011,7 @@ input[type="reset"]:hover {
     .social-icon {
         margin-right: 30px;
     }
+
     #aside-jobs {
         display: flex;
         flex-direction: row;
@@ -1564,16 +2022,57 @@ input[type="reset"]:hover {
         height: 100%;
         font-size: 70%
     }
+
     #main-jobs {
         position: relative;
         margin-left: 0;
         width: 75%;
         font-size: 70%;
     }
-    .aids-topic, .skill, .salary {
+
+    .aids-topic,
+    .skill,
+    .salary {
         word-wrap: break-word;
         overflow-wrap: break-word;
-        
+    }
+    .sticky-title {
+        height: auto;
+    }
+    .about-page h1 {
+        font-size: 1em;
+    }
+    .about-page h2 {
+        font-size: 1.5em;
+    }
+    .hometown p {
+        font-size: 0.8em;
+        text-align: justify;
+    }
+    .demographic-boxes {
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+    }
+    .demographic-card {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        margin: auto 0;
+        word-break: break-word;
+    }
+    .about-main article section:last-child div {
+        flex-direction: column;
+        align-items: center;
+    }
+    .awards-boxes {
+        width: 100%;
+        flex-grow: 1;
+    }
+    .individual-awards {
+        flex-grow: 1;
+        width: 100%;
+        margin-bottom: 20px;
     }
 }
 
@@ -1691,6 +2190,7 @@ input[type="reset"]:hover {
     .social-icons-container {
         width: 50%;
     }
+
     #aside-jobs {
         float: right;
         width: 25%;
@@ -1698,18 +2198,59 @@ input[type="reset"]:hover {
         position: relative;
         font-size: 60%
     }
+
     #main-jobs {
         position: relative;
         margin-left: 0;
         width: 50%;
         font-size: 65%;
     }
-    .aids-topic, .skill, .salary {
+
+    .aids-topic,
+    .skill,
+    .salary {
         word-wrap: break-word;
         overflow-wrap: break-word;
-        
+
+    }
+    .sticky-title {
+        height: auto;
+    }
+    .about-page h1 {
+        font-size: 1em;
+    }
+    .about-page h2 {
+        font-size: 1.5em;
+    }
+    .hometown p {
+        font-size: 0.8em;
+        text-align: justify;
+    }
+    .demographic-boxes {
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+    }
+    .demographic-card {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        margin: auto 0;
+        word-break: break-word;
+    }
+    .awards-boxes {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        flex-grow: 1;
+    }
+    .individual-awards {
+        flex-grow: 1;
+        width: 100%;
+        margin-bottom: 20px;
     }
 }
+
 
 /* tablets and small laptops */
 @media (min-width: 641px) and (max-width: 1024px) {
@@ -1731,6 +2272,11 @@ input[type="reset"]:hover {
 
     .social-icon {
         margin-right: 36px;
+    }
+
+    .calendar {
+        width: 100%;
+        height: aut
     }
 
     footer article:first-child {
@@ -1755,6 +2301,7 @@ input[type="reset"]:hover {
     footer article:nth-child(2) hr {
         width: 90%;
     }
+
     #aside-jobs {
         float: right;
         width: 25%;
@@ -1762,148 +2309,28 @@ input[type="reset"]:hover {
         position: relative;
         font-size: 65%;
     }
+
     #main-jobs {
         position: relative;
         margin-left: 0;
         width: auto;
         font-size: 65%;
     }
-    .aids-topic, .skill, .salary {
+
+    .aids-topic,
+    .skill,
+    .salary {
         word-wrap: break-word;
         overflow-wrap: break-word;
     }
+    .awards-boxes {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .individual-awards {
+        flex-grow: 1;
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }
-
-/* Style for Small Description */
-.small-description {
-    font-size: 0.9em;
-    /* Smaller font size for the description */
-    color: #555;
-    /* Subtle color for the description text */
-    margin-top: 10px;
-}
-
-/* Style for Job Descriptions Link */
-.job-link {
-    color: #1160a6;
-    /* Blue color for the link */
-    text-decoration: underline;
-    /* Underline the link */
-    font-weight: bold;
-    /* Make the link text bold */
-}
-
-.job-link:hover {
-    transform: translateY(-5px);
-    text-decoration: none;
-    /* Remove underline on hover */
-    transition: text-decoration 0.3s ease, transform 0.3s ease;
-}
-
-/* defining animation keyframes ends */
-
-/* Khanh Nam Le Pham, About Page CSS, 8/4/24, 10:14AM */
-/* Sticky Title */
-.about-main:not(article section:first-child) {
-    margin: 0 10%;
-}
-.sticky-title {
-    background: #fdfdfd;
-    text-align: center;
-    z-index: 100;
-    padding: 1rem;
-    font-size: 2rem;
-    border-bottom: 2px solid #ddd;
-  }
-  
-  /* Class Calendar */
-  .calendar {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-  }
-  .calendar th, .calendar td {
-    border: 1px solid #ccc;
-    padding: 0.5rem;
-    text-align: center;
-  }
-  .calendar .highlight {
-    background-color: #c0f0d3;
-    font-weight: bold;
-  }
-  
-  /* Contributions Table */
-  .contributions-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  .contributions-table th, .contributions-table td {
-    border: 1px solid #ddd;
-    padding: 0.75rem;
-    text-align: left;
-  }
-  
-  /* Battery Bars */
-  .battery {
-    width: 100%;
-    background-color: #eee;
-    position: relative;
-    height: 25px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-  }
-  .battery::before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 0;
-    top: 0;
-    left: 0;
-    border-radius: 5px;
-    background-color: #76c7c0;
-    transition: width 1s ease-in-out;
-  }
-  .battery[data-level="80"]::before { width: 80%; }
-  .battery[data-level="70"]::before { width: 70%; }
-  .battery[data-level="60"]::before { width: 60%; }
-  .battery[data-level="50"]::before { width: 50%; }
-  .battery[data-level="40"]::before { width: 40%; }
-  .battery[data-level="90"]::before { width: 90%; }
-  .battery[data-level="85"]::before { width: 85%; }
-  
-  /* Demographic Cards */
-  .demographic-boxes {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    width: 80%;
-    margin: 0 auto;
-  }
-  .demographic-card {
-    display: flex;
-    align-items: center;
-    background-color: #f9f9f9;
-    border-radius: 12px;
-    padding: 1rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  }
-  .demographic-card img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-right: 1.5rem;
-  }
-  .demographic-card .info p {
-    margin: 0.2rem 0;
-    font-size: 1rem;
-  }
-  
-  /* General Styling */
-  .about-page h2 {
-    font-size: 1.8rem;
-    margin-top: 2rem;
-    color: #333;
-  }
-  
-  
