@@ -13,7 +13,7 @@
 
 <body>
 
-  <header role="banner">
+  <header>
     <section class="left-nav">
       <nav aria-label="Main navigation">
         <!-- Logo with alt and title attributes -->
@@ -25,7 +25,7 @@
         <a href="index.html">Home</a>
         <a href="jobs.html">Jobs</a>
         <a href="apply.html">Apply</a>
-        <a href="about.html" id="selected" aria-current="page">About</a>
+        <a href="about.html" class="selected" aria-current="page">About</a>
       </nav>
     </section>
     <!--Reference Image URL: https://thefusioneer.com/blog/the-future-of-ai-5-ai-advancements-to-expect-in-the-next-10-years/-->
@@ -33,7 +33,7 @@
       <div class="language">
         <details id="lang-dropdown">
           <summary aria-label="Language options">
-            <img src="images/language.svg" alt="Language" title="Language Icon (for visual only)" id="icon">
+            <img src="images/language.svg" alt="Language" title="Language Icon (for visual only)" class="icon">
           </summary>
           <div id="lang-options" role="list" aria-label="Language selection">
             <p role="listitem">English</p>
@@ -46,7 +46,7 @@
         <details id="user-dropdown">
           <!-- summary and details suggested from GenAI -->
           <summary aria-label="User account options">
-            <img src="images/user.svg" alt="Profile" title="Profile Icon (for visual only)" id="icon">
+            <img src="images/user.svg" alt="Profile" title="Profile Icon (for visual only)" class="icon">
           </summary>
           <div id="user-info-dropdown" role="region" aria-label="User details">
             <div id="user-avatar">
@@ -62,14 +62,14 @@
       <div class="hamburger">
         <details id="nav-dropdown">
           <summary id="hamburger-icon-container" aria-label="Navigation optitons">
-            <img src="images/hamburger.svg" alt="Options" title="Hamburger Icon" id="icon">
+            <img src="images/hamburger.svg" alt="Options" title="Hamburger Icon" class="icon">
           </summary>
           <div id="nav-options" role="navigation" aria-label="Navigation Options">
             <p>Navigation</p>
             <a href="index.html">Home</a>
             <a href="jobs.html">Jobs</a>
             <a href="apply.html">Apply</a>
-            <a href="about.html" id="selected" aria-current="page">About</a>
+            <a href="about.html" class="selected" aria-current="page">About</a>
           </div>
         </details>
       </div>
@@ -77,7 +77,7 @@
   </header>
   <main class="about-main">
     <article class="about-page">
-      <section class="sticky-title" role="heading" aria-level="1">
+      <section class="sticky-title">
         <h1>About Our Group</h1>
       </section>
       <!-- Group Photo -->
@@ -275,6 +275,7 @@
               <p><strong>Major:</strong> Artificial Intelligence</p>
               <p><strong>Student ID:</strong> 105942699</p>
               <p><strong>Personal Email: </strong><a href="#" target="_blank">johntran@gmail.com</a></p>
+            </div>
           </div>
         </div>
       </section>
@@ -352,13 +353,13 @@
 
   <br>
 
-  <footer role="contentinfo">
+  <footer>
     <article>
       <section aria-label="Contact Information">
         <h3>Contact Us</h3>
         <ul>
           <li>Email to: <a href="mailto:info@aevinaai.com.au" title="info@aevinaai.com.au" target="_blank" hreflang="en"
-              id="link">info@aevinaai.com.au</a></li>
+              class="link">info@aevinaai.com.au</a></li>
           <li>Phone: 0493167158</li>
           <li>Head Office Address: John St, Hawthorn VIC 3122</li>
         </ul>
@@ -367,7 +368,7 @@
         <h3>Our Process</h3>
         <ul>
           <li><a href="https://3aevn.atlassian.net/jira/software/projects/SCRUM/boards/1?sprintStarted=true"
-              title="Jira Scrum Project Managment" target="_blank" hreflang="en" id="link">Jira Scrum
+              title="Jira Scrum Project Managment" target="_blank" hreflang="en" class="link">Jira Scrum
               Project
               Management</a>
           </li>
@@ -379,7 +380,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="jobs.html">Jobs</a></li>
           <li><a href="apply.html">Apply</a></li>
-          <li><a href="about.html" id="selected" aria-current="page">About</a></li>
+          <li><a href="about.html" class="selected" aria-current="page">About</a></li>
         </ul>
       </section>
       <section aria-label="Team Members">

@@ -397,7 +397,7 @@ header nav a:hover::after {
 }
 
 /* the selected page is formatted in bold text */
-header nav a#selected {
+header nav a.selected {
     font-weight: bold;
 }
 
@@ -451,7 +451,7 @@ header nav a#selected {
     height: auto;
 }
 
-.hamburger #icon:hover {
+.hamburger .icon:hover {
     background-color: #dedfe0;
     border-radius: 5px;
     transform: translateY(-5px);
@@ -459,7 +459,7 @@ header nav a#selected {
 }
 
 /* sizing of the right icons */
-#icon {
+.icon {
     display: flex;
     align-items: center;
     align-content: flex-end;
@@ -469,7 +469,7 @@ header nav a#selected {
 }
 
 /* greyed out hover effect  */
-#icon:hover {
+.icon:hover {
     background-color: #dedfe0;
     border-radius: 50%;
     transform: translateY(-5px);
@@ -681,7 +681,7 @@ summary::marker {
     padding-top: 10px;
 }
 
-#nav-options a#selected {
+#nav-options a.selected {
     font-weight: bold;
 }
 
@@ -939,12 +939,12 @@ footer article:first-child section {
 }
 
 /* change the colour of any link into blue */
-footer #link {
+footer .link {
     color: #1160a6;
 }
 
 /* change the font weight of the selected page into bold */
-footer #selected {
+footer .selected {
     font-weight: bold;
 }
 
@@ -1169,7 +1169,26 @@ footer article section div img {
         transform: rotateX(180deg) rotateY(180deg) rotateZ(180deg);
     }
 }
+@keyframes flag {
+    0% {
+    }
 
+    25% {
+        transform: translateY(50px);
+    }
+
+    50% {
+        transform: translateX(50px);
+    }
+
+    75% {
+        transform: translateY(-50px);
+    }
+
+    100% {
+        transform: translateX(-50px);
+    }
+}
 /* definition of a set of animations that creates the constant breathing effect */
 .btn-breathe {
     animation-name: btn-breathe;
@@ -1290,16 +1309,6 @@ footer article section div img {
     /* Color of the pseudo-element */
     transform: scaleX(0);
     transform-origin: left;
-}
-
-.underline-hover:hover {
-    transform: translateY(-5px);
-    transition: transform 0.2s ease;
-}
-
-.underline-hover:hover::after {
-    transform: scaleX(1);
-    transition: transform 0.2s ease;
 }
 
 /* defining animation keyframes ends */
@@ -1607,7 +1616,7 @@ figure #group-photo {
     height: 0;
     top: 0;
     left: 0;
-    background-color: #c1f8df;
+    background-color: #bddbcd;
     z-index: -1;
 }
 
@@ -1630,7 +1639,7 @@ figure #group-photo {
     transition: height 0.3s ease;
 }
 .calendar .highlight:hover {
-    transition: transform 0.3 ease;
+    transition: transform 0.3s ease;
 }
 /* Contributions Table */
 .contribution-list {
@@ -1677,7 +1686,6 @@ figure #group-photo {
     padding-left: 10px;
     display: flex;
     align-items: center;
-    z-index: 1;
     overflow: hidden;
 }
 
@@ -1707,7 +1715,6 @@ figure #group-photo {
     border-radius: 5px;
     background-color: #76c7c0;
     transition: width 1s ease-in-out;
-    z-index: 0;
 }
 
 .battery[data-level="70"]::before {
@@ -1745,6 +1752,7 @@ figure #group-photo {
 
 #vietnam {
     width: 100%;
+    animation: flag 2s ease alternate infinite;
 }
 
 /* Demographic Cards */
@@ -1979,7 +1987,7 @@ figure #group-photo {
         padding-right: 72px;
     }
 
-    #icon {
+    .icon {
         width: 24px;
         height: 24px;
     }
@@ -2021,9 +2029,9 @@ figure #group-photo {
         justify-content: flex-start;
         position: relative;
         float: none;
-        width: 98%;
+        width: 100%;
         height: 100%;
-        font-size: 70%
+        font-size: 70%;
     }
 
     #main-jobs {
@@ -2136,7 +2144,7 @@ figure #group-photo {
         padding-right: 72px;
     }
 
-    #icon {
+    .icon {
         width: 24px;
         height: 24px;
     }
@@ -2279,7 +2287,7 @@ figure #group-photo {
 
     .calendar {
         width: 100%;
-        height: aut
+        height: auto;
     }
 
     footer article:first-child {
