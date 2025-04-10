@@ -1766,7 +1766,7 @@ figure #group-photo {
 
 .demographic-card {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1786,7 +1786,7 @@ figure #group-photo {
     align-items: center;
     align-content: center;
     background-color: grey;
-    width: 40%;
+    width: auto;
     height: auto;
     object-fit: cover;
     border-radius: 8px;
