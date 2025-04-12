@@ -146,7 +146,45 @@
             </div>
           </fieldset>
 
-        
+          <!-- Address Details -->
+          <fieldset>
+            <legend>Address Details</legend>
+
+            <div class="form-row">
+              <label for="address">Street Address <span class="required">*</span></label>
+              <input type="text" id="address" name="address" required maxlength="40" placeholder="Enter your address"
+                aria-required="true">
+            </div>
+
+            <div class="form-row">
+              <label for="suburb">Suburb/Town <span class="required">*</span></label>
+              <input type="text" id="suburb" name="suburb" required maxlength="40" placeholder="Enter your suburb/town"
+                aria-required="true">
+            </div>
+
+            <div class="form-row">
+              <label for="postcode">Postcode <span class="required">*</span></label>
+              <input type="text" id="postcode" name="postcode" required pattern="\d{4}"
+                placeholder="Enter your postcode" aria-required="true">
+            </div>
+
+            <div class="form-row">
+              <label for="state">State <span class="required">*</span></label>
+              <select id="state" name="state" required aria-required="true">
+                <option value="">Select your state</option>
+                <option value="vic">VIC</option>
+                <option value="nsw">NSW</option>
+                <option value="qld">QLD</option>
+                <option value="nt">NT</option>
+                <option value="wa">WA</option>
+                <option value="sa">SA</option>
+                <option value="tas">TAS</option>
+                <option value="act">ACT</option>
+              </select>
+            </div>
+          </fieldset>
+
+          
 
 
 </body>
