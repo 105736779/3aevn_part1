@@ -286,6 +286,10 @@ and you can change it */
     text-align: center;
 }
 
+.aids-topic h3{
+    text-align: center;
+}
+
 .responsibility {
     border: 1px solid pink;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
@@ -318,96 +322,12 @@ and you can change it */
 }
 
 /* Viet Hoang Tran editted 05-05-25*/
-.salary {
+
+
+.salary-report {
     border: 1px solid pink;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.salary p {
-    text-align: center;
-}
-
-/* Mobile Job List Styles */
-.mobile-job-list {
-    display: none;
-    flex-direction: column;
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-
-.mobile-job-item {
-    width: 100%;
-    margin-bottom: 15px;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.mobile-job-item summary {
-    padding: 12px;
-    list-style: none;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
-  .mobile-job-item summary a {
-    text-decoration: none;
-  }
-  .job-content {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  
-  .job-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #333;
-  }
-  
-  .job-remote, .job-ref {
-    font-size: 0.9rem;
-    color: #555;
-  }
-  
-  .mobile-apply-btn {
-    align-self: flex-end; /* Align button to right */
-    background-color: #1160a6;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-weight: 500;
-    font-size: 0.9rem;
-    margin-top: 8px;
-    width: fit-content;
-  }
-
-.mobile-job-details {
-    padding: 12px;
-    border-top: 1px solid #eee;
-}
-
-.mobile-aside {
-    display: none;
-    flex-direction: column;
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-
-.mobile-aside div {
-    width: 100%;
-    margin-bottom: 15px;
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2px;
 }
 
 /*Viet Hoang Tran edited 07/04/25*/
