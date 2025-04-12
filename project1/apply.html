@@ -2,35 +2,44 @@
 <html lang="en">
 
 <head>
+  <!-- Meta tags for encoding, SEO keywords, mobile responsiveness, and description -->
   <meta charset="UTF-8">
-  <meta name="keywords"
-    content="AI, IT, IT Company, Computer, Aevina, Aritificial Intelligence, Official, Application, Form">
+  <meta name="keywords" content="AI, IT, IT Company, Computer, Aevina, Aritificial Intelligence, Official, Application, Form">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Aevina's Official Website Application Page">
+
+  <!-- Link to external CSS file -->
   <link rel="stylesheet" href="styles/styles.css">
+
+  <!-- Page title shown in browser tab -->
   <title>Aevina - Innovators in Artificial Intelligence</title>
 </head>
 
 <body>
 
+  <!-- Main header containing the navigation bar -->
   <header>
     <section class="left-nav">
       <nav aria-label="Main navigation">
-        <!-- Logo with alt and title attributes -->
+        <!-- Company logos with alt text and lazy loading -->
         <a href="index.html" class="not" aria-label="Aevina Homepage">
           <img src="images/logo.svg" alt="Aevina AI Logo" title="Aevina AI" loading="lazy" id="logo" class="load">
           <img src="images/logo-text.svg" alt="Aevina AI Text Logo" title="Aevina AI" loading="lazy" id="logo-text">
         </a>
-        <!-- Navigation links -->
+        <!-- Primary navigation links -->
         <a href="index.html">Home</a>
         <a href="jobs.html">Jobs</a>
         <a href="apply.html" class="selected" aria-current="page">Apply</a>
         <a href="about.html">About</a>
       </nav>
-      
+
     </section>
+
+    <!-- Reference comment for image source (used in research or design inspiration) -->
     <!--Reference Image URL: https://thefusioneer.com/blog/the-future-of-ai-5-ai-advancements-to-expect-in-the-next-10-years/-->
+
     <section class="right-nav">
+      <!-- Language selection dropdown -->
       <div class="language">
         <details id="lang-dropdown">
           <summary aria-label="Language options">
@@ -44,10 +53,10 @@
         </details>
       </div>
 
-      
+      <!-- User account dropdown -->
       <div class="user">
         <details id="user-dropdown">
-          <!-- summary and details suggested from GenAI -->
+
           <summary aria-label="User account options">
             <img src="images/user.svg" alt="Profile" title="Profile Icon (for visual only)" class="icon">
           </summary>
@@ -63,7 +72,7 @@
         </details>
       </div>
 
-
+      <!-- Hamburger menu for mobile navigation -->
       <div class="hamburger">
         <details id="nav-dropdown">
           <summary id="hamburger-icon-container" aria-label="Navigation optitons">
@@ -80,14 +89,18 @@
       </div>
     </section>
   </header>
+
+  <!-- Main content area: Job application form -->
   <main class="apply-main" role="main">
     <article>
       <section aria-labelledby="form-title">
         <h2 id="form-title">Job Application Form</h2>
-        <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post" id="application-form"
-          aria-describedby="form-title">
 
-          <!-- Job Reference Number -->
+
+        <!-- Begin form: POST method to Swinburne testing endpoint -->
+        <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post" id="application-form" aria-describedby="form-title">
+
+          <!-- Job Reference selection -->
           <fieldset>
             <legend>Job Reference Number <span class="required">*</span></legend>
             <select name="job_ref_number" required aria-required="true" aria-label="Job Reference Number">
@@ -95,36 +108,33 @@
               <option value="AIE78">AIE78</option>
               <option value="DSE78">DSE78</option>
             </select>
-            <!-- New Text with Link -->
-            <p class="small-description">Don’t know the job application number? <a href="jobs.html"
-                class="job-link">Check out our Job Descriptions Page</a></p>
+            <!-- Helpful link to job listings -->
+            <p class="small-description">Don’t know the job application number? <a href="jobs.html" class="job-link">Check out our Job Descriptions Page</a></p>
           </fieldset>
 
-          <!-- Personal Information -->
+          <!-- Personal information fields -->
           <fieldset>
             <legend>Personal Information</legend>
 
             <div class="form-row">
               <label for="first_name">First Name <span class="required">*</span></label>
-              <input type="text" id="first_name" name="first_name" required maxlength="20"
-                placeholder="Enter your first name" aria-required="true">
+              <input type="text" id="first_name" name="first_name" required maxlength="20" placeholder="Enter your first name" aria-required="true">
             </div>
 
             <div class="form-row">
               <label for="last_name">Last Name <span class="required">*</span></label>
-              <input type="text" id="last_name" name="last_name" required maxlength="20"
-                placeholder="Enter your last name" aria-required="true">
+              <input type="text" id="last_name" name="last_name" required maxlength="20" placeholder="Enter your last name" aria-required="true">
             </div>
 
             <div class="form-row">
               <label for="dob">Date of Birth <span class="required">*</span></label>
-              <input type="text" id="dob" name="dob" required pattern="\d{2}/\d{2}/\d{4}" placeholder="dd/mm/yyyy"
-                aria-required="true">
+              <input type="text" id="dob" name="dob" required pattern="\d{2}/\d{2}/\d{4}" placeholder="dd/mm/yyyy" aria-required="true">
             </div>
 
             <div class="form-row">
               <label>Gender <span class="required">*</span></label>
               <div class="radio-group" role="radiogroup" aria-required="true">
+                <!-- Gender selection radio buttons -->
                 <label for="male">Male</label>
                 <input type="radio" id="male" name="gender" value="male" required>
                 <label for="female">Female</label>
@@ -136,8 +146,7 @@
 
             <div class="form-row">
               <label for="phone">Phone Number <span class="required">*</span></label>
-              <input type="tel" id="phone" name="phone" required pattern="\d{8,12}"
-                placeholder="Enter your phone number" aria-required="true">
+              <input type="tel" id="phone" name="phone" required pattern="\d{8,12}" placeholder="Enter your phone number" aria-required="true">
             </div>
 
             <div class="form-row">
@@ -146,30 +155,28 @@
             </div>
           </fieldset>
 
-          <!-- Address Details -->
+          <!-- Address details -->
           <fieldset>
             <legend>Address Details</legend>
 
             <div class="form-row">
               <label for="address">Street Address <span class="required">*</span></label>
-              <input type="text" id="address" name="address" required maxlength="40" placeholder="Enter your address"
-                aria-required="true">
+              <input type="text" id="address" name="address" required maxlength="40" placeholder="Enter your address" aria-required="true">
             </div>
 
             <div class="form-row">
               <label for="suburb">Suburb/Town <span class="required">*</span></label>
-              <input type="text" id="suburb" name="suburb" required maxlength="40" placeholder="Enter your suburb/town"
-                aria-required="true">
+              <input type="text" id="suburb" name="suburb" required maxlength="40" placeholder="Enter your suburb/town" aria-required="true">
             </div>
 
             <div class="form-row">
               <label for="postcode">Postcode <span class="required">*</span></label>
-              <input type="text" id="postcode" name="postcode" required pattern="\d{4}"
-                placeholder="Enter your postcode" aria-required="true">
+              <input type="text" id="postcode" name="postcode" required pattern="\d{4}" placeholder="Enter your postcode" aria-required="true">
             </div>
 
             <div class="form-row">
               <label for="state">State <span class="required">*</span></label>
+              <!-- State selection dropdown -->
               <select id="state" name="state" required aria-required="true">
                 <option value="">Select your state</option>
                 <option value="vic">VIC</option>
@@ -184,7 +191,7 @@
             </div>
           </fieldset>
 
-          <!-- Qualifications & Certifications -->
+          <!-- Education and skills -->
           <fieldset>
             <legend>Qualifications & Certifications</legend>
 
@@ -196,6 +203,7 @@
             <div class="form-row">
               <label>Required Technical Skills</label>
               <div class="checkbox-group" role="group">
+                <!-- Checkbox group for tech skills -->
                 <input type="checkbox" id="java" name="skills" value="Java">
                 <label for="java">Java</label>
 
@@ -209,12 +217,12 @@
 
             <div class="form-row">
               <label for="other_skills">Other Skills</label>
-              <textarea id="other_skills" name="other_skills" rows="4"
-                placeholder="Describe your other skills here..."></textarea>
+              <!-- Free text area for other skills -->
+              <textarea id="other_skills" name="other_skills" rows="4" placeholder="Describe your other skills here..."></textarea>
             </div>
           </fieldset>
 
-          <!-- Submit Button -->
+          <!-- Form submission controls -->
           <div class="form-footer" role="group" aria-label="Form Actions">
             <input type="submit" value="Apply">
             <input type="reset" value="Reset">
@@ -224,26 +232,28 @@
     </article>
   </main>
 
+  <!-- Footer section with contact info, links, team, and social media -->
   <footer>
     <article>
+      <!-- Contact details -->
       <section aria-label="Contact Information">
         <h3>Contact Us</h3>
         <ul>
-          <li>Email to: <a href="mailto:info@aevinaai.com.au" title="info@aevinaai.com.au" target="_blank" hreflang="en"
-              class="link">info@aevinaai.com.au</a></li>
+          <li>Email to: <a href="mailto:info@aevinaai.com.au" title="info@aevinaai.com.au" target="_blank" hreflang="en" class="link">info@aevinaai.com.au</a></li>
           <li>Phone: 0493167158</li>
           <li>Head Office Address: John St, Hawthorn VIC 3122</li>
         </ul>
       </section>
+
+      <!-- External process management link -->
       <section aria-label="Our Process">
         <h3>Our Process</h3>
         <ul>
-          <li><a href="https://3aevn.atlassian.net/jira/software/projects/SCRUM/boards/1?sprintStarted=true"
-              title="Jira Scrum Project Managment" target="_blank" hreflang="en" class="link">Jira Scrum Project
-              Management</a>
-          </li>
+          <li><a href="https://3aevn.atlassian.net/jira/software/projects/SCRUM/boards/1?sprintStarted=true" title="Jira Scrum Project Managment" target="_blank" hreflang="en" class="link">Jira Scrum Project Management</a></li>
         </ul>
       </section>
+
+      <!-- Footer site navigation -->
       <section aria-label="Navigation Links">
         <h3>Navigation</h3>
         <ul>
@@ -253,6 +263,8 @@
           <li><a href="about.html">About</a></li>
         </ul>
       </section>
+
+      <!-- Team member credits -->
       <section aria-label="Team Members">
         <h3>Members</h3>
         <ul>
@@ -261,6 +273,8 @@
           <li>Quang Tuan Anh Tran</li>
         </ul>
       </section>
+
+      <!-- Social media icons with hover effect -->
       <section aria-label="Social Media Links">
         <h3>Social</h3>
         <div class="social-icons-container">
@@ -287,12 +301,12 @@
         </div>
       </section>
     </article>
+
+    <!-- Copyright -->
     <article>
       <section>
         <hr>
-        <p>
-          Copyright &copy; 2025 Aevina AI. All rights reserved.
-        </p>
+        <p>Copyright &copy; 2025 Aevina AI. All rights reserved.</p>
       </section>
     </article>
   </footer>
