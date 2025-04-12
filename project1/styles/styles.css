@@ -256,6 +256,10 @@ and you can change it */
     margin-top: 2px;
 }
 
+.aids-topic h3{
+    text-align: center;
+}
+
 .responsibility {
     border: 1px solid pink;
     border-radius: 3px;
@@ -299,11 +303,19 @@ and you can change it */
 }
 
 /* Viet Hoang Tran editted 05-05-25*/
-.salary {
+
+
+.salary-report {
     border: 1px solid pink;
     border-radius: 3px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 2px;
+    display: flex;
+    flex-direction: column;
+}
+
+.salary-detail {
+    border-bottom: 1px solid pink;
 }
 
 /*Viet Hoang Tran edited 07/04/25*/
