@@ -1765,10 +1765,6 @@ figcaption {
     transition: transform 0.3s ease;
 }
 
-.contributions h3 {
-    text-align: center;
-}
-
 /* Contributions Table */
 .contribution-list {
     margin: 2rem 10%;
