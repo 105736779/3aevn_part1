@@ -75,17 +75,15 @@ include 'header.inc';
             </div>
 
             <div class="form-row">
-              <label>Gender <span class="required">*</span></label>
-              <div class="radio-group" role="radiogroup" aria-required="true">
-                <!-- Gender selection radio buttons -->
-                <label for="male">Male</label>
-                <input type="radio" id="male" name="gender" value="male" required>
-                <label for="female">Female</label>
-                <input type="radio" id="female" name="gender" value="female">
-                <label for="other">Other</label>
-                <input type="radio" id="other" name="gender" value="other">
+              <label for="gender">Gender <span class="required">*</span></label>
+              <div class="radio-group">
+                <label><input type="radio" name="gender" value="Male" required> Male</label>
+                <label><input type="radio" name="gender" value="Female"> Female</label>
+                <label><input type="radio" name="gender" value="Other"> Other</label>
               </div>
             </div>
+
+            
 
             <div class="form-row">
               <label for="phone">Phone Number <span class="required">*</span></label>

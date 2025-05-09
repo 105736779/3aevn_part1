@@ -1523,7 +1523,10 @@ form fieldset:first-child select {
 .radio-group {
     display: flex;
     align-items: center;
+    gap: 20px; 
 }
+
+
 
 .radio-group input {
     margin-right: 10px;
