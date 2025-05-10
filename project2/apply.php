@@ -7,7 +7,7 @@
   <!-- Meta tags for encoding, SEO keywords, mobile responsiveness, and description -->
   <meta charset="UTF-8">
   <meta name="keywords"
-    content="AI, IT, IT Company, Computer, Aevina, Aritificial Intelligence, Official, Application, Form">
+    content="AI, IT, IT Company, Computer, Aevina, Artificial Intelligence, Official, Application, Form">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Aevina's Official Website Application Page">
 
@@ -21,12 +21,11 @@
 <body>
 
   <!-- Main header containing the navigation bar -->
-
-<?php 
-// Help from ChatGPT to get the current page name for correct CSS styling
-$currentPage = basename($_SERVER['PHP_SELF']);
-include 'header.inc'; 
-?>
+  <?php 
+  // Help from ChatGPT to get the current page name for correct CSS styling
+  $currentPage = basename($_SERVER['PHP_SELF']);
+  include 'header.inc'; 
+  ?>
 
   <!-- Main content area: Job application form -->
   <main class="apply-main" role="main">
@@ -37,7 +36,7 @@ include 'header.inc';
 
         <!-- Begin form: POST method to Swinburne testing endpoint -->
         <form action="process_eoi.php" method="post" id="application-form"
-          aria-describedby="form-title">
+          aria-describedby="form-title" novalidate="novalidate">
 
           <!-- Job Reference selection -->
           <fieldset>
@@ -75,15 +74,19 @@ include 'header.inc';
             </div>
 
             <div class="form-row">
-              <label for="gender">Gender <span class="required">*</span></label>
-              <div class="radio-group">
-                <label><input type="radio" name="gender" value="Male" required> Male</label>
-                <label><input type="radio" name="gender" value="Female"> Female</label>
-                <label><input type="radio" name="gender" value="Other"> Other</label>
+              <label>Gender <span class="required">*</span></label>
+              <div class="radio-group" role="radiogroup" aria-required="true">
+                <!-- Gender selection radio buttons -->
+                <label for="male">Male</label>
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="female">Female</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="other">Other</label>
+                <input type="radio" id="other" name="gender" value="other">
               </div>
             </div>
 
-            
+
 
             <div class="form-row">
               <label for="phone">Phone Number <span class="required">*</span></label>
@@ -149,7 +152,6 @@ include 'header.inc';
               <label>Required Technical Skills</label>
               <div class="checkbox-group" role="group">
                 <!-- Checkbox group for tech skills -->
-                <!--change from skills to skills[] to allow sent more than 1 vaclue-->
                 <input type="checkbox" id="java" name="skills[]" value="Java">
                 <label for="java">Java</label>
 
@@ -171,6 +173,8 @@ include 'header.inc';
 
           <!-- Form submission controls -->
           <div class="form-footer" role="group" aria-label="Form Actions">
+            <!-- Status hidden field added as required -->
+            <input type="hidden" name="status" value="New">
             <input type="submit" value="Apply">
             <input type="reset" value="Reset">
           </div>
@@ -178,6 +182,7 @@ include 'header.inc';
       </section>
     </article>
   </main>
+
   <?php 
   // Help from ChatGPT to get the current page name for correct CSS styling
   $currentPage = basename($_SERVER['PHP_SELF']);
