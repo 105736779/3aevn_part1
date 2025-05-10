@@ -1,13 +1,6 @@
 <?php
 require_once('settings.php');
 
-// Connect to the database
-$conn = @mysqli_connect($db_host, $db_user, $db_pass, $db_name);
-
-if (!$conn) {
-    die("Database connection failed: " . mysqli_connect_error());
-}
-
 // SQL to create the table
 $sql = "CREATE TABLE IF NOT EXISTS eoi (
     EOInumber INT AUTO_INCREMENT PRIMARY KEY,
@@ -23,7 +16,7 @@ $sql = "CREATE TABLE IF NOT EXISTS eoi (
     state VARCHAR(3) NOT NULL,
     postcode CHAR(4) NOT NULL,
     degree VARCHAR(100),
-    skills TEXT,
+    skills VARCHAR(255),
     other_skills TEXT,
     status ENUM('New', 'Current', 'Final') DEFAULT 'New'
 );";
