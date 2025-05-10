@@ -1,11 +1,7 @@
 <?php
 require_once("settings.php");
 
-$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
 
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $job_ref = $_POST["job_ref_number"];
@@ -21,10 +17,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $postcode = $_POST["postcode"];
     $degree = $_POST["degree"];
     $skills = isset($_POST["skills"]) ? implode(", ", (array)$_POST["skills"]) : "";
+    //$_POST["skills"] will be an array 
     $other_skills = $_POST["other_skills"];
 
     $query = "INSERT INTO eoi 
-        (job_ref_number, first_name, last_name, dob, gender, phone, email, street_address, suburb, state, postcode, degree, skills, other_skills)
+        (job_ref, first_name, last_name, dob, gender, phone, email, street_address, suburb, state, postcode, degree, skills, other_skills)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = mysqli_prepare($conn, $query);

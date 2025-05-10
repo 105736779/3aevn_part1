@@ -36,7 +36,7 @@ include 'header.inc';
 
 
         <!-- Begin form: POST method to Swinburne testing endpoint -->
-        <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post" id="application-form"
+        <form action="process_eoi.php" method="post" id="application-form"
           aria-describedby="form-title">
 
           <!-- Job Reference selection -->
@@ -149,13 +149,14 @@ include 'header.inc';
               <label>Required Technical Skills</label>
               <div class="checkbox-group" role="group">
                 <!-- Checkbox group for tech skills -->
-                <input type="checkbox" id="java" name="skills" value="Java">
+                <!--change from skills to skills[] to allow sent more than 1 vaclue-->
+                <input type="checkbox" id="java" name="skills[]" value="Java">
                 <label for="java">Java</label>
 
-                <input type="checkbox" id="python" name="skills" value="Python">
+                <input type="checkbox" id="python" name="skills[]" value="Python">
                 <label for="python">Python</label>
 
-                <input type="checkbox" id="html" name="skills" value="HTML">
+                <input type="checkbox" id="html" name="skills[]" value="HTML">
                 <label for="html">HTML</label>
               </div>
             </div>
