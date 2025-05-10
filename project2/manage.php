@@ -20,13 +20,16 @@
             // Get all job reference numbers
             $query = "SELECT job_reference FROM job";
             $result = @mysqli_query($conn, $query) or die("<p>Unable to find the Job Reference Numbers</p>");
-            
+            //$result will have all the results from job table 
+
             echo '<label for="job_search">Job Reference Number:</label>';
             echo '<select name="job_search" id="job_search">';
             echo '<option value="all">All</option>'; // Default option
             
             while ($row = mysqli_fetch_assoc($result)) {
+                //take each row result inside result and do a loop
                 $ref = htmlspecialchars($row['job_reference']); // for safety
+                //$ref will take job_reference and then echo to print out it
                 echo "<option value=\"$ref\">$ref</option>";
             }
             
@@ -34,6 +37,7 @@
             
             mysqli_free_result($result);
             ?>
+            <!--Take the user input and prompt them to press Submit or Delete Button-->
             <br>
             <label class="label" for="first_name">First Name:</label>
             <input type="text" id="first_name" name="first_name" pattern="[A-Za-z ]{1,20}" title="Max 20 alpha characters">
@@ -49,11 +53,13 @@
     <!-- Form for updating EOI status -->
     <form action="manage.php" method="post">
         <fieldset>
-            <legend><h2 class="manage">Change EOI Status</h2></legend>
-            <label class="label" for="eoi_number">EOI Number:</label>
-            <input class="name" type="number" id="eoi_number" name="eoi_number" required> 
+        <!--Take the EOI number from user-->
+            <legend><h2>Change EOI Status</h2></legend>
+            <label  for="eoi_number">EOI Number:</label>
+            <input  type="number" id="eoi_number" name="eoi_number" required> 
             <br>
-            <label class="label" for="status">New Status:</label>
+        <!--ALlow user to select which type of Statuse they want to change-->
+            <label  for="status">New Status:</label>
             <select id="status" name="status" required>
                 <option value="New">New</option>
                 <option value="Current">Current</option>
@@ -69,14 +75,14 @@
         <fieldset>
             <legend><h2>Sort the order</h2></legend>
             <div>
-                <label class="label" for="sort_field">Sort by:</label>
+                <label for="sort_field">Sort by:</label>
                 <select id="sort_field" name="sort_field">
                     <option value="EOInumber">EOI Number</option>
                     <option value="Status">Status</option>
                 </select>
             </div>
             <div>
-                <label class="label" for="order_field">Order:</label>
+                <label for="order_field">Order:</label>
                 <select id="order_field" name="order_field">
                     <option value="Ascending">Ascending</option>
                     <option value="Descending">Descending</option>
@@ -99,11 +105,14 @@
             $data = mysqli_real_escape_string($conn, $data);
             return $data;
         }
+
+        //create this function to display the result 
         function display_results($result)
         {
             if (mysqli_num_rows($result) == 0) {
                 echo "<p>No records found.</p>";
                 return;
+            //if there is no result 
             }
         
             echo "<div class='table__container'><table><tr>";
@@ -112,9 +121,11 @@
                 "Street Address", "Suburb", "State", "Postcode", "Email", "Phone",
                 "Skill", "Degree", "Other Skills", "Status"
             ];
+            // Using foreach to print each table head without doing multiple times
             foreach ($headers as $h) echo "<th>$h</th>";
             echo "</tr>";
-        
+            
+            //Using while loop to print the result depends on data from eoi table 
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>
                     <td>{$row['EOInumber']}</td>
@@ -141,12 +152,16 @@
         // Search EOI form submission
         if (isset($_POST['Search'])) {
             $query = "SELECT * FROM $eoi_table";
+            //take value from eoi table
+
             $fname_search = sanitize_input($conn, $_POST['first_name']);
             $lname_search = sanitize_input($conn, $_POST['last_name']);
             $job_search = $_POST['job_search'];
             // Check if there is any search criteria
             if ($fname_search != "" || $lname_search != "" || $job_search != "all") {
                 $query .= " WHERE ";
+                // .= mean add WHERE into $query which is "SELECT * FROM $eoi_table" 
+
                 if ($fname_search != "") {
                     $query .= "first_name LIKE '%$fname_search%' AND ";
                 }
@@ -157,6 +172,7 @@
                     $query .= "job_ref = '$job_search' AND ";
                 }
                 $query = substr($query, 0, -5);
+                // substr($query, 0, -5) because we need to do the same principle so for the last item we have to delete 5 words (AND)
             }
             $result = @mysqli_query($conn, $query) or die("<p>Failed to execute query</p> $back_btn");
             display_results($result);
@@ -170,6 +186,7 @@
             // Start building DELETE query
             $query = "DELETE FROM $eoi_table WHERE ";
             $conditions = [];
+            //initialize an array to combine the criteria
         
             // Build conditions based on input
             if ($job_ref == "all") {
@@ -183,15 +200,18 @@
             }
         
             if (!empty($lname)) {
-                $conditions[] = "last_ame LIKE '%$lname%'";
+                $conditions[] = "last_name LIKE '%$lname%'";
             }
-        
+            
+            //check if $condition have value inside
             if (count($conditions) === 0) {
                 echo "<p>Please provide at least one filter (job, first name, or last name) to delete EOIs.</p>";
             } else {
+                //Insert AND between each elements of $condition so that it has to meet all elements
                 $query .= implode(" AND ", $conditions);
                 $result = @mysqli_query($conn, $query) or die("<p>Failed to delete EOIs</p> $back_btn");
-        
+                
+                //mysqli_affected_rows this function can help we check if any row has been delete
                 if (mysqli_affected_rows($conn) > 0) {
                     echo "<p>Matching EOIs were successfully deleted.</p>";
                 } else {
@@ -199,12 +219,16 @@
                 }
             }
         }
+
+        //Update Status
         if (isset($_POST['update_status'])) {
             $eoi_number = mysqli_real_escape_string($conn, $_POST['eoi_number']);
             $new_status = mysqli_real_escape_string($conn, $_POST['status']); // sanitized user input to prevent SQL injection
 
             //update for This EOInumber to new_status and if it true print and not print
             $query = "UPDATE eoi SET status = '$new_status' WHERE EOInumber = '$eoi_number'";
+
+            //check if we've updated successfully
             if (mysqli_query($conn, $query)) {
                 $result = "Status of EOI #$eoi_number updated to '$new_status'.";
             } else {
@@ -216,21 +240,28 @@
 
         if (isset($_POST['sort_order'])) {
             $sort_field = $_POST['sort_field'];
+            //because in sort_field we use <select> command so that we take te value 
             $order_field = $_POST['order_field'];
         
             // Sanitize and validate
+
+            // create arrays which have all the options for each select value
             $allowed_sort_fields = ['EOInumber', 'Status'];
             $allowed_order = ['Ascending', 'Descending'];
-        
+            
+            // check if in array $allowed_sort_fields that no value is matched with $sort_field so set $sort_field = 'EOInumber' to avoid error
             if (!in_array($sort_field, $allowed_sort_fields)) {
                 $sort_field = 'EOInumber';
             }
-        
+            
+            // create a variable which check if $order_field === 'Descending' so order_sql will be DESC otherwis it is ASC
             $order_sql = ($order_field === 'Descending') ? 'DESC' : 'ASC';
-        
+            
+            //DESC and ASC command help sort value depend on high to low or low to high in turns
             // Simple query using ENUM's natural order
             $query = "SELECT * FROM eoi ORDER BY $sort_field $order_sql";
-        
+            //it will be like SELECT * FROM eoi ORDER BY EOInumber DESC 
+            //orders the rows by the EOInumber column in descending order
             $result = $conn->query($query);
             display_results($result);
             mysqli_free_result($result);
