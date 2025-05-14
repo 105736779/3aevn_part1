@@ -324,12 +324,15 @@ and you can change it */
     border: 1px solid pink;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
+
 .salary-detail {
     height: 50%;
 }
+
 .salary p {
     text-align: center;
 }
+
 .report-to {
     height: 50%;
     border-top: 2px solid pink;
@@ -362,29 +365,33 @@ and you can change it */
     flex-direction: column;
     align-items: center;
     gap: 8px;
-  }
-  .mobile-job-item summary a {
+}
+
+.mobile-job-item summary a {
     text-decoration: none;
-  }
-  .job-content {
+}
+
+.job-content {
     display: flex;
     flex-direction: column;
     gap: 4px;
-  }
-  
-  .job-title {
+}
+
+.job-title {
     font-size: 1.1rem;
     font-weight: 600;
     color: #333;
-  }
-  
-  .job-remote, .job-ref {
+}
+
+.job-remote,
+.job-ref {
     font-size: 0.9rem;
     color: #555;
-  }
-  
-  .mobile-apply-btn {
-    align-self: flex-end; /* Align button to right */
+}
+
+.mobile-apply-btn {
+    align-self: flex-end;
+    /* Align button to right */
     background-color: #1160a6;
     color: white;
     padding: 6px 12px;
@@ -393,7 +400,7 @@ and you can change it */
     font-size: 0.9rem;
     margin-top: 8px;
     width: fit-content;
-  }
+}
 
 .mobile-job-details {
     padding: 12px;
@@ -1489,6 +1496,7 @@ footer article section div img {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
 .form-row label {
@@ -1523,7 +1531,7 @@ form fieldset:first-child select {
 .radio-group {
     display: flex;
     align-items: center;
-    gap: 20px; 
+    gap: 20px;
 }
 
 
@@ -2092,6 +2100,785 @@ figcaption {
     transition: transform 0.3s ease;
 }
 
+/* Manage Page Styles */
+
+/* Containers and Layout */
+.manage-container {
+    padding: 0 2.5%;
+    height: auto;
+    margin: 0;
+}
+
+.manage-title {
+    background-color: #1160a6;
+    text-align: center;
+    color: white;
+    font-size: 2.5em;
+    font-weight: 600;
+    margin: 0;
+    padding: 40px 0;
+}
+
+.manager-info {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    margin: 30px 0;
+    box-shadow: none;
+}
+
+.manager-info p {
+    margin: 0;
+    padding: 5px 0;
+}
+
+.manager-info input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.sort-options {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    margin: 0;
+}
+
+/* Form Styles */
+.manage-form {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+    min-width: 200px;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.manage-form:first-child {
+    width: 100%;
+    background-color: transparent !important;
+}
+
+.manage-form:hover {
+    transform: translateY(  -5px);
+}
+
+.manage-form fieldset {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.manage-form legend {
+    text-align: center;
+    font-weight: bold;
+    color: #1160a6;
+    font-size: 1.3em;
+    padding: 0 10px;
+}
+
+.manage-form-title {
+    text-align: center;
+    margin: 0 0 15px;
+    font-size: 1.8em;
+    color: #333;
+}
+
+.manage-form label {
+    display: block;
+    font-weight: 500;
+    color: #333;
+    margin: 10px 0 5px;
+    font-size: 1.1em;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: #fff;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    border-color: #1160a6;
+    outline: none;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+/* Button Styles */
+.manage-btn,
+.manage-btn-delete {
+    padding: 12px 20px;
+    background-color: #1160a6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.manage-btn:hover {
+    background-color: #0f5796;
+    transform: scale(1.05);
+}
+
+.manage-btn-delete:hover {
+    background-color: #e53935 !important;
+}
+
+/* Table Styles */
+.table-container {
+    max-width: 100%;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+.eoi-table {
+    width: 100%;
+    min-width: 1200px;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.eoi-table th,
+.eoi-table td {
+    text-align: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+.eoi-table th {
+    background-color: #f5f7fa;
+    color: #333;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.eoi-table th:nth-child(1),
+.eoi-table td:nth-child(1) {
+    min-width: 80px;
+    max-width: 100px;
+}
+
+.eoi-table th:nth-child(2),
+.eoi-table td:nth-child(2),
+.eoi-table th:nth-child(3),
+.eoi-table td:nth-child(3),
+.eoi-table th:nth-child(4),
+.eoi-table td:nth-child(4),
+.eoi-table th:nth-child(5),
+.eoi-table td:nth-child(5),
+.eoi-table th:nth-child(6),
+.eoi-table td:nth-child(6),
+.eoi-table th:nth-child(8),
+.eoi-table td:nth-child(8),
+.eoi-table th:nth-child(9),
+.eoi-table td:nth-child(9),
+.eoi-table th:nth-child(10),
+.eoi-table td:nth-child(10) {
+    min-width: 100px;
+    max-width: 150px;
+}
+
+.eoi-table th:nth-child(7),
+.eoi-table td:nth-child(7),
+.eoi-table th:nth-child(12),
+.eoi-table td:nth-child(12) {
+    min-width: 200px;
+    max-width: 250px;
+}
+
+.eoi-table th:nth-child(11),
+.eoi-table td:nth-child(11) {
+    width: auto;
+}
+
+.eoi-table td:first-child {
+    text-align: right;
+}
+
+.eoi-table tr:nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+.eoi-table tr:hover {
+    background-color: #dedfe0;
+    transition: background-color 0.3s ease;
+}
+
+/* Messages */
+.error-message {
+    color: #f44336;
+    font-size: 1em;
+    text-align: center;
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #ffebee;
+    border-radius: 8px;
+}
+
+.success-message {
+    color: #2e7d32;
+    font-size: 1em;
+    text-align: center;
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #e6f4ea;
+    border-radius: 8px;
+}
+
+.back-btn-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.back-btn {
+    color: #1160a6;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    border: 2px solid #1160a6;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #1160a6;
+    color: white;
+}
+.login-image-container {
+    opacity: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 0;
+    transform: translateY(-100px);
+}
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+}
+/* Back Arrow Box */
+.back-arrow-box {
+    position: absolute;
+    top: 0; /* Align to the top edge of auth-container */
+    left: 0; /* Align to the left edge of auth-container */
+    width: 60px; /* Larger area for the hover effect */
+    height: 60px; /* Larger area for the hover effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2; /* Ensure it’s above other elements */
+    border-radius: 12px 0 0 0; /* Match the top-left corner radius of auth-container */
+}
+.back-arrow-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background-color: #dedfe0; /* Default to transparent */
+    border-radius: 12px 0 12px 0; /* Match the top-left corner radius */
+    z-index: -1; /* Place behind the icon */
+}
+.back-arrow-box:hover::before {
+    width: 100%; /* Expand to full width on hover */
+    transition: width 0.3s ease; /* Smooth transition */
+}
+
+.back-arrow-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    padding: 18px; /* Add padding to center the icon within the larger area */
+}
+
+/* Adjust auth-container padding to avoid overlap with the back arrow */
+.auth-container {
+    position: relative; /* Ensure the container is a positioning context for the absolute back arrow */
+    padding: 40px;
+    background-color: white;
+    margin: 30px auto;
+    justify-content: center;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 40%;
+    height: auto;
+    max-width: 900px;
+    box-sizing: border-box;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Form Heading */
+.auth-container h2 {
+    margin: 0 0 20px 0;
+    padding-bottom: 0;
+    color: #1160a6;
+    text-align: center;
+    font-size: 2.2em;
+}
+
+/* Form Sections */
+.auth-container fieldset {
+    border: 2px solid #ddd;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+/* Form Sections Legend */
+.auth-container fieldset legend {
+    font-weight: bold;
+    color: #1160a6;
+    font-size: 1.3em;
+    padding: 0 10px;
+}
+
+/* Form Rows */
+.auth-container .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.auth-container .form-row label {
+    width: 30%;
+    font-weight: 500;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.auth-container .form-row input,
+.auth-container .form-row select,
+.auth-container .form-row textarea {
+    width: 65%;
+    padding: 12px;
+    margin-top: 6px;
+    border: 2px solid black;
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.auth-container .form-row input:focus,
+.auth-container .form-row select:focus,
+.auth-container .form-row textarea:focus {
+    border-color: #1160a6;
+    outline: none;
+}
+
+/* Small Description (Password Requirements) */
+.auth-container .form-row .small-description {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 10px;
+    width: 65%;
+    margin-left: auto;
+}
+
+/* Required Fields */
+.auth-container .required {
+    color: red;
+    font-weight: bold;
+}
+
+/* Submit Button */
+.auth-container input[type="submit"] {
+    padding: 14px 20px;
+    background-color: #1160a6;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 100%;
+    font-size: 1.2em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.5s ease, transform 0.5s ease;
+}
+
+.auth-container input[type="submit"]:hover {
+    background-color: #0f5796;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+/* Error and Success Messages */
+.auth-container .error-message {
+    color: #f44336;
+    font-size: 1em;
+    text-align: center;
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #ffebee;
+    border-radius: 8px;
+}
+
+.auth-container .success-message {
+    color: #2e7d32;
+    font-size: 1em;
+    text-align: center;
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #e6f4ea;
+    border-radius: 8px;
+}
+
+/* Style the authentication message section */
+.error-image-container {
+    opacity: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 0;
+    transform: translateY(-100px);
+}
+.auth-message-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    z-index: 1;
+}
+.auth-message {
+    width: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    background-color: #f7f7f7;
+    text-align: center;
+    padding: 40px;
+    margin: 0 auto;
+}
+
+.auth-message p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+}
+
+.auth-message a {
+    color: #1160a6;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.auth-message a:hover {
+    color: #0f5796;
+}
+
+.password-mismatch {
+    border-color: #f44336 !important; /* Red border */
+}
+
+/* Error message for password mismatch */
+.password-error {
+    color: #f44336;
+    font-size: 0.9em;
+    margin-top: 5px;
+    width: 65%;
+    margin-left: auto;
+    display: none; /* Hidden by default */
+}
+
+/* Show error message when active */
+.password-error.active {
+    display: block;
+}
+
+.process-eoi-body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+.process-eoi-h2 {
+    text-align: center;
+    color: #1160a6;
+    font-size: 2.2em;
+    margin: 20px 0;
+}
+.successfully {
+    color:#2e7d32;
+}
+.process-eoi-p {
+    text-align: center;
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.process-eoi-table-container {
+    width: 40%;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+.process-eoi-table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.process-eoi-table th,
+.process-eoi-table td {
+    text-align: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+.process-eoi-table th {
+    background-color: #f5f7fa;
+    color: #333;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.process-eoi-table tr:nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+.process-eoi-table tr:hover {
+    background-color: #dedfe0;
+    transition: background-color 0.3s ease;
+}
+
+.process-eoi-button-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.process-eoi-return-btn {
+    padding: 12px 20px;
+    background-color: #1160a6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.process-eoi-return-btn:hover {
+    background-color: #0f5796;
+    transform: scale(1.05);
+}
+
+.enhance-body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+.enhance-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.enhance-hero {
+    background: linear-gradient(135deg, #1160a6 0%, #0f5796 100%);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.enhance-title {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.enhance-subtitle {
+    font-size: 1.2em;
+    margin: 10px 0 0;
+    opacity: 0.9;
+}
+
+.enhance-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.enhance-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.enhance-card:hover {
+    transform: translateY(-5px);
+}
+
+.enhance-card-title {
+    font-size: 1.8em;
+    color: #1160a6;
+    margin: 0 0 10px;
+}
+
+.enhance-description {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.enhance-details {
+    margin-top: 10px;
+}
+
+.enhance-details-summary {
+    font-size: 1.1em;
+    color: #1160a6;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #f5f7fa;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.enhance-details-summary:hover {
+    background-color: #e8ecef;
+}
+
+.enhance-details-content {
+    padding: 15px;
+    background-color: #fcfcfc;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.enhance-details-content h3 {
+    font-size: 1.3em;
+    color: #333;
+    margin: 10px 0;
+}
+
+.enhance-details-content h4 {
+    font-size: 1.2em;
+    color: #333;
+    margin: 10px 0;
+}
+
+.enhance-details-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+.enhance-details-content li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.enhance-details-content p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+code {
+    background-color: #f5f5f5;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #d63384;
+}
+
+/* Code Snippet Styling */
+.code-snippet {
+    background-color: #2d2d2d;
+    color: #f8f8f2;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    line-height: 1.5;
+    overflow-x: auto;
+    margin: 10px 0;
+    border-left: 4px solid #1160a6;
+}
+
+/* Basic syntax highlighting */
+.code-snippet .keyword {
+    color: #ff79c6;
+}
+
+.code-snippet .string {
+    color: #f1fa8c;
+}
+
+.code-snippet .function {
+    color: #50fa7b;
+}
+
+
 /* Responsive Design for Mobile Devices (GenAI suggestion)*/
 
 /* Small Mobile Devices */
@@ -2256,6 +3043,51 @@ figcaption {
         height: auto;
     }
 
+    .apply-main {
+        width: 90%; /* Increase width to 90% for better mobile fit */
+        padding: 20px; /* Reduce padding for smaller screens */
+        margin: 15px auto; /* Adjust margins */
+    }
+
+    .apply-main article section h2 {
+        font-size: 1.8em; /* Reduce heading size */
+        margin-bottom: 15px;
+    }
+
+    .form-row {
+        flex-direction: column; /* Stack labels and inputs vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .form-row label {
+        width: 100%; /* Full width for labels */
+        margin-bottom: 5px; /* Add spacing below labels */
+    }
+
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
+        width: 100%; /* Full width for inputs */
+        margin-top: 0; /* Remove top margin to avoid extra space */
+    }
+
+    .radio-group {
+        flex-direction: column; /* Stack radio buttons vertically */
+        gap: 10px; /* Add spacing between radio options */
+    }
+
+    .checkbox-group {
+        flex-direction: column; /* Stack checkboxes vertically */
+        width: 100%; /* Full width */
+        gap: 10px; /* Add spacing between checkboxes */
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+        font-size: 1.1em; /* Adjust button font size */
+        padding: 12px 18px; /* Adjust padding */
+    }
+
     .about-page h1 {
         font-size: 1em;
     }
@@ -2303,6 +3135,230 @@ figcaption {
         margin-left: auto;
         margin-right: auto;
         display: block;
+    }
+
+    .manage-container {
+        margin: 20px 10px;
+        padding: 10px;
+        /* Reduced padding to match smaller layout */
+    }
+
+    .manage-title {
+        font-size: 1.8em;
+    }
+
+    .sort {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .manage-form {
+        min-width: 100%;
+        /* Full width on small screens */
+        min-height: 180px;
+        /* Slightly smaller than desktop to fit small screens */
+        padding: 8px;
+        /* Further reduced padding for small screens */
+    }
+
+    .manage-form fieldset {
+        padding: 8px;
+        /* Match reduced padding */
+    }
+
+    .manage-form-title {
+        font-size: 1.5em;
+    }
+
+    .form-input {
+        font-size: 0.9em;
+        padding: 8px;
+        /* Reduced padding for smaller input fields */
+    }
+
+    .form-buttons {
+        flex-direction: column;
+        /* Stack buttons vertically on small screens */
+        gap: 8px;
+        padding-top: 8px;
+    }
+
+    .manage-btn {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .eoi-table th,
+    .eoi-table td {
+        font-size: 0.85em;
+        padding: 6px 8px;
+        /* Adjusted padding for smaller screens */
+    }
+
+    .error-message,
+    .success-message {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    .back-btn {
+        font-size: 1em;
+        padding: 8px 15px;
+    }
+
+    .back-arrow-box {
+        width: 36px;
+        height: 36px;
+        top: 10px;
+        left: 10px;
+    }
+
+    .back-arrow-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .auth-container {
+        width: 90%;
+        max-width: 100%; /* Full width on small mobile */
+        padding: 20px;
+        margin: 15px auto;
+        height: auto;
+        overflow-y: scroll;
+    }
+
+    .auth-container {
+        width: 90%;
+        max-width: 100%; /* Full width on small mobile */
+        padding: 20px;
+        margin: 15px auto;
+    }
+
+    .auth-container h2 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+
+    .auth-container .form-row {
+        flex-direction: column;
+    }
+
+    .auth-container .form-row label,
+    .auth-container .form-row input,
+    .auth-container .form-row select,
+    .auth-container .form-row textarea {
+        width: 100%;
+    }
+
+    .auth-container .form-row .small-description {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .auth-container input[type="submit"] {
+        font-size: 1.1em;
+        padding: 12px 18px;
+    }
+
+    .auth-container .error-message,
+    .auth-container .success-message {
+        font-size: 0.9em;
+        padding: 8px;
+        margin: 10px 0;
+    }
+
+    .auth-message {
+        padding: 20px;
+    }
+
+    .auth-message p,
+    .auth-message a {
+        font-size: 1em;
+    }
+
+    .manage-title {
+        font-size: 1.8em;
+        margin: 15px 0;
+    }
+
+    .process-eoi-h2 {
+        font-size: 1.5em;
+        margin: 15px 0;
+    }
+
+    .process-eoi-p {
+        font-size: 0.9em;
+        margin: 5px 0;
+    }
+
+    .process-eoi-table-container {
+        width: 90%;
+        margin: 15px auto;
+    }
+
+    .process-eoi-table {
+        min-width: 100%;
+    }
+
+    .process-eoi-table th,
+    .process-eoi-table td {
+        padding: 8px;
+        font-size: 0.85em;
+    }
+
+    .process-eoi-return-btn {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+    
+    .enhance-main {
+        padding: 10px;
+    }
+
+    .enhance-hero {
+        padding: 20px 10px;
+    }
+
+    .enhance-title {
+        font-size: 1.8em;
+    }
+
+    .enhance-subtitle {
+        font-size: 1em;
+    }
+
+    .enhance-card {
+        padding: 10px;
+    }
+
+    .enhance-card-title {
+        font-size: 1.3em;
+    }
+
+    .enhance-description {
+        font-size: 0.9em;
+    }
+
+    .enhance-details-summary {
+        font-size: 1em;
+        padding: 8px;
+    }
+
+    .enhance-details-content {
+        padding: 10px;
+    }
+
+    .enhance-details-content h3 {
+        font-size: 1.1em;
+    }
+
+    .enhance-details-content h4 {
+        font-size: 1em;
+    }
+
+    .code-snippet {
+        font-size: 0.8em;
+        padding: 10px;
     }
 
 }
@@ -2520,6 +3576,211 @@ figcaption {
         margin-right: auto;
         display: block;
     }
+
+    .manage-container {
+        margin: 20px 10px;
+        padding: 10px;
+    }
+
+    .manage-title {
+        font-size: 1.8em;
+    }
+
+    .sort {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .manage-form {
+        min-width: 100%;
+        min-height: 180px;
+        /* Consistent with small mobile */
+        padding: 8px;
+    }
+
+    .manage-form fieldset {
+        padding: 8px;
+    }
+
+    .manage-form-title {
+        font-size: 1.5em;
+    }
+
+    .form-input {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+        gap: 8px;
+        padding-top: 8px;
+    }
+
+    .manage-btn {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .eoi-table th,
+    .eoi-table td {
+        font-size: 0.85em;
+        padding: 6px 8px;
+    }
+
+    .error-message,
+    .success-message {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    .back-btn {
+        font-size: 1em;
+        padding: 8px 15px;
+    }
+
+    .back-arrow-box {
+        width: 38px;
+        height: 38px;
+        top: 12px;
+        left: 12px;
+    }
+
+    .back-arrow-icon {
+        width: 22px;
+        height: 22px;
+    }
+
+    .auth-container {
+        width: 90%;
+        max-width: 100%; /* Full width on larger mobile */
+        padding: 25px;
+        margin: 20px auto;
+    }
+
+    .auth-container h2 {
+        font-size: 2em;
+        margin-bottom: 18px;
+    }
+
+    .auth-container .form-row {
+        flex-direction: column;
+    }
+
+    .auth-container .form-row label,
+    .auth-container .form-row input,
+    .auth-container .form-row select,
+    .auth-container .form-row textarea {
+        width: 100%;
+    }
+
+    .auth-container .form-row .small-description {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .auth-container input[type="submit"] {
+        font-size: 1.15em;
+        padding: 13px 19px;
+    }
+
+    .auth-container .error-message,
+    .auth-container .success-message {
+        font-size: 0.95em;
+        padding: 9px;
+        margin: 12px 0;
+    }
+
+    .auth-message {
+        padding: 25px;
+    }
+
+    .auth-message p,
+    .auth-message a {
+        font-size: 1.1em;
+    }
+
+    .manage-title {
+        font-size: 2em;
+        margin: 20px 0;
+    }
+
+.process-eoi-h2 {
+        font-size: 1.8em;
+        margin: 18px 0;
+    }
+
+    .process-eoi-p {
+        font-size: 1em;
+        margin: 8px 0;
+    }
+
+    .process-eoi-table-container {
+        width: 70%;
+        margin: 18px auto;
+    }
+
+    .process-eoi-table th,
+    .process-eoi-table td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .process-eoi-return-btn {
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+
+    .enhance-main {
+        padding: 15px;
+    }
+
+    .enhance-hero {
+        padding: 30px 15px;
+    }
+
+    .enhance-title {
+        font-size: 2em;
+    }
+
+    .enhance-subtitle {
+        font-size: 1.1em;
+    }
+
+    .enhance-card {
+        padding: 15px;
+    }
+
+    .enhance-card-title {
+        font-size: 1.5em;
+    }
+
+    .enhance-description {
+        font-size: 1em;
+    }
+
+    .enhance-details-summary {
+        font-size: 1.05em;
+        padding: 9px;
+    }
+
+    .enhance-details-content {
+        padding: 12px;
+    }
+
+    .enhance-details-content h3 {
+        font-size: 1.2em;
+    }
+
+    .enhance-details-content h4 {
+        font-size: 1.1em;
+    }
+
+    .code-snippet {
+        font-size: 0.85em;
+        padding: 12px;
+    }
+
 }
 
 /* tablets and small laptops */
@@ -2660,15 +3921,18 @@ figcaption {
         grid-column: 1 / 3;
         /* Span two columns in tablet view */
     }
+
     .salary-detail {
         width: 50%;
         height: 100%;
-        border-right: 2px pink solid;    
+        border-right: 2px pink solid;
     }
+
     .report-to {
         width: 50%;
         border-top: 0;
     }
+
     .demographic-card {
         width: 100%;
         display: flex;
@@ -2698,11 +3962,200 @@ figcaption {
     .info {
         align-self: flex-start;
     }
+
+    .manage-container {
+        margin: 25px 15px;
+    }
+
+    .manage-container {
+        margin: 25px 15px;
+        padding: 15px;
+    }
+
+    .manage-title {
+        font-size: 2.2em;
+    }
+
+    .sort {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 15px;
+        /* Ensure spacing is consistent */
+    }
+
+    .manage-form {
+        min-width: 45%;
+        /* Two forms per row */
+        min-height: 200px;
+        /* Consistent with desktop */
+        padding: 10px;
+    }
+
+    .manage-form fieldset {
+        padding: 10px;
+    }
+
+    .form-buttons {
+        flex-direction: row;
+        /* Buttons side by side on tablets */
+        gap: 10px;
+        padding-top: 10px;
+    }
+
+    .eoi-table th,
+    .eoi-table td {
+        font-size: 0.9em;
+        padding: 10px 15px;
+        /* Slightly reduced padding for better fit */
+    }
+
+    .back-arrow-box {
+        width: 40px;
+        height: 40px;
+        top: 15px;
+        left: 15px;
+    }
+
+    .back-arrow-icon {
+        width: 24px;
+        height: 24px;
+    }   
+
+    .auth-container {
+        width: 80%;
+        padding: 35px;
+        margin: 25px auto;
+    }
+
+    .auth-container h2 {
+        font-size: 2.1em;
+        margin-bottom: 19px;
+    }
+
+    .auth-container .form-row label {
+        width: 35%; /* Slightly wider labels for balance */
+    }
+
+    .auth-container .form-row input,
+    .auth-container .form-row select,
+    .auth-container .form-row textarea {
+        width: 60%; /* Adjusted input width for balance */
+    }
+
+    .auth-container .form-row .small-description {
+        width: 60%;
+        margin-left: auto;
+    }
+
+    .auth-container input[type="submit"] {
+        font-size: 1.18em;
+        padding: 13px 19px;
+    }
+
+    .auth-container .error-message,
+    .auth-container .success-message {
+        font-size: 0.98em;
+        padding: 9px;
+        margin: 13px 0;
+    }
+
+    .auth-message {
+        padding: 35px;
+    }
+
+    .auth-message p,
+    .auth-message a {
+        font-size: 1.15em;
+    }
+
+    .manage-title {
+        font-size: 2.2em;
+        margin: 25px 0;
+    }
+
+    .process-eoi-h2 {
+        font-size: 2em;
+        margin: 25px 0;
+    }
+
+    .process-eoi-p {
+        font-size: 1.05em;
+        margin: 12px 0;
+    }
+
+    .process-eoi-table-container {
+        width: 50%;
+        margin: 25px auto;
+    }
+
+    .process-eoi-table th,
+    .process-eoi-table td {
+        padding: 12px 18px;
+        font-size: 0.95em;
+    }
+
+    .process-eoi-return-btn {
+        padding: 12px 18px;
+        font-size: 1.05em;
+    }
+
+    .enhance-main {
+        padding: 25px;
+    }
+
+    .enhance-hero {
+        padding: 40px 25px;
+    }
+
+    .enhance-title {
+        font-size: 2.2em;
+    }
+
+    .enhance-subtitle {
+        font-size: 1.15em;
+    }
+
+    .enhance-card {
+        padding: 18px;
+    }
+
+    .enhance-card-title {
+        font-size: 1.6em;
+    }
+
+    .enhance-description {
+        font-size: 1.05em;
+    }
+
+    .enhance-details-summary {
+        font-size: 1.1em;
+        padding: 10px;
+    }
+
+    .enhance-details-content {
+        padding: 15px;
+    }
+
+    .enhance-details-content h3 {
+        font-size: 1.25em;
+    }
+
+    .enhance-details-content h4 {
+        font-size: 1.15em;
+    }
+
+    .code-snippet {
+        font-size: 0.9em;
+        padding: 15px;
+    }
+
 }
 
 @media (min-width: 1025px) {
     .mobile-job-item {
         display: none;
     }
+    .auth-container {
+        width: auto;
+    }
 }
-

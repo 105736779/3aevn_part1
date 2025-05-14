@@ -9,6 +9,7 @@
     content="AI, IT, IT Company, Computer, Aevina, Artificial Intelligence, Official, Jobs, Hiring, description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Aevina's Official Website Jobs Description Page">
+  <meta name="author" content="Aevina Team">
   <title>Aevina - Innovators in Artificial Intelligence</title>
   <link href="styles/styles.css" rel="stylesheet">
 </head>
@@ -90,7 +91,7 @@ include 'header.inc';
       echo '</article>';
 
       // Second query: Job details
-      $detail_query = "SELECT id, job_title, job_overview, key_responsibility, essential_skill, preferable_skill, salary, ReportsTo FROM job";
+      $detail_query = "SELECT * FROM job";
       $detail_result = mysqli_query($conn, $detail_query);
 
       if ($detail_result && mysqli_num_rows($detail_result) > 0) {

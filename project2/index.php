@@ -8,6 +8,7 @@
   <meta name="keywords" content="AI, IT, IT Company, Computer, Aevina, Artificial Intelligence, Official, Homepage">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Aevina's Official Website Homepage">
+  <meta name="author" content="Aevina Team">
   <link rel="stylesheet" href="styles/styles.css">
   <title>Aevina - Innovators in Artificial Intelligence</title>
 </head>
@@ -47,7 +48,7 @@
           <h3>Machine Learning Development</h3>
           <img src="images/1707285097354.png" alt="Machine Learning Development" class="services-images">
           <p>
-            We build custom machine learning models to analyze data, automate processes, and predict future outcomes.
+            We build custom machine learning models to analyse data, automate processes, and predict future outcomes.
           </p>
         </section>
         <section>

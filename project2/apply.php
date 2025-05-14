@@ -10,7 +10,7 @@
     content="AI, IT, IT Company, Computer, Aevina, Artificial Intelligence, Official, Application, Form">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Aevina's Official Website Application Page">
-
+  <meta name="author" content="Aevina Team">
   <!-- Link to external CSS file -->
   <link rel="stylesheet" href="styles/styles.css">
 

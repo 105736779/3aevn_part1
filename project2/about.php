@@ -9,6 +9,7 @@
     content="AI, IT, IT Company, Computer, Aevina, Aritificial Intelligence, Official, About, Members, Information, Profile, Skills, Experience, Demographics, Hometown, Favorites">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Aevina's Official Website About Page with Extended Group Information">
+  <meta name="author" content="Aevina Team">
   <link rel="stylesheet" href="styles/styles.css">
   <title>Aevina - Innovators in Artificial Intelligence</title>
 </head>
@@ -137,7 +138,7 @@
         <dl class="contribution-list">
           <dt>Khanh Nam Le Pham</dt>
           <dd>
-            <strong>Shared:</strong>CSS, Enhancements<br>
+            <strong>Shared:</strong> CSS, Enhancements<br>
             <strong>Individual:</strong> Task 1, 2, 6, 8
           </dd>
 
