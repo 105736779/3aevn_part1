@@ -69,7 +69,7 @@
 
             <div class="form-row">
               <label for="dob">Date of Birth <span class="required">*</span></label>
-              <input type="text" id="dob" name="dob" required pattern="\d{2}/\d{2}/\d{4}" placeholder="dd/mm/yyyy"
+              <input type="date" id="dob" name="dob" required pattern="\d{2}/\d{2}/\d{4}" placeholder="dd/mm/yyyy"
                 aria-required="true">
             </div>
 
