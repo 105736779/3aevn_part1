@@ -116,6 +116,8 @@ include 'header.inc';
               echo "<div class='responsibility'>";
               echo "<h3>Key Responsibility</h3>";
               echo "<div class='responsibility-detail'><ul>";
+              //explode(delimiter, string) splits a string into an array wherever the delimiter is found.
+              // so delete | in database and seperate each of them into element in <li></li>
               $tasks = explode('|', $row['key_responsibility']);
               foreach ($tasks as $task) {
                   echo "<li>" . htmlspecialchars(trim($task)) . "</li>";
@@ -132,7 +134,7 @@ include 'header.inc';
                 echo "</ol></li>";
   
                 echo "<li>Preferable<ol>";
-                $preferable_skill = explode('|', $row['essential_skill']);
+                $preferable_skill = explode('|', $row['preferable_skill']);
                 foreach ($preferable_skill as $pref) {
                     echo "<li>" . htmlspecialchars(trim($pref)) . "</li>";
                 }
