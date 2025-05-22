@@ -1,4 +1,3 @@
-
 <?php
 
 include 'header.inc'; // Include header file
@@ -14,21 +13,53 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         return htmlspecialchars(stripslashes(trim($data)));
     }
 
-    $job_ref = clean_input($_POST["job_ref_number"]);
-    $first_name = clean_input($_POST["first_name"]);
-    $last_name = clean_input($_POST["last_name"]);
-    $dob = clean_input($_POST["dob"]);
-    $gender = clean_input($_POST["gender"]);
-    $phone = clean_input($_POST["phone"]);
-    $email = clean_input($_POST["email"]);
-    $address = clean_input($_POST["address"]);
-    $suburb = clean_input($_POST["suburb"]);
-    $state = clean_input($_POST["state"]);
-    $postcode = clean_input($_POST["postcode"]);
-    $degree = clean_input($_POST["degree"]);
+    // Use null coalescing operator to suppress undefined index warnings
+    $job_ref = clean_input($_POST["job_ref_number"] ?? "");
+    $first_name = clean_input($_POST["first_name"] ?? "");
+    $last_name = clean_input($_POST["last_name"] ?? "");
+    $dob = clean_input($_POST["dob"] ?? "");
+    $gender = clean_input($_POST["gender"] ?? "");
+    $phone = clean_input($_POST["phone"] ?? "");
+    $email = clean_input($_POST["email"] ?? "");
+    $address = clean_input($_POST["address"] ?? "");
+    $suburb = clean_input($_POST["suburb"] ?? "");
+    $state = clean_input($_POST["state"] ?? "");
+    $postcode = clean_input($_POST["postcode"] ?? "");
+    $degree = clean_input($_POST["degree"] ?? "");
     $skills = isset($_POST["skills"]) ? implode(", ", array_map('clean_input', $_POST["skills"])) : "";
-    $other_skills = clean_input($_POST["other_skills"]);
+    $other_skills = clean_input($_POST["other_skills"] ?? "");
     $status = "New"; // Default status
+
+    // Validation logic
+    $errors = [];
+    if (!preg_match("/^[A-Za-z\s]{1,20}$/", $first_name) || !preg_match("/^[A-Za-z\s]{1,20}$/", $last_name)) {
+        $errors[] = "First and Last Name must only contain letters and spaces (max 20 characters).";
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "Invalid email format.";
+    }
+    if (!preg_match("/^[\d\s]{8,12}$/", $phone)) {
+        $errors[] = "Phone number must be between 8 and 12 digits.";
+    }
+    if (!preg_match("/^\d{4}$/", $postcode)) {
+        $errors[] = "Postcode must be 4 digits.";
+    }
+    if (empty($gender)) {
+        $errors[] = "Gender is required.";
+    }
+    if (empty($dob)) {
+        $errors[] = "Date of birth is required.";
+    }
+
+    if (!empty($errors)) {
+        echo "<h2 class='process-eoi-h2'>Submission Failed</h2><ul class='process-eoi-p'>";
+        foreach ($errors as $err) {
+            echo "<li>" . htmlspecialchars($err) . "</li>";
+        }
+        echo "</ul><a href='apply.php' class='process-eoi-return-btn'>Return to Application</a>";
+        include 'footer.inc';
+        exit();
+    }
 
     $query = "INSERT INTO eoi 
         (job_ref, first_name, last_name, dob, gender, phone, email, street_address, suburb, state, postcode, degree, skills, other_skills, status)
@@ -59,51 +90,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     echo "<div class='process-eoi-table-container'>";
                     echo "<table class='process-eoi-table'>";
                     echo "<tr><th>Field</th><th>Value</th></tr>";
-                    echo "<tr><td>EOI ID</td><td>" . htmlspecialchars($row['EOInumber']) . "</td></tr>";
-                    echo "<tr><td>Job Reference</td><td>" . htmlspecialchars($row['job_ref']) . "</td></tr>";
-                    echo "<tr><td>First Name</td><td>" . htmlspecialchars($row['first_name']) . "</td></tr>";
-                    echo "<tr><td>Last Name</td><td>" . htmlspecialchars($row['last_name']) . "</td></tr>";
-                    echo "<tr><td>Date of Birth</td><td>" . htmlspecialchars($row['dob']) . "</td></tr>";
-                    echo "<tr><td>Gender</td><td>" . htmlspecialchars($row['gender']) . "</td></tr>";
-                    echo "<tr><td>Phone</td><td>" . htmlspecialchars($row['phone']) . "</td></tr>";
-                    echo "<tr><td>Email</td><td>" . htmlspecialchars($row['email']) . "</td></tr>";
-                    echo "<tr><td>Address</td><td>" . htmlspecialchars($row['street_address']) . "</td></tr>";
-                    echo "<tr><td>Suburb</td><td>" . htmlspecialchars($row['suburb']) . "</td></tr>";
-                    echo "<tr><td>State</td><td>" . htmlspecialchars($row['state']) . "</td></tr>";
-                    echo "<tr><td>Postcode</td><td>" . htmlspecialchars($row['postcode']) . "</td></tr>";
-                    echo "<tr><td>Degree</td><td>" . htmlspecialchars($row['degree']) . "</td></tr>";
-                    echo "<tr><td>Skills</td><td>" . htmlspecialchars($row['skills']) . "</td></tr>";
-                    echo "<tr><td>Other Skills</td><td>" . htmlspecialchars($row['other_skills']) . "</td></tr>";
-                    echo "<tr><td>Status</td><td>" . htmlspecialchars($row['status']) . "</td></tr>";
-                    echo "</table>";
-                    echo "</div>";
-
-                    // Add Return to Job Search button
-                    echo "<div class='process-eoi-button-container'>";
-                    echo "<a href='jobs.php' class='process-eoi-return-btn'>Return to Job Search</a>";
-                    echo "</div>";
+                    foreach ($row as $field => $value) {
+                        echo "<tr><td>" . htmlspecialchars($field) . "</td><td>" . htmlspecialchars($value) . "</td></tr>";
+                    }
+                    echo "</table></div>";
+                    echo "<div class='process-eoi-button-container'><a href='jobs.php' class='process-eoi-return-btn'>Return to Job Search</a></div>";
                 } else {
                     echo "<p class='process-eoi-p'>Unable to retrieve the submitted data.</p>";
                 }
-
                 mysqli_stmt_close($select_stmt);
-            } else {
-                echo "<p class='process-eoi-p'>Error preparing select query: " . mysqli_error($conn) . "</p>";
             }
         } else {
             echo "<p class='process-eoi-p'>There was an error executing the query: " . mysqli_error($conn) . "</p>";
         }
-
         mysqli_stmt_close($stmt);
     } else {
         echo "<p class='process-eoi-p'>There was an error preparing the query: " . mysqli_error($conn) . "</p>";
     }
-
     mysqli_close($conn);
 }
 
-include 'footer.inc'; // Include footer file
-
+include 'footer.inc';
 ?>
 
 <!DOCTYPE html>
@@ -119,4 +126,4 @@ include 'footer.inc'; // Include footer file
 </head>
 <body class="process-eoi-body">
 </body>
-</html></body>
+</html>
