@@ -54,7 +54,7 @@ session_start();
                 <!-- Form for listing EOIs by applicant name -->
                 <div class="sort-options">
                     <form action="manage.php" method="post" class="manage-form">
-                        <fieldset>
+                        <fieldset>  
                             <legend><h2 class="manage-form-title">List EOIs</h2></legend>
                             <?php
                             // retrieves all job_reference values from the job table.

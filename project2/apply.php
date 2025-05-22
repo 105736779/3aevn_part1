@@ -57,7 +57,7 @@
 
             <div class="form-row">
               <label for="first_name">First Name <span class="required">*</span></label>
-              <input type="text" id="first_name" name="first_name" required maxlength="20" pattern="^[A-Za-z\s]{1,20}$"
+              <input type="text" id="first_name" name="first_name" require="required" maxlength="20" pattern="^[A-Za-z\s]{1,20}$"
                 placeholder="Enter your first name" aria-required="true">
             </div>
 
@@ -78,9 +78,9 @@
               <div class="radio-group" role="radiogroup" aria-required="true">
                 <!-- Gender selection radio buttons -->
                 <label for="male">Male</label>
-                <input type="radio" id="male" name="gender" value="male" required>
+                <input type="radio" id="male" name="gender" value="Male" required>
                 <label for="female">Female</label>
-                <input type="radio" id="female" name="gender" value="female">
+                <input type="radio" id="female" name="gender" value="Female">
                 <label for="other">Other</label>
                 <input type="radio" id="other" name="gender" value="other">
               </div>
