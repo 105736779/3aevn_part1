@@ -46,8 +46,10 @@ session_start(); // Moved to the top
           if ($passwordMismatch) {
               unset($_SESSION['password_mismatch']);
           }
-          ?>
-          <form action="process_register.php" method="POST">
+          // If a general error or success message exists in the session, it's displayed and immediately removed using unset(). Tracks whether passwords didn’t match (password_mismatch flag).?>
+
+          <form action="process_register.php" method="POST"> 
+            
             <fieldset>
               <div class="form-row">
                 <label for="first_name">First Name <span class="required">*</span></label>
