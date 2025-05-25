@@ -54,23 +54,26 @@ session_start();
                 <!-- Form for listing EOIs by applicant name -->
                 <div class="sort-options">
                     <form action="manage.php" method="post" class="manage-form">
-                        <fieldset>
+                        <fieldset>  
                             <legend><h2 class="manage-form-title">List EOIs</h2></legend>
                             <?php
-                            // Get all job reference numbers
+                            // retrieves all job_reference values from the job table.
                             $query = "SELECT job_reference FROM job";
+                            //runs the query on the $conn connection.
                             $result = @mysqli_query($conn, $query) or die("<p class='error-message'>Unable to find the Job Reference Numbers</p>");
                             echo '<label for="job_search">Job Reference Number:</label>';
                             echo '<select name="job_search" id="job_search" class="form-input">';
-                            echo '<option value="all">All</option>'; // Default option
+                            echo '<option value="all">All</option>'; // Default option - All
                             
+                            //Loop through each row of the query result.
                             while ($row = mysqli_fetch_assoc($result)) {
+                                //htmlspecialchars() is used to safely encode any special characters.
                                 $ref = htmlspecialchars($row['job_reference']);
-                                echo "<option value=\"$ref\">$ref</option>";
+                                echo "<option value=\"$ref\">$ref</option>";  //each job will be an option 
                             }
                             
                             echo '</select>';
-                            
+                            //Frees up memory used by the result set once you're done using it.
                             mysqli_free_result($result);
                             ?>
                             <label class="label" for="first_name">First Name:</label>
@@ -78,6 +81,7 @@ session_start();
                             <label class="label" for="last_name">Last Name:</label>
                             <input type="text" id="last_name" name="last_name" pattern="[A-Za-z ]{1,20}" title="Max 20 alpha characters" class="form-input">
                             <div class="form-buttons">
+                        <!--name= Search and Delete here to help with sort data-->
                                 <input type="submit" name="Search" value="Search" class="manage-btn">
                                 <input type="submit" name="Delete_EOI" value="Delete" class="manage-btn-delete" onclick="return confirm('Are you sure you want to delete all EOIs for this job reference?');">
                             </div>
@@ -90,6 +94,7 @@ session_start();
                             <label for="eoi_number">EOI Number:</label>
                             <input type="number" id="eoi_number" name="eoi_number" required class="form-input">
                             <label for="status">New Status:</label>
+                        <!--name="status" lets PHP access the selected value using $_POST['status']-->
                             <select id="status" name="status" required class="form-input">
                                 <option value="New">New</option>
                                 <option value="Current">Current</option>
@@ -126,32 +131,37 @@ session_start();
             </section>
             <?php
             $back_btn = "<div class=\"back-btn-container\"><a href=\"./manage.php\" class=\"back-btn\"><strong>Back to Manage Page</strong></a></div>";
-            function sanitize_input($conn, $data)
-            {
-                $data = trim($data);
-                $data = stripslashes($data);
-                $data = htmlspecialchars($data);
-                $data = mysqli_real_escape_string($conn, $data);
+            //This function cleans user input
+            function sanitize_input($conn, $data){
+                $data = trim($data); //Removes extra whitespace
+                $data = stripslashes($data);  //Removes backslashes \
+                $data = htmlspecialchars($data);  //Converts special HTML characters to safe entities. For example: < becomes &lt;, " becomes &quot;
+                $data = mysqli_real_escape_string($conn, $data); //Prevents SQL injection.
                 return $data;
             }
 
+            // displays the EOIs from a query result as an HTML table.
             function display_results($result)
             {
                 if (mysqli_num_rows($result) == 0) {
+                    //gets the number of rows.
                     echo "<p class='error-message'>No records found.</p>";
                     return;
                 }
             
                 echo "<div class='table-container'><table class='eoi-table'><tr>";
+                //An array $headers defines all the column headers. So we will not need to do it multiple times
                 $headers = [
                     "EOI", "Job Reference", "First Name", "Last Name", "DoB", "Gender",
                     "Address", "Suburb", "State", "Postcode", "Email", "Phone",
                     "Skill", "Degree", "Other Skills", "Status"
-                ];
+                ];  
+                //prints each header as a <th> table heading cell.
                 foreach ($headers as $h) echo "<th>$h</th>";
                 echo "</tr>";
                 
                 while ($row = mysqli_fetch_assoc($result)) {
+                    //Each column's data is placed into a <td> (table data cell).
                     echo "<tr>
                         <td>{$row['EOInumber']}</td>
                         <td>{$row['job_ref']}</td>
@@ -173,35 +183,46 @@ session_start();
                 }
                 echo "</table></div>";
             }
+            //it can be reused in queries
             $eoi_table = "eoi";
+            //Checks if the user clicked the "Search" button
             if (isset($_POST['Search'])) {
                 $query = "SELECT * FROM $eoi_table";
                 $fname_search = sanitize_input($conn, $_POST['first_name']);
                 $lname_search = sanitize_input($conn, $_POST['last_name']);
                 $job_search = $_POST['job_search'];
+                //If the user entered a filter, the query is extended with WHERE.
+                //when fname_search different from nil
                 if ($fname_search != "" || $lname_search != "" || $job_search != "all") {
+                    //add where into query
                     $query .= " WHERE ";
                     if ($fname_search != "") {
+                        //LIKE (partial match)
                         $query .= "first_name LIKE '%$fname_search%' AND ";
                     }
                     if ($lname_search != "") {
                         $query .= "last_name LIKE '%$lname_search%' AND ";
                     }
                     if ($job_search != "all") {
+                        // exactly match
                         $query .= "job_ref = '$job_search' AND ";
                     }
-                    $query = substr($query, 0, -5);
+                    $query = substr($query, 0, -5);  //// Removes last " AND "
                 }
                 $result = @mysqli_query($conn, $query) or die("<p class='error-message'>Failed to execute query</p> $back_btn");
+                //Runs the SQL query.
+                //use function to display
                 display_results($result);
                 mysqli_free_result($result);
             }
+            // if the "Delete" button was clicked.
             if (isset($_POST['Delete_EOI'])) {
                 $job_ref = sanitize_input($conn, $_POST['job_search']);
                 $fname = sanitize_input($conn, $_POST['first_name']);
                 $lname = sanitize_input($conn, $_POST['last_name']);
             
                 $query = "DELETE FROM $eoi_table WHERE ";
+                //$conditions is an array to store filtering rules.
                 $conditions = [];
                 if ($job_ref == "all") {
                     echo "<p class='error-message'>Please select a specific job reference number to delete its EOIs.</p>";
@@ -216,10 +237,12 @@ session_start();
                 if (!empty($lname)) {
                     $conditions[] = "last_name LIKE '%$lname%'";
                 }
-                
+                //If no valid filters, the delete is cancelled.
+                //using === 0 is more precise and helps avoid bugs in more complex cases 
                 if (count($conditions) === 0) {
                     echo "<p class='error-message'>Please provide at least one filter (job, first name, or last name) to delete EOIs.</p>";
                 } else {
+                    //Combines each condition together using " AND " and adds them to the query.
                     $query .= implode(" AND ", $conditions);
                     $result = @mysqli_query($conn, $query) or die("<p class='error-message'>Failed to delete EOIs</p> $back_btn");
                     
@@ -232,16 +255,26 @@ session_start();
             }
 
             if (isset($_POST['update_status'])) {
-                $eoi_number = mysqli_real_escape_string($conn, $_POST['eoi_number']);
-                $new_status = mysqli_real_escape_string($conn, $_POST['status']);
-                $query = "UPDATE eoi SET status = '$new_status' WHERE EOInumber = '$eoi_number'";
-                if (mysqli_query($conn, $query)) {
-                    $result = "Status of EOI #$eoi_number updated to '$new_status'.";
+                $eoi_number = sanitize_input($conn, $_POST['eoi_number']);
+                $new_status = sanitize_input($conn, $_POST['status']);
+            
+                // Check if the EOI number exists
+                $check_query = "SELECT * FROM eoi WHERE EOInumber = '$eoi_number'";
+                $check_result = mysqli_query($conn, $check_query);
+            
+                if (mysqli_num_rows($check_result) == 0) {
+                    echo "<p class='error-message'>EOI #$eoi_number does not exist.</p>";
                 } else {
-                    $result = "Error updating status: " . mysqli_error($conn);
+                    // Proceed with the update
+                    $update_query = "UPDATE eoi SET status='$new_status' WHERE EOInumber='$eoi_number'";
+                    if (mysqli_query($conn, $update_query)) {
+                        echo "<p class='success-message'>EOI #$eoi_number status updated to $new_status.</p>";
+                    } else {
+                        echo "<p class='error-message'>Error updating status: " . mysqli_error($conn) . "</p>";
+                    }
                 }
-                if (isset($result)) echo "<p class='success-message'>$result</p>";
             }
+
 
             if (isset($_POST['sort_order'])) {
                 $sort_field = $_POST['sort_field'];
@@ -250,6 +283,7 @@ session_start();
                 $allowed_sort_fields = ['EOInumber', 'Status'];
                 $allowed_order = ['Ascending', 'Descending'];
             
+                //If the selected sort field isn't in the allowed list, it defaults to EOInumber
                 if (!in_array($sort_field, $allowed_sort_fields)) {
                     $sort_field = 'EOInumber';
                 }

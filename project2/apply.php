@@ -27,21 +27,40 @@
   <!-- Main content area: Job application form -->
   <main class="apply-main" role="main">
     <article>
-      <section aria-labelledby="form-title">
+      <section aria-labelledby="form-title" >  
         <h2 id="form-title">Job Application Form</h2>
 
-
+        
         <!-- Begin form: POST method to Swinburne testing endpoint -->
         <form action="process_eoi.php" method="post" id="application-form"
           aria-describedby="form-title">
+        <form action="process_eoi.php" method="post" id="application-form" 
+          aria-describedby="form-title" novalidate="novalidate">
 
           <!-- Job Reference selection -->
           <fieldset>
             <legend>Job Reference Number <span class="required">*</span></legend>
             <select name="job_ref_number" required aria-required="true" aria-label="Job Reference Number">
               <option value="">Select Job Ref Number</option>
-              <option value="AIE78">AIE78</option>
-              <option value="DSE78">DSE78</option>
+              <?php
+              require_once("settings.php");
+              $conn = mysqli_connect($host, $username, $password, $database);
+              if ($conn) {
+                  $query = "SELECT job_reference FROM job";
+                  $result = mysqli_query($conn, $query);
+                  if ($result && mysqli_num_rows($result) > 0) {
+                      while ($row = mysqli_fetch_assoc($result)) {
+                          $job_ref = htmlspecialchars($row['job_reference']);
+                          echo "<option value=\"$job_ref\">$job_ref</option>";
+                      }
+                  } else {
+                      echo "<option value=\"\">No jobs found</option>";
+                  }
+                  mysqli_close($conn);
+              } else {
+                  echo "<option value=\"\">Database connection error</option>";
+              }
+              ?>
             </select>
             <!-- Helpful link to job listings -->
             <p class="small-description">Don’t know the job application number? <a href="jobs.php"
@@ -54,7 +73,7 @@
 
             <div class="form-row">
               <label for="first_name">First Name <span class="required">*</span></label>
-              <input type="text" id="first_name" name="first_name" required maxlength="20" pattern="^[A-Za-z\s]{1,20}$"
+              <input type="text" id="first_name" name="first_name" require="required" maxlength="20" pattern="^[A-Za-z\s]{1,20}$"
                 placeholder="Enter your first name" aria-required="true">
             </div>
 
@@ -75,15 +94,13 @@
               <div class="radio-group" role="radiogroup" aria-required="true">
                 <!-- Gender selection radio buttons -->
                 <label for="male">Male</label>
-                <input type="radio" id="male" name="gender" value="male" required>
+                <input type="radio" id="male" name="gender" value="Male" required>
                 <label for="female">Female</label>
-                <input type="radio" id="female" name="gender" value="female">
+                <input type="radio" id="female" name="gender" value="Female">
                 <label for="other">Other</label>
                 <input type="radio" id="other" name="gender" value="other">
               </div>
             </div>
-
-
 
             <div class="form-row">
               <label for="phone">Phone Number <span class="required">*</span></label>
