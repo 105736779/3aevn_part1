@@ -255,16 +255,26 @@ session_start();
             }
 
             if (isset($_POST['update_status'])) {
-                $eoi_number = mysqli_real_escape_string($conn, $_POST['eoi_number']);
-                $new_status = mysqli_real_escape_string($conn, $_POST['status']);
-                $query = "UPDATE eoi SET status = '$new_status' WHERE EOInumber = '$eoi_number'";
-                if (mysqli_query($conn, $query)) {
-                    $result = "Status of EOI #$eoi_number updated to '$new_status'.";
+                $eoi_number = sanitize_input($conn, $_POST['eoi_number']);
+                $new_status = sanitize_input($conn, $_POST['status']);
+            
+                // Check if the EOI number exists
+                $check_query = "SELECT * FROM eoi WHERE EOInumber = '$eoi_number'";
+                $check_result = mysqli_query($conn, $check_query);
+            
+                if (mysqli_num_rows($check_result) == 0) {
+                    echo "<p class='error-message'>EOI #$eoi_number does not exist.</p>";
                 } else {
-                    $result = "Error updating status: " . mysqli_error($conn);
+                    // Proceed with the update
+                    $update_query = "UPDATE eoi SET status='$new_status' WHERE EOInumber='$eoi_number'";
+                    if (mysqli_query($conn, $update_query)) {
+                        echo "<p class='success-message'>EOI #$eoi_number status updated to $new_status.</p>";
+                    } else {
+                        echo "<p class='error-message'>Error updating status: " . mysqli_error($conn) . "</p>";
+                    }
                 }
-                if (isset($result)) echo "<p class='success-message'>$result</p>";
             }
+
 
             if (isset($_POST['sort_order'])) {
                 $sort_field = $_POST['sort_field'];
