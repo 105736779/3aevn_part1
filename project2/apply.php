@@ -29,14 +29,9 @@
     <article>
       <section aria-labelledby="form-title" >  
         <h2 id="form-title">Job Application Form</h2>
-
-        
         <!-- Begin form: POST method to Swinburne testing endpoint -->
         <form action="process_eoi.php" method="post" id="application-form"
           aria-describedby="form-title">
-        <form action="process_eoi.php" method="post" id="application-form" 
-          aria-describedby="form-title" novalidate="novalidate">
-
           <!-- Job Reference selection -->
           <fieldset>
             <legend>Job Reference Number <span class="required">*</span></legend>
