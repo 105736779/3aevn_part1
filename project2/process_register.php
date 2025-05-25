@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once('settings.php');
-
+// Data sanitisaion (from GenAI)
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $first_name = trim($_POST['first_name']);
     $last_name = trim($_POST['last_name']);
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'username' => $username
     ];
 
-    // Server-side validation
+    // Server-side validation (GenAI)
     if (!preg_match("/^[A-Za-z\s]{1,20}$/", $first_name) || !preg_match("/^[A-Za-z\s]{1,20}$/", $last_name)) {
         $_SESSION['error'] = "First name and last name must contain only letters and spaces (max 20 characters).";
         header("Location: register.php");
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 
-    // Check for duplicate email or username
+    // Check for duplicate email or username (GenAI)
     $stmt = $conn->prepare("SELECT email, username FROM managers WHERE email = ? OR username = ?");
     $stmt->bind_param("ss", $email, $username);
     $stmt->execute();
@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 
-    // Hash password and insert into database
+    // Hash password and insert into database (GenAI)
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     $stmt = $conn->prepare("INSERT INTO managers (first_name, last_name, email, phone_number, username, password) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssss", $first_name, $last_name, $email, $phone_number, $username, $hashed_password);

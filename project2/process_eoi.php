@@ -9,7 +9,7 @@ ini_set('display_errors', 1);
 require_once("settings.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Sanitise inputs
+    // Sanitise inputs (GenAI)
     function clean_input($data) {
         return htmlspecialchars(stripslashes(trim($data)));
     }

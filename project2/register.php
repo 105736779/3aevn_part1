@@ -41,7 +41,7 @@ session_start(); // Moved to the top
               echo "<p class='success-message'>" . $_SESSION['success'] . "</p>";
               unset($_SESSION['success']);
           }
-          // Check for password mismatch error specifically
+          // Check for password mismatch error specifically (GenAI)
           $passwordMismatch = isset($_SESSION['password_mismatch']) ? true : false;
           if ($passwordMismatch) {
               unset($_SESSION['password_mismatch']);

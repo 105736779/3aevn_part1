@@ -16,6 +16,7 @@ if (!isset($_SESSION['login_attempts'])) {
     $_SESSION['login_attempts'] = 0;
 }
 
+// Login identifier can be either username or email
 $login_identifier = sanitize_input($conn, $_POST['login_identifier']);
 $password = sanitize_input($conn, $_POST['password']);
 
