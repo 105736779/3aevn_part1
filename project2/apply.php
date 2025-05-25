@@ -1,3 +1,5 @@
+<?php$currentPage = basename($_SERVER['PHP_SELF']); // Get the current page's filename?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,6 +23,7 @@
   <!-- Main header containing the navigation bar -->
   <?php 
   // Help from ChatGPT to get the current page name for correct CSS styling
+  $currentPage = basename($_SERVER['PHP_SELF']);
   include 'header.inc'; 
   ?>
 
@@ -29,9 +32,11 @@
     <article>
       <section aria-labelledby="form-title" >  
         <h2 id="form-title">Job Application Form</h2>
+
         <!-- Begin form: POST method to Swinburne testing endpoint -->
-        <form action="process_eoi.php" method="post" id="application-form"
+        <form action="process_eoi.php" method="post" id="application-form" 
           aria-describedby="form-title">
+
           <!-- Job Reference selection -->
           <fieldset>
             <legend>Job Reference Number <span class="required">*</span></legend>
@@ -68,7 +73,7 @@
 
             <div class="form-row">
               <label for="first_name">First Name <span class="required">*</span></label>
-              <input type="text" id="first_name" name="first_name" require="required" maxlength="20" pattern="^[A-Za-z\s]{1,20}$"
+              <input type="text" id="first_name" name="first_name" required maxlength="20" pattern="^[A-Za-z\s]{1,20}$"
                 placeholder="Enter your first name" aria-required="true">
             </div>
 
@@ -80,20 +85,16 @@
 
             <div class="form-row">
               <label for="dob">Date of Birth <span class="required">*</span></label>
-              <input type="date" id="dob" name="dob" required pattern="\d{2}/\d{2}/\d{4}" placeholder="dd/mm/yyyy"
-                aria-required="true">
+              <input type="date" id="dob" name="dob" required aria-required="true">
             </div>
 
             <div class="form-row">
               <label>Gender <span class="required">*</span></label>
-              <div class="radio-group" role="radiogroup" aria-required="true">
-                <!-- Gender selection radio buttons -->
-                <label for="male">Male</label>
-                <input type="radio" id="male" name="gender" value="Male" required>
-                <label for="female">Female</label>
-                <input type="radio" id="female" name="gender" value="Female">
-                <label for="other">Other</label>
-                <input type="radio" id="other" name="gender" value="other">
+              <div class="radio-group" role="radiogroup">
+                <!-- Gender selection radio buttons with proper labels -->
+                <label><input type="radio" name="gender" value="male" required> Male</label>
+                <label><input type="radio" name="gender" value="female"> Female</label>
+                <label><input type="radio" name="gender" value="other"> Other</label>
               </div>
             </div>
 
