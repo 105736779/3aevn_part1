@@ -1,5 +1,3 @@
-<?php$currentPage = basename($_SERVER['PHP_SELF']); // Get the current page's filename?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,8 +13,6 @@
 </head>
 
 <?php 
-// Help from ChatGPT to get the current page name for correct CSS styling
-$currentPage = basename($_SERVER['PHP_SELF']);
 include 'header.inc'; 
 ?>
 

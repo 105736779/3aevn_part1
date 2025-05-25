@@ -26,7 +26,7 @@ session_start();
         echo '<div class="auth-message-container">';
         echo '<div class="auth-message">';
         echo '<p><strong>Authentication</strong> is required to access this page.</p>';
-        echo '<p><a href="login.php">Login here</a></p>';
+        echo '<p><a href="login.php">Login here</a> <strong>OR</strong> <a href="index.php">Return to Homepage</a></p>';
         echo '</div>';
         echo '</div>';
     } else {

@@ -1,5 +1,5 @@
 <?php
-session_start(); // Moved to the top
+session_start();
 ?>
 
 <!DOCTYPE html>

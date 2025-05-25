@@ -42,7 +42,7 @@ $user = mysqli_fetch_assoc($result);
 // Verify password
 if (password_verify($password, $user['password'])) {
     // Successful login
-    $_SESSION['manager_id'] = $user['id']; // Changed from 'manager_id' to 'id'
+    $_SESSION['manager_id'] = $user['id'];
     $_SESSION['first_name'] = $user['first_name'];
     $_SESSION['last_name'] = $user['last_name'];
     $_SESSION['email'] = $user['email'];

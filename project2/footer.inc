@@ -1,5 +1,5 @@
 <?php
-$currentPage = basename($_SERVER['PHP_SELF']); // Get the current page's filename
+$currentPage = basename($_SERVER['PHP_SELF']); // Get the current page's filename (syntax suggested from GenAI)
 ?>
 
 <!-- Footer section with contact info, links, team, and social media -->
@@ -39,6 +39,7 @@ $currentPage = basename($_SERVER['PHP_SELF']); // Get the current page's filenam
         <li><a href="apply.php" <?php if ($currentPage !== 'process_eoi.php' && $currentPage == 'apply.php') echo 'class="selected" aria-current="page"'; ?>>Apply</a></li>
         <li><a href="about.php" <?php if ($currentPage !== 'process_eoi.php' && $currentPage == 'about.php') echo 'class="selected"'; ?>>About</a></li>
         <li><a href="enhancements.php" <?php if ($currentPage !== 'process_eoi.php' && $currentPage == 'enhancements.php') echo 'class="selected"'; ?>>Enhancements</a></li>
+        <li><a href="manage.php">Manage</a></li>
       </ul>
     </section>
 

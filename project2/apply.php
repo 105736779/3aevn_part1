@@ -1,5 +1,3 @@
-<?php$currentPage = basename($_SERVER['PHP_SELF']); // Get the current page's filename?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +21,6 @@
   <!-- Main header containing the navigation bar -->
   <?php 
   // Help from ChatGPT to get the current page name for correct CSS styling
-  $currentPage = basename($_SERVER['PHP_SELF']);
   include 'header.inc'; 
   ?>
 
@@ -36,7 +33,7 @@
 
         <!-- Begin form: POST method to Swinburne testing endpoint -->
         <form action="process_eoi.php" method="post" id="application-form"
-          aria-describedby="form-title" novalidate="novalidate">
+          aria-describedby="form-title">
 
           <!-- Job Reference selection -->
           <fieldset>
